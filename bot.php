@@ -22,38 +22,44 @@ if (!is_null($events['events']))
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			$replytext="ขอรายงานข้อมูลของแรงสูง 2 สถานีฟ้าแสง ณ ".$scada_data->{'DateTimeZ7'}." ดังนี้\n";
-			$replytext.="1. อัตราการจ่ายชุมชนถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE1_PV'}." บาร์ เลขมาตรขึ้น ".$scada_data->{'Z7HY_FE1_TOT1'}."\n";
-			$replytext.="2. อัตราการจ่ายสพ.โคกสูงเส้นเก่า ".$scada_data->{'Z7HY_FE2_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE2_PV'}." บาร์ เลขมาตรขึ้น ".$scada_data->{'Z7HY_FE2_TOT2'}."\n";
-			$replytext.="3. ระดับน้ำถังน้ำใสขนาด 6,000 ลบ.ม. คือ ".$scada_data->{'Z7HY_LE1_VOLUME'}." ลบ.ม. หรือ ".$scada_data->{'Z7HY_LE1_PV'}." เมตร";
+
+			$textArr=explode(":",$text);
+			if(strtoupper($textArr[0])=="ROBOT")
+			{
+
+				$replytext="ขอรายงานข้อมูลของแรงสูง 2 สถานีฟ้าแสง ณ ".$scada_data->{'DateTimeZ7'}." ดังนี้\n";
+				$replytext.="1. อัตราการจ่ายชุมชนถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE1_PV'}." บาร์ เลขมาตรขึ้น ".$scada_data->{'Z7HY_FE1_TOT1'}."\n";
+				$replytext.="2. อัตราการจ่ายสพ.โคกสูงเส้นเก่า ".$scada_data->{'Z7HY_FE2_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE2_PV'}." บาร์ เลขมาตรขึ้น ".$scada_data->{'Z7HY_FE2_TOT2'}."\n";
+				$replytext.="3. ระดับน้ำถังน้ำใสขนาด 6,000 ลบ.ม. คือ ".$scada_data->{'Z7HY_LE1_VOLUME'}." ลบ.ม. หรือ ".$scada_data->{'Z7HY_LE1_PV'}." เมตร";
 
 
-			
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $replytext
-			];
+				
+				// Build message to reply back
+				$messages = [
+					'type' => 'text',
+					'text' => $replytext
+				];
 
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+				// Make a POST Request to Messaging API to reply to sender
+				$url = 'https://api.line.me/v2/bot/message/reply';
+				$data = [
+					'replyToken' => $replyToken,
+					'messages' => [$messages],
+				];
+				$post = json_encode($data);
+				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
 
-			echo $result . "\r\n";
+				echo $result . "\r\n";
+			}
 		}
 	}
 }
