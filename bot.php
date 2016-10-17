@@ -41,6 +41,14 @@ if (!is_null($events['events']))
 				$sourceInfo = json_decode($result, true);
 				switch(strtoupper($textArr[1]))
 				{
+					case "Z4" :
+						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z9');
+						$scada_data = json_decode($content_scada, true);
+						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext.="ขอรายงานข้อมูลของโรงกรอง 2000 ลบ.ม./ชม. (z4) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
+						$replytext.="1. คุณภาพน้ำ pH ".$scada_data['Z4HY_PH']." ความขุ่น ".$scada_data['Z4HY_TB']." NTU คลอรีนคงเหลือ ".$scada_data['Z4HY_CL']." mg/l";
+											
+						break;
 					case "Z6" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z6');
 						$scada_data = json_decode($content_scada, true);
@@ -85,10 +93,11 @@ if (!is_null($events['events']))
 				
 						$replytext="สวัสดีครับคุณ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
 						$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลได้ดังนี้\n";
-						$replytext.="1. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot z6\n";
-						$replytext.="2. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot z7\n";
-						$replytext.="3. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot z8\n";
-						$replytext.="4. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot z9";
+						$replytext.="1. โรงกรอง 2000 ลบ.ม./ชม. สถานีฟ้าแสง(z4) ให้กรอก robot z4\n";
+						$replytext.="2. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot z6\n";
+						$replytext.="3. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot z7\n";
+						$replytext.="4. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot z8\n";
+						$replytext.="5. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot z9";
 				}	
 
 
