@@ -61,12 +61,23 @@ if (!is_null($events['events']))
 						$replytext.="4. ระดับน้ำถังน้ำใสขนาด 3,500 ลบ.ม. คือ ".$scada_data['Z8HY_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z8HY_LE1_PV']." เมตร";
 						
 						break;
+					case "Z9" :
+						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z9');
+						$scada_data = json_decode($content_scada, true);
+						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext.="ขอรายงานข้อมูลของแรงสูง 4 (z9) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
+						$replytext.="1. อัตราการจ่าย กปภ.สงขลาผ่านท่อ GRPø800 ตามถ.ลพบุรีราเมศร์ ".$scada_data['Z9HY_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z9HY_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z9HY_FE1_TOT1']."\n";
+						$replytext.="2. ระดับน้ำถังน้ำใสขนาด 3,500 ลบ.ม. คือ ".$scada_data['Z9HY_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z9HY_LE1_PV']." เมตร";
+						$replytext.="3. คุณภาพน้ำ pH ".$scada_data['Z9HY_PH']." ความขุ่น ".$scada_data['Z9HY_TB']." NTU คลอรีนคงเหลือ ".$scada_data['Z9HY_CL']." mg/l\n";
+											
+						break;
 					default :
 				
 						$replytext="สวัสดีครับคุณ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
 						$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลได้ดังนี้\n";
 						$replytext.="1. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot z7\n";
-						$replytext.="2. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot z8";
+						$replytext.="2. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot z8\n";
+						$replytext.="2. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot z9";
 				}	
 
 
@@ -101,3 +112,4 @@ if (!is_null($events['events']))
 	}
 }
 echo "OK";
+
