@@ -22,7 +22,7 @@ if (!is_null($events['events']))
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		$result = curl_exec($ch);
 		curl_close($ch);
-
+		$sourceInfo = json_decode($result, true);
 
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
@@ -72,7 +72,7 @@ if (!is_null($events['events']))
 				// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => $result["Display name"];
+					'text' => $sourceInfo["Display name"]
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
