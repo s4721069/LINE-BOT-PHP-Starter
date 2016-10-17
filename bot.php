@@ -16,10 +16,18 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+			if($text=="Hello")
+			{
+				$replytext="สวัสดี";
+			}
+			else
+			{
+				$replytext=$text;
+			}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text . ' สมชาย'
+				'text' => $replytext
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
