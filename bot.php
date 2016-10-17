@@ -23,8 +23,10 @@ if (!is_null($events['events']))
 			$replyToken = $event['replyToken'];
 
 			$replytext="ขอรายงานข้อมูลของแรงสูง 2 สถานีฟ้าแสง ณ ".$scada_data->{'DateTimeZ7'}." ดังนี้\n";
-			$replytext.="อัตราการจ่ายชุมชนถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE1_PV'}." บาร์\n";
-			$replytext.="อัตราการจ่ายสพ.โคกสูงเส้นเก่า ".$scada_data->{'Z7HY_FE2_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE2_PV'}." บาร์\n";
+			$replytext.="1. อัตราการจ่ายชุมชนถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE1_PV'}." บาร์ เลขมาตรขึ้น ".$scada_data->{'Z7HY_FE1_TOT1'}."\n";
+			$replytext.="2. อัตราการจ่ายสพ.โคกสูงเส้นเก่า ".$scada_data->{'Z7HY_FE2_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE2_PV'}." บาร์ เลขมาตรขึ้น ".$scada_data->{'Z7HY_FE2_TOT2'}."\n";
+			$replytext.="3. ระดับน้ำถังน้ำใสขนาด 6,000 ลบ.ม. คือ ".$scada_data->{'Z7HY_LE1_VOLUME'}." ลบ.ม. หรือ ".$scada_data->{'Z7HY_LE1_PV'}." เมตร";
+
 
 			
 			// Build message to reply back
