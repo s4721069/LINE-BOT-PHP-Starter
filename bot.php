@@ -22,14 +22,10 @@ if (!is_null($events['events']))
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			if($text=="Hello")
-			{
-				$replytext="สวัสดี";
-			}
-			else
-			{
-				$replytext=$scada_data->{'DateTimeZ7'};
-			}
+			$replytext="ขอรายงานข้อมูลของแรงสูง 2 สถานีฟ้าแสง ณ ".$scada_data->{'DateTimeZ7'}."ดังนี้\n\r";
+			$replytext.="อัตราการจ่าย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม.\n\r";
+
+			
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
