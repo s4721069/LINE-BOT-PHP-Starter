@@ -13,7 +13,7 @@ if (!is_null($events['events']))
 	{
 		$userId=$event['source']['userId'];
 		$url = 'https://api.line.me/v2/bot/profile/'.$userId;
-		$headers = 'Authorization: Bearer ' . $access_token;
+		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
