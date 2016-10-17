@@ -11,18 +11,7 @@ if (!is_null($events['events']))
 	// Loop through each event
 	foreach ($events['events'] as $event) 
 	{
-		$userId=$event['source']['userId'];
-		$url = 'https://api.line.me/v2/bot/profile/'.$userId;
-		$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-		$result = curl_exec($ch);
-		curl_close($ch);
-		$sourceInfo = json_decode($result, true);
+		
 
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
@@ -38,6 +27,18 @@ if (!is_null($events['events']))
 			$textArr=explode(" ",$text);
 			if(strtoupper($textArr[0])=="ROBOT")
 			{
+				$userId=$event['source']['userId'];
+				$url = 'https://api.line.me/v2/bot/profile/'.$userId;
+				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				$sourceInfo = json_decode($result, true);
 				switch(strtoupper($textArr[1]))
 				{
 					case "Z7" :
