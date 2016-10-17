@@ -41,6 +41,9 @@ if (!is_null($events['events']))
 				$sourceInfo = json_decode($result, true);
 				switch(strtoupper($textArr[1]))
 				{
+					case " " :
+						$replytext="เว้นวรรคแค่ 1 ก็พอครับ";
+						break;
 					case "Z7" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z7');
 						$scada_data = json_decode($content_scada, true);
