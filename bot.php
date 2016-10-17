@@ -63,7 +63,7 @@ if (!is_null($events['events']))
 						break;
 					default :
 				
-						$replytext="สวัสดีครับคุณ".$sourceInfo['displayName']." ผมชื่อ Robot\n";
+						$replytext="สวัสดีครับคุณ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
 						$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลได้ดังนี้\n";
 						$replytext.="1. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot z7\n";
 						$replytext.="2. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot z8";
