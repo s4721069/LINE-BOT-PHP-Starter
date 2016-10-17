@@ -72,7 +72,7 @@ if (!is_null($events['events']))
 				// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => $sourceInfo["Display name"]
+					'text' => $sourceInfo['Display name']
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
