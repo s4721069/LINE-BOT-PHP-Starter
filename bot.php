@@ -28,12 +28,12 @@ if (!is_null($events['events']))
 			}
 			else
 			{
-				$replytext=$scada_data->{'DateTimeZ7'};;
+				$replytext=$scada_data->{'DateTimeZ7'};
 			}
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $replytext
+				'text' => $content_scada
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
