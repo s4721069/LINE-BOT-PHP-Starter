@@ -13,10 +13,6 @@ if (!is_null($events['events']))
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
 		{
-
-			$content_scada = file_get_contents('http://118.175.86.109/line/q.php');
-			$scada_data = json_decode($content_scada, true);
-
 			// Get text sent
 			$text = $event['message']['text'];
 			// Get replyToken
@@ -28,7 +24,7 @@ if (!is_null($events['events']))
 			}
 			else
 			{
-				$replytext=$scada_data->{'DateTimeZ7'};;
+				$replytext=$text;
 			}
 			// Build message to reply back
 			$messages = [
