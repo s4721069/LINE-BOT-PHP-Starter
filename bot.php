@@ -42,7 +42,7 @@ if (!is_null($events['events']))
 				switch(strtoupper($textArr[1]))
 				{
 					case "Z4" :
-						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z9');
+						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z4');
 						$scada_data = json_decode($content_scada, true);
 						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของโรงกรอง 2000 ลบ.ม./ชม. (z4) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
