@@ -23,8 +23,8 @@ if (!is_null($events['events']))
 			$replyToken = $event['replyToken'];
 
 			$replytext="ขอรายงานข้อมูลของแรงสูง 2 สถานีฟ้าแสง ณ ".$scada_data->{'DateTimeZ7'}." ดังนี้\n";
-			$replytext.="อัตราการจ่ายชุมชนถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม.\n";
-			$replytext.="อัตราการจ่ายสพ.โคกสูงเส้นเก่า ".$scada_data->{'Z7HY_FE2_PV'}." ลบ.ม./ชม.\n";
+			$replytext.="อัตราการจ่ายชุมชนถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data->{'Z7HY_FE1_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE1_PV'}." บาร์\n";
+			$replytext.="อัตราการจ่ายสพ.โคกสูงเส้นเก่า ".$scada_data->{'Z7HY_FE2_PV'}." ลบ.ม./ชม. แรงดัน ".$scada_data->{'Z7HY_PE2_PV'}." บาร์\n";
 
 			
 			// Build message to reply back
