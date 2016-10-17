@@ -15,7 +15,7 @@ if (!is_null($events['events']))
 		{
 
 			$content_scada = file_get_contents('http://118.175.86.109/line/q.php');
-			$scada_data = json_decode($content_scada, true);
+			$scada_data = json_decode($content_scada);
 
 			// Get text sent
 			$text = $event['message']['text'];
@@ -33,7 +33,7 @@ if (!is_null($events['events']))
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $content_scada
+				'text' => $replytext
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
