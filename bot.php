@@ -22,7 +22,7 @@ if (!is_null($events['events']))
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		$result = curl_exec($ch);
 		curl_close($ch);
-		$sourceInfo = json_decode($result, true);
+		$sourceInfo = json_decode($result);
 
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') 
