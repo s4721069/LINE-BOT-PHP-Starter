@@ -133,6 +133,17 @@ if (!is_null($events['events']))
 
 											
 						break;
+					case "Z14" :
+						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z14');
+						$scada_data = json_decode($content_scada, true);
+						//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+						$replytext="ขอรายงานข้อมูลของสถานีจ่ายน้ำควนลัง (z14) ณ ".$scada_data['DateTimeZ14']." ดังนี้\n";
+						$replytext.="1. อัตราการจ่าย ท่อจ่าย ".$scada_data['Z14KL_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z14KL_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z14KL_FE1_TOT']."\n";
+						$replytext.="2. ระดับน้ำถังน้ำใสขนาด 1500 ลบ.ม. คือ ".$scada_data['Z14KL_LE2_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z14KL_LE2_PV']." เมตร\n";
+						$replytext.="3. ระดับน้ำถังสูงขนาด 300 ลบ.ม. คือ ".$scada_data['Z14KL_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z14KL_LE1_PV']." เมตร\n";
+
+											
+						break;
 					default :
 				
 						//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
@@ -146,7 +157,8 @@ if (!is_null($events['events']))
 						$replytext.="6. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot z9\n";
 						$replytext.="7. สถานีจ่ายน้ำบ้านพรุ(z11) ให้กรอก robot z11\n";
 						$replytext.="8. สถานีจ่ายน้ำนาหม่อม(z12) ให้กรอก robot z12\n";
-						$replytext.="9. สถานีเพิ่มแรงดันาหม่อม(z13) ให้กรอก robot z13";
+						$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot z13\n";
+						$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot z14";
 				}	
 
 
