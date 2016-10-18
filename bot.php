@@ -98,6 +98,18 @@ if (!is_null($events['events']))
 						$replytext.="3. คุณภาพน้ำ pH ".$scada_data['Z9HY_PH']." ความขุ่น ".$scada_data['Z9HY_TB']." NTU คลอรีนคงเหลือ ".$scada_data['Z9HY_CL']." mg/l";
 											
 						break;
+					case "Z11" :
+						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z11');
+						$scada_data = json_decode($content_scada, true);
+						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext.="ขอรายงานข้อมูลขอสถานีจ่ายน้ำบ้านพรุ (z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
+						$replytext.="1. อัตราการจ่าย ท่อรับ ".$scada_data['Z0HY_DC_BP_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_BP_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_BP_TOT1']."\n";
+						$replytext.="2. อัตราการจ่าย ท่อจ่าย ".$scada_data['Z0HY_DC_BP_FE2_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_BP_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_BP_TOT2']."\n";
+						$replytext.="3. ระดับน้ำถังน้ำใสขนาด 1,000 ลบ.ม. คือ ".$scada_data['Z0HY_DC_BP_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z0HY_DC_BP_LE1_PV']." เมตร\n";
+						$replytext.="4. ระดับน้ำถังสูงขนาด 250 ลบ.ม. คือ ".$scada_data['Z0HY_DC_BP_LE2_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z0HY_DC_BP_LE2_PV']." เมตร\n";
+						$replytext.="5. คุณภาพน้ำ คลอรีนคงเหลือ ".$scada_data['Z0HY_DC_BP_CL']." mg/l";
+											
+						break;
 					default :
 				
 						$replytext="สวัสดีครับคุณ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
@@ -107,7 +119,8 @@ if (!is_null($events['events']))
 						$replytext.="3. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot z6\n";
 						$replytext.="4. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot z7\n";
 						$replytext.="5. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot z8\n";
-						$replytext.="6. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot z9";
+						$replytext.="6. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot z9\n";
+						$replytext.="7. สถานีจ่ายน้ำบ้านพรุ(z11) ให้กรอก robot z11";
 				}	
 
 
