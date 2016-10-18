@@ -27,6 +27,7 @@ if (!is_null($events['events']))
 			$textArr=explode(" ",$text);
 			if(strtoupper($textArr[0])=="ROBOT")
 			{
+				/*
 				$userId=$event['source']['userId'];
 				$url = 'https://api.line.me/v2/bot/profile/'.$userId;
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -39,6 +40,7 @@ if (!is_null($events['events']))
 				$result = curl_exec($ch);
 				curl_close($ch);
 				$sourceInfo = json_decode($result, true);
+				*/
 				switch(strtoupper($textArr[1]))
 				{
 					case "Z3" :
@@ -124,7 +126,7 @@ if (!is_null($events['events']))
 						break;
 					default :
 				
-						$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
+						//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
 						$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลได้ดังนี้\n";
 						$replytext.="1. โรงกรอง 1500 ลบ.ม./ชม. สถานีฟ้าแสง(z3) ให้กรอก robot z3\n";
 						$replytext.="2. โรงกรอง 2000 ลบ.ม./ชม. สถานีฟ้าแสง(z4) ให้กรอก robot z4\n";
