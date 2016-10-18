@@ -44,7 +44,7 @@ if (!is_null($events['events']))
 					case "Z3" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z3');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของโรงกรอง 1500 ลบ.ม./ชม.(z3) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ3']." ดังนี้\n";
 						$replytext.="1. ระดับน้ำถังน้ำใสขนาด 3,000 ลบ.ม. คือ ".$scada_data['Z3HY_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z3HY_LE1_PV']." เมตร\n";
 						$replytext.="2. คุณภาพน้ำ pH ".$scada_data['Z3HY_PH']." ความขุ่น ".$scada_data['Z3HY_TB']." NTU คลอรีนคงเหลือ ".$scada_data['Z3HY_CL']." mg/l";
@@ -53,7 +53,7 @@ if (!is_null($events['events']))
 					case "Z4" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z4');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของโรงกรอง 2000 ลบ.ม./ชม. (z4) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
 						$replytext.="1. คุณภาพน้ำ pH ".$scada_data['Z4HY_PH']." ความขุ่น ".$scada_data['Z4HY_TB']." NTU คลอรีนคงเหลือ ".$scada_data['Z4HY_CL']." mg/l";
 											
@@ -61,7 +61,7 @@ if (!is_null($events['events']))
 					case "Z6" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z6');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของแรงสูง 1 (z6) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ6']." ดังนี้\n";
 						$replytext.="1. อัตราการจ่าย สจ.ควนลัง ".$scada_data['Z6HY_FE2_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z6HY_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z6HY_FE2_TOT2']."\n";
 						$replytext.="2. อัตราการจ่าย สจ.บ้านพรุ ".$scada_data['Z6HY_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z6HY_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z6HY_FE1_TOT1']."\n";
@@ -71,7 +71,7 @@ if (!is_null($events['events']))
 					case "Z7" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z7');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของแรงสูง 2 (z7) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ7']." ดังนี้\n";
 						$replytext.="1. อัตราการจ่ายชุมชน ถ.กาญจนวนิช หาดใหญ่-น้ำน้อย ".$scada_data['Z7HY_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z7HY_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z7HY_FE1_TOT1']."\n";
 						$replytext.="2. อัตราการจ่าย สพ.โคกสูงเส้นเก่า ".$scada_data['Z7HY_FE2_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z7HY_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z7HY_FE2_TOT2']."\n";
@@ -80,7 +80,7 @@ if (!is_null($events['events']))
 					case "Z8" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z8');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของแรงสูง 3 (z8) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ8']." ดังนี้\n";
 						$replytext.="1. อัตราการจ่ายหาดใหญ่โซนสูง ".$scada_data['Z8HY_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z8HY_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z8HY_FE1_TOT1']."\n";
 						$replytext.="2. อัตราการจ่ายหาดใหญ่โซนต่ำ ".$scada_data['Z8HY_FE2_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z8HY_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z8HY_FE2_TOT2']."\n";
@@ -91,7 +91,7 @@ if (!is_null($events['events']))
 					case "Z9" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z9');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของแรงสูง 4 (z9) สถานีฟ้าแสง ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
 						$replytext.="1. อัตราการจ่าย กปภ.สงขลาผ่านท่อ GRPø800 ตาม ถ.ลพบุรีราเมศร์ ".$scada_data['Z9HY_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z9HY_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z9HY_FE1_TOT1']."\n";
 						$replytext.="2. ระดับน้ำถังน้ำใสขนาด 3,500 ลบ.ม. คือ ".$scada_data['Z9HY_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z9HY_LE1_PV']." เมตร\n";
@@ -101,7 +101,7 @@ if (!is_null($events['events']))
 					case "Z11" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q.php?z=z11');
 						$scada_data = json_decode($content_scada, true);
-						$replytext="ตอบคุณ".$sourceInfo['displayName']."\n";
+						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลขอสถานีจ่ายน้ำบ้านพรุ (z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
 						$replytext.="1. อัตราการจ่าย ท่อรับ ".$scada_data['Z0HY_DC_BP_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_BP_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_BP_TOT1']."\n";
 						$replytext.="2. อัตราการจ่าย ท่อจ่าย ".$scada_data['Z0HY_DC_BP_FE2_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_BP_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_BP_TOT2']."\n";
