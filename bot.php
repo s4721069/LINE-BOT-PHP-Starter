@@ -116,7 +116,7 @@ if (!is_null($events['events']))
 						$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext.="ขอรายงานข้อมูลของสถานีจ่ายน้ำนาหม่อม (z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
 						$replytext.="1. อัตราการจ่าย ท่อรับ ".$scada_data['Z0HY_DC_NM_FE2_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_NM_PE1_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_NM_TOT2']."\n";
-						$replytext.="2. อัตราการจ่าย ท่อจ่าย ".$scada_data['Z0HY_DC_NM_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_NM_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_BP_TOT1']."\n";
+						$replytext.="2. อัตราการจ่าย ท่อจ่าย ".$scada_data['Z0HY_DC_NM_FE1_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z0HY_DC_NM_PE2_PV']." บาร์ เลขมาตรขึ้น ".$scada_data['Z0HY_DC_NM_TOT1']."\n";
 						$replytext.="3. ระดับน้ำถังน้ำใสขนาด 200 ลบ.ม. คือ ".$scada_data['Z0HY_DC_NM_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z0HY_DC_NM_LE1_PV']." เมตร\n";
 						$replytext.="4. ระดับน้ำถังสูงขนาด 100 ลบ.ม. คือ ".$scada_data['Z0HY_DC_NM_LE2_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z0HY_DC_NM_LE2_PV']." เมตร\n";
 						$replytext.="5. คุณภาพน้ำ คลอรีนคงเหลือ ".$scada_data['Z0HY_DC_NM_CL']." mg/l";
