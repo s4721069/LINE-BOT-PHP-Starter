@@ -129,7 +129,7 @@ if (!is_null($events['events']))
 						$scada_data = json_decode($content_scada, true);
 						//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext="ขอรายงานข้อมูลของสถานีเพิ่มแรงดันนาหม่อม (z13) ณ ".$scada_data['DateTimeZ13']." ดังนี้\n";
-						$replytext.="1. แรงดันขาเข้า ".$scada_data['Z0HY_DC_BT_PE1_PV']." บาร์ แรงดันขาออก ".$scada_data['Z0HY_DC_BT_PE1_PV']." บาร์\n";
+						$replytext.="1. แรงดันขาเข้า ".$scada_data['Z0HY_DC_BT_PE1_PV']." บาร์ แรงดันขาออก ".$scada_data['Z0HY_DC_BT_PE2_PV']." บาร์";
 
 											
 						break;
