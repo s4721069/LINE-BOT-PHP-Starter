@@ -199,7 +199,7 @@ if (!is_null($events['events']))
 }
 else
 {
-	$pushtext="test";
+	$pushtext="ทดสอบ";
 	$messages = [
 					'type' => 'text',
 					'text' =>  $pushtext
