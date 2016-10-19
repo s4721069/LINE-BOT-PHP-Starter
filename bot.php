@@ -149,6 +149,16 @@ if (!is_null($events['events']))
 
 											
 						break;
+					case "JORM" :
+						$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
+						$scada_data = json_decode($content_scada, true);
+						//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+						$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
+						$replytext.="- ปริมาณน้ำถังน้ำใสขนาด 12,000 ลบ.ม. คือ ".$scada_data['Z1SK_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z1SK_LE1_AINPUT_PV']." เมตร อัตราการจ่ายเข้าเมือง ".$scada_data['Z1SK_FE2_AINPUT_PV']." ลบ.ม./ชม. แรงดัน ".$scada_data['Z1SK_PE2_AINPUT_PV']." บาร์\n";
+						$replytext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".$scada_data['Z2SK_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z2SK_LE1_AINPUT_PV']." เมตร\n";
+						$replytext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".$scada_data['Z3NN_LE1_VOLUME']." ลบ.ม. หรือ ".$scada_data['Z3NN_LE1_AINPUT_PV']." เมตร";
+											
+						break;
 					default :
 				
 						//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
