@@ -1,0 +1,1 @@
+{"events":[{"type":"message","replyToken":"85e5224e33e54301a384ed1d7b4f98bc","source":{"groupId":"C901af91ed9d961d5eedc5ac872fc7f50","type":"group"},"timestamp":1476862279977,"message":{"type":"text","id":"5079500692743","text":"Robot"}}]}

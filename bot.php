@@ -4,9 +4,9 @@ $access_token = '6AHZeq++0ib7lwzyTgJJdOJON151Ugy/L3EXVepD5tBAj/MhR5iwoQxufCbcEyG
 // Get POST body content
 $content = file_get_contents('php://input');
 
-$myfile = fopen("testfile.txt", "w");
-fwrite($myfile, $content);
-fclose($myfile);
+//$myfile = fopen("testfile.txt", "w");
+//fwrite($myfile, $content);
+//fclose($myfile);
 
 // Parse JSON
 $events = json_decode($content, true);
@@ -197,5 +197,33 @@ if (!is_null($events['events']))
 		}
 	}
 }
+else
+{
+	$pushtext="test";
+	$messages = [
+					'type' => 'text',
+					'text' =>  $pushtext
+				];
 
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/push';
+	$data = [
+		'to' => 'C901af91ed9d961d5eedc5ac872fc7f50',
+		'messages' => [$messages],
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+	echo $result . "\r\n";
+}
+
+echo "OK";
