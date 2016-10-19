@@ -209,7 +209,6 @@ if (!is_null($events['events']))
 }
 else
 {
-	$pushtext="ทดสอบ";
 	$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
 	$scada_data = json_decode($content_scada, true);
 	//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
