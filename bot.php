@@ -210,6 +210,13 @@ if (!is_null($events['events']))
 else
 {
 	$pushtext="ทดสอบ";
+	$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
+	$scada_data = json_decode($content_scada, true);
+	//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+	$pushtext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
+	$pushtext.="- ปริมาณน้ำถังน้ำใสขนาด 12,000 ลบ.ม. คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
+	$pushtext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
+	$pushtext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
 	$messages = [
 					'type' => 'text',
 					'text' =>  $pushtext
