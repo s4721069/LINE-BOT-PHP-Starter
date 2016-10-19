@@ -1,1 +1,5 @@
+นวัตกรรม 59
 {"events":[{"type":"message","replyToken":"85e5224e33e54301a384ed1d7b4f98bc","source":{"groupId":"C901af91ed9d961d5eedc5ac872fc7f50","type":"group"},"timestamp":1476862279977,"message":{"type":"text","id":"5079500692743","text":"Robot"}}]}
+
+การจ่ายน้ำสงขลา
+{"events":[{"type":"join","replyToken":"abd5d73482a14df3bec1a2d57337459c","source":{"groupId":"C6868f540d449376a8334981297ec9c01","type":"group"},"timestamp":1476889983923}]}
