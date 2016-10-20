@@ -152,7 +152,7 @@ if (!is_null($events['events']))
 					case "JORM" :
 						$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
 						$scada_data = json_decode($content_scada, true);
-						$percentLe1=$scada_data['Z1SK_LE1_VOLUME']/12000*100;
+						$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 						//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 						$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
 						$replytext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
