@@ -234,8 +234,14 @@ if (!is_null($events['events']))
 							$replytext1.="ระดับน้ำในถังเก็บ\n";
 							$replytext1.="ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร";
 							$replytext2="อัตราการจ่าย\n";
-							//$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
-							$messages = array(array('type' => 'text','text' =>  $replytext1),array('type' => 'text','text' =>  $replytext2));				
+							$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$messages = {[
+									'type' => 'text',
+									'text' =>  $replytext1
+								],[
+									'type' => 'text',
+									'text' =>  $replytext2
+								]};					
 							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
