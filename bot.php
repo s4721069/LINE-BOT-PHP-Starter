@@ -236,9 +236,12 @@ if (!is_null($events['events']))
 							$replytext2="อัตราการจ่าย\n";
 							$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
 							$messages = [
-									'type' => 'text',
-									'text' =>  $replytext1
-								];					
+								'type' => 'text',
+								'text' =>  $replytext1
+								][
+								'type' => 'text',
+								'text' =>  $replytext2
+								];				
 							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
