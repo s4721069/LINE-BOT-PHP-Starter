@@ -238,9 +238,6 @@ if (!is_null($events['events']))
 							$messages = [{
 									'type' => 'text',
 									'text' =>  $replytext1
-								},{
-									'type' => 'text',
-									'text' =>  $replytext2
 								}];					
 							break;
 						default :
