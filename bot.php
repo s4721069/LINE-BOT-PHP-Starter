@@ -236,16 +236,10 @@ if (!is_null($events['events']))
 							$replytext2="อัตราการจ่าย\n";
 							$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
 							$messages = array(
-									(0) => array
-										(
-											'type' => 'text',
-											'text' =>  $replytext1
-										),
-									(1) => array
-										(
-											'type' => 'text',
-											'text' =>  $replytext2
-										)
+
+								'type' => 'text',
+								'text' =>  $replytext
+
 								);
 							break;
 						default :
