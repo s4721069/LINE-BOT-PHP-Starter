@@ -177,6 +177,24 @@ if (!is_null($events['events']))
 						$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot z14";
 				}	
 
+				if(strtoupper($textArr[1])=="SK")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "Z1" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
+							$scada_data = json_decode($content_scada, true);
+							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
+							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+							$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร";
+												
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
+							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
+					}
+				}
+
 
 				
 				// Build message to reply back
