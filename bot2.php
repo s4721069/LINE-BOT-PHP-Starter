@@ -233,16 +233,16 @@ if (!is_null($events['events']))
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
-							$replytext1="ข้อมูลโรงสูบน้ำสำนักงาน สงขลา ณ ".$scada_data['DateTime']."\n";
-							$replytext2.="ระดับน้ำในถังเก็บ\n";
+							$replytext1="ข้อมูลโรงสูบน้ำสำนักงาน สงขลา ณ ".$scada_data['DateTime'];
+							$replytext2="ระดับน้ำในถังเก็บ\n";
 							$replytext2.="-ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%";
 							$replytext3="อัตราการจ่าย\n";
 							$replytext3.="-จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
 							$replytext3.="-จ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_FE1_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
 							$replytext3.="-รับน้ำลงถังน้ำใส ".number_format($scada_data['Z1SK_FE3_AINPUT_PV'],0)." ลบ.ม./ชม.";
 							$replytext4="แรงดันในเส้นท่อ\n";
-							$replytext4.="-แรงดันจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],0)." บาร์\n";
-							$replytext4.="-แรงดันจ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_PE1_AINPUT_PV'],0)." บาร์";
+							$replytext4.="-แรงดันจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
+							$replytext4.="-แรงดันจ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_PE1_AINPUT_PV'],2)." บาร์";
 							$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext1
@@ -265,7 +265,7 @@ if (!is_null($events['events']))
 							$percentLe1=number_format($scada_data['Z2SK_LE1_VOLUME']/12600*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 							$replytext1="ข้อมูลถังน้ำใสเขาสำโรง ณ ".$scada_data['DateTime'];
-							$replytext2.="ระดับน้ำในถังเก็บ\n";
+							$replytext2="ระดับน้ำในถังเก็บ\n";
 							$replytext2.="-ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%";
 							$messages = [[
 									'type' => 'text',
@@ -274,6 +274,40 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext2
+								]];
+							break;
+						case "Z3" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z3');
+							$scada_data = json_decode($content_scada, true);
+							$percentLe1=number_format($scada_data['Z3NN_LE1_VOLUME']/7000*100,2);
+							$percentLe2=number_format($scada_data['Z3NN_LE2_VOLUME']/250*100,2);
+							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+							$replytext1="ข้อมูลสถานีเพิ่มแรงดันโคกสูง ณ ".$scada_data['DateTime'];
+							$replytext2="ระดับน้ำในถังเก็บ\n";
+							$replytext2.="-ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%";
+							$replytext2.="-ปริมาณน้ำถังสูงโคกสูงขนาด 250 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE2_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE2_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe2."%";
+							$replytext3="อัตราการจ่าย\n";
+							$replytext3.="-จ่ายลงถังน้ำใสสงขลา ".number_format($scada_data['Z3NN_FE1_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$replytext3.="-จ่ายพื้นที่โซนสูง ".number_format($scada_data['Z3NN_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$replytext3.="-รับน้ำลงถังน้ำใส ".number_format($scada_data['Z3NN_FE4_AINPUT_PV'],0)." ลบ.ม./ชม.";
+							$replytext4="แรงดันในเส้นท่อ\n";
+							$replytext4.="-แรงดันจ่ายลงถังน้ำใสสงขลา ".number_format($scada_data['Z3NN_PE1_AINPUT_PV'],2)." บาร์\n";
+							$replytext4.="-แรงดันจ่ายจ่ายพื้นที่โซนสูง ".number_format($scada_data['Z3NN_PE2_AINPUT_PV'],2)." บาร์\n";
+							$replytext4.="-แรงดันจ่ายจ่ายสิงหนคร ".number_format($scada_data['Z3NN_PE3_AINPUT_PV'],2)." บาร์";
+							$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext1
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext2
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext3
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext4
 								]];
 							break;
 						default :
