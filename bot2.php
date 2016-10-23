@@ -237,7 +237,12 @@ if (!is_null($events['events']))
 							$replytext1.="ระดับน้ำในถังเก็บ\n";
 							$replytext1.="ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร";
 							$replytext2="อัตราการจ่าย\n";
-							$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.";
+							$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$replytext2.="จ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_FE1_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$replytext2.="รับน้ำลงถังน้ำใส ".number_format($scada_data['Z1SK_FE3_AINPUT_PV'],0)." ลบ.ม./ชม.";
+							$replytext3="แรงดันในเส้นท่อ\n";
+							$replytext3.="แรงดันจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],0)." บาร์\n";
+							$replytext3.="แรงดันจ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_PE1_AINPUT_PV'],0)." บาร์";
 							$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext1
@@ -245,6 +250,10 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext2
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext3
 								]];
 							break;
 						default :
