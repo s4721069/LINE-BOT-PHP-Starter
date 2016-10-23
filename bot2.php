@@ -235,12 +235,21 @@ if (!is_null($events['events']))
 							$replytext1.="ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร";
 							$replytext2="อัตราการจ่าย\n";
 							$replytext2.="จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
-							$messages = [
+							$messages1 = [
 								
-								{'type' => 'text',
-								'text' =>  $replytext1},
-								{'type' => 'text',
-								'text' =>  $replytext2}
+								'type' => 'text',
+								'text' =>  $replytext1
+								
+								];
+								$messages2 = [
+								
+								'type' => 'text',
+								'text' =>  $replytext2
+								
+								];
+								$messages = [
+								
+								$messages1,$messages2
 								
 								];
 							break;
