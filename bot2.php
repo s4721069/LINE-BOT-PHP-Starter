@@ -46,7 +46,7 @@ if (!is_null($events['events']))
 				curl_close($ch);
 				$sourceInfo = json_decode($result, true);
 				*/
-				if(strtoupper($textArr[1])=="SK")
+				if(strtoupper($textArr[1])=="HY")
 				{
 					switch(strtoupper($textArr[2]))
 					{
