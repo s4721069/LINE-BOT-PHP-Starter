@@ -206,8 +206,7 @@ if (!is_null($events['events']))
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
-							$replytext="สวัสดีครับ ผมชื่อ Robot นะครับ\n";
-							$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาหาดใหญ่ได้ดังนี้\n";
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาหาดใหญ่ได้ดังนี้\n";
 							$replytext.="1. โรงกรอง 1500 ลบ.ม./ชม. สถานีฟ้าแสง(z3) ให้กรอก robot hy z3\n";
 							$replytext.="2. โรงกรอง 2000 ลบ.ม./ชม. สถานีฟ้าแสง(z4) ให้กรอก robot hy z4\n";
 							$replytext.="3. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot hy z6\n";
