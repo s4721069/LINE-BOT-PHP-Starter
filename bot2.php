@@ -254,7 +254,7 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext3
-								]
+								],
 								[
 									'type' => 'text',
 									'text' =>  $replytext4
