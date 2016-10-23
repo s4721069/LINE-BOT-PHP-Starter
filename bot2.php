@@ -216,10 +216,10 @@ if (!is_null($events['events']))
 						$replytext.="8. สถานีจ่ายน้ำนาหม่อม(z12) ให้กรอก robot z12\n";
 						$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot z13\n";
 						$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot z14";
-						$messages = [
+						$messages = [[
 							'type' => 'text',
 							'text' =>  $replytext
-							];
+							]];
 				}	
 
 				if(strtoupper($textArr[1])=="SK")
