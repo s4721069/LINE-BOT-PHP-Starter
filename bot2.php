@@ -283,7 +283,7 @@ if (!is_null($events['events']))
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 							$replytext1="ข้อมูลสถานีเพิ่มแรงดันโคกสูง ณ ".$scada_data['DateTime'];
 							$replytext2="ระดับน้ำในถังเก็บ\n";
-							$replytext2.="-ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%";
+							$replytext2.="-ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%\n";
 							$replytext2.="-ปริมาณน้ำถังสูงโคกสูงขนาด 250 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE2_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE2_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe2."%";
 							$replytext3="อัตราการจ่าย\n";
 							$replytext3.="-จ่ายลงถังน้ำใสสงขลา ".number_format($scada_data['Z3NN_FE1_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
