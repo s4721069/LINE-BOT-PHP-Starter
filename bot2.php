@@ -234,15 +234,15 @@ if (!is_null($events['events']))
 							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
 							$replytext1="ข้อมูลโรงสูบน้ำสำนักงาน สงขลา ณ ".$scada_data['DateTime']."\n";
-							$replytext1.="ระดับน้ำในถังเก็บ\n";
-							$replytext1.="-ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร";
-							$replytext2="อัตราการจ่าย\n";
-							$replytext2.="-จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
-							$replytext2.="-จ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_FE1_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
-							$replytext2.="-รับน้ำลงถังน้ำใส ".number_format($scada_data['Z1SK_FE3_AINPUT_PV'],0)." ลบ.ม./ชม.";
-							$replytext3="แรงดันในเส้นท่อ\n";
-							$replytext3.="-แรงดันจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],0)." บาร์\n";
-							$replytext3.="-แรงดันจ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_PE1_AINPUT_PV'],0)." บาร์";
+							$replytext2.="ระดับน้ำในถังเก็บ\n";
+							$replytext2.="-ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%";
+							$replytext3="อัตราการจ่าย\n";
+							$replytext3.="-จ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$replytext3.="-จ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_FE1_AINPUT_PV'],0)." ลบ.ม./ชม.\n";
+							$replytext3.="-รับน้ำลงถังน้ำใส ".number_format($scada_data['Z1SK_FE3_AINPUT_PV'],0)." ลบ.ม./ชม.";
+							$replytext4="แรงดันในเส้นท่อ\n";
+							$replytext4.="-แรงดันจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],0)." บาร์\n";
+							$replytext4.="-แรงดันจ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_PE1_AINPUT_PV'],0)." บาร์";
 							$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext1
@@ -254,23 +254,32 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext3
+								]
+								[
+									'type' => 'text',
+									'text' =>  $replytext4
 								]];
 							break;
 						case "Z2" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z2');
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z2SK_LE1_VOLUME']/12600*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
-							$replytext1="ข้อมูลถังน้ำใสเขาสำโรง ณ ".$scada_data['DateTime']."\n";
-							$replytext1.="ระดับน้ำในถังเก็บ\n";
-							$replytext1.="-ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร";
+							$replytext1="ข้อมูลถังน้ำใสเขาสำโรง ณ ".$scada_data['DateTime'];
+							$replytext2.="ระดับน้ำในถังเก็บ\n";
+							$replytext2.="-ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร คิดเป็น ".$percentLe1."%";
 							$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext1
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext2
 								]];
 							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
+							$replytext.="2. ถังน้ำใสเขาสำโรง ให้กรอก robot sk z2\n";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
