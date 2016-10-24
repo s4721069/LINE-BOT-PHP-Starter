@@ -261,7 +261,7 @@ if (!is_null($events['events']))
 								],
 								[
 									'type' => 'image',
-									'originalContentUrl' =>  'http://www.pwa.co.th/hilight/King-Rama9-2016-10-13.jpg',
+									'originalContentUrl' =>  'https://cdn-1.pwa.co.th/images/pwasite-logo-header.png',
 									'previewImageUrl' =>  'https://cdn-1.pwa.co.th/images/pwasite-logo-header.png'
 								]];
 							break;
