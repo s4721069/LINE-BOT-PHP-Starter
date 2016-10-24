@@ -264,7 +264,7 @@ if (!is_null($events['events']))
 								],
 								[
 									'type' => 'image',
-									'originalContentUrl' =>  'https://reg4.pwa.co.th/pwareg4/sites/default/files/news/22/2014/201407/img_6517.jpg',
+									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/test.jpg',
 									'previewImageUrl' =>  'https://reg4.pwa.co.th/pwareg4/sites/default/files/images/facebook.png'
 								]];
 							break;
