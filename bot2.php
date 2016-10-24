@@ -326,7 +326,7 @@ if (!is_null($events['events']))
 								]];
 							break;
 						case "Z4" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z4');
-							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z3nn');
+							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z4th');
 							file_put_contents("z4th.jpg", fopen("http://118.175.86.109/line/z4th.jpg", 'r'));
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z4TH_LE1_VOLUME']/4000*100,2);
