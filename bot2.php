@@ -258,6 +258,11 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext4
+								],
+								[
+									'type' => 'image',
+									'originalContentUrl' =>  'http://www.pwa.co.th/hilight/King-Rama9-2016-10-13.jpg',
+									'previewImageUrl' =>  'https://cdn-1.pwa.co.th/images/pwasite-logo-header.png'
 								]];
 							break;
 						case "Z2" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z2');
