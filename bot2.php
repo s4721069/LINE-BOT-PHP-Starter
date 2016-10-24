@@ -189,20 +189,7 @@ if (!is_null($events['events']))
 								]];
 												
 							break;
-						case "JORM" :
-							$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
-							$scada_data = json_decode($content_scada, true);
-							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
-							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
-							$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
-							$replytext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
-							$replytext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
-							$replytext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
-							$messages = [[
-								'type' => 'text',
-								'text' =>  $replytext
-								]];					
-							break;
+						
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
@@ -229,6 +216,20 @@ if (!is_null($events['events']))
 				{
 					switch(strtoupper($textArr[2]))
 					{
+						case "JORM" :
+							$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
+							$scada_data = json_decode($content_scada, true);
+							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
+							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+							$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];					
+							break;
 						case "Z1" : $content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
 
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z1sk');

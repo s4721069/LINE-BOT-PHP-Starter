@@ -189,24 +189,12 @@ if (!is_null($events['events']))
 								]];
 												
 							break;
-						case "JORM" :
-							$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
-							$scada_data = json_decode($content_scada, true);
-							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
-							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
-							$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
-							$replytext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
-							$replytext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
-							$replytext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
-							$messages = [[
-								'type' => 'text',
-								'text' =>  $replytext
-								]];					
-							break;
+						
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
-							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาหาดใหญ่ได้ดังนี้\n";
+							$replytext="สวัสดีครับ ผมชื่อ Robot นะครับ\n";
+							$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาหาดใหญ่ได้ดังนี้\n";
 							$replytext.="1. โรงกรอง 1500 ลบ.ม./ชม. สถานีฟ้าแสง(z3) ให้กรอก robot hy z3\n";
 							$replytext.="2. โรงกรอง 2000 ลบ.ม./ชม. สถานีฟ้าแสง(z4) ให้กรอก robot hy z4\n";
 							$replytext.="3. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot hy z6\n";
@@ -228,7 +216,24 @@ if (!is_null($events['events']))
 				{
 					switch(strtoupper($textArr[2]))
 					{
-						case "Z1" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
+						case "JORM" :
+							$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
+							$scada_data = json_decode($content_scada, true);
+							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
+							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
+							$replytext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. ".$percentLe1."% คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
+							$replytext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];					
+							break;
+						case "Z1" : $content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
+
+							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z1sk');
+							file_put_contents("z1sk.jpg", fopen("http://118.175.86.109/line/z1sk.jpg", 'r'));
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
@@ -257,6 +262,11 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext4
+								],
+								[
+									'type' => 'image',
+									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z1sk.jpg',
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb.jpg'
 								]];
 							break;
 						case "Z2" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z2');
@@ -276,6 +286,8 @@ if (!is_null($events['events']))
 								]];
 							break;
 						case "Z3" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z3');
+							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z3nn');
+							file_put_contents("z3nn.jpg", fopen("http://118.175.86.109/line/z3nn.jpg", 'r'));
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z3NN_LE1_VOLUME']/7000*100,2);
 							$percentLe2=number_format($scada_data['Z3NN_LE2_VOLUME']/250*100,2);
@@ -307,9 +319,16 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext4
+								],
+								[
+									'type' => 'image',
+									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z3nn.jpg',
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb.jpg'
 								]];
 							break;
 						case "Z4" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z4');
+							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z4th');
+							file_put_contents("z4th.jpg", fopen("http://118.175.86.109/line/z4th.jpg", 'r'));
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z4TH_LE1_VOLUME']/4000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
@@ -337,6 +356,11 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext4
+								],
+								[
+									'type' => 'image',
+									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z4th.jpg',
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb.jpg'
 								]];
 							break;
 						default :
