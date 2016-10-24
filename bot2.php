@@ -243,7 +243,22 @@ if (!is_null($events['events']))
 							$replytext4="แรงดันในเส้นท่อ\n";
 							$replytext4.="-แรงดันจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
 							$replytext4.="-แรงดันจ่ายขึ้นเขาสำโรง ".number_format($scada_data['Z1SK_PE1_AINPUT_PV'],2)." บาร์";
-							$messages = [
+							$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext1
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext2
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext3
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext4
+								],
 								[
 									'type' => 'image',
 									'originalContentUrl' =>  'http://www.pwa.co.th/hilight/King-Rama9-2016-10-13.jpg',
