@@ -261,7 +261,7 @@ if (!is_null($events['events']))
 								],
 								[
 									'type' => 'image',
-									'originalContentUrl' =>  'https://cdn-1.pwa.co.th/images/pwasite-logo-header.png',
+									'originalContentUrl' =>  'https://reg4.pwa.co.th/pwareg4/sites/default/files/news/22/2014/201407/img_6517.jpg',
 									'previewImageUrl' =>  'https://cdn-1.pwa.co.th/images/pwasite-logo-header.png'
 								]];
 							break;
