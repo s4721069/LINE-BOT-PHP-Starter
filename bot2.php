@@ -262,7 +262,7 @@ if (!is_null($events['events']))
 								[
 									'type' => 'image',
 									'originalContentUrl' =>  'https://reg4.pwa.co.th/pwareg4/sites/default/files/news/22/2014/201407/img_6517.jpg',
-									'previewImageUrl' =>  'https://cdn-1.pwa.co.th/images/pwasite-logo-header.png'
+									'previewImageUrl' =>  'https://reg4.pwa.co.th/pwareg4/sites/default/files/images/facebook.png'
 								]];
 							break;
 						case "Z2" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z2');
