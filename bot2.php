@@ -229,7 +229,10 @@ if (!is_null($events['events']))
 				{
 					switch(strtoupper($textArr[2]))
 					{
-						case "Z1" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
+						case "Z1" : $content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
+
+							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php');
+							file_put_contents("test.jpg", fopen("http://118.175.86.109/line/test.jpg", 'r'));
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
