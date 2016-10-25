@@ -234,6 +234,7 @@ if (!is_null($events['events']))
 
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z1sk');
 							file_put_contents("z1sk.jpg", fopen("http://118.175.86.109/line/z1sk.jpg", 'r'));
+							resize("z1sk.jpg","thumb_z1sk.jpg",240);
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
@@ -266,7 +267,7 @@ if (!is_null($events['events']))
 								[
 									'type' => 'image',
 									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z1sk.jpg',
-									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb.jpg'
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z1sk.jpg'
 								]];
 							break;
 						case "Z2" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z2');
@@ -419,3 +420,17 @@ if (!is_null($events['events']))
 	}
 }
 echo "OK";
+function resize($images,$new_images,$width)
+{
+	$size=GetimageSize($images);
+	$height=round($width*$size[1]/$size[0]);
+	$images_orig = ImageCreateFromJPEG($images);
+	$photoX = ImagesX($images_orig);
+	$photoY = ImagesY($images_orig);
+	$images_fin = ImageCreateTrueColor($width, $height);
+	ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	ImageJPEG($images_fin,$new_images);
+	//ImageJPEG($images_fin,$new_images);
+	ImageDestroy($images_orig);
+	ImageDestroy($images_fin);
+}
