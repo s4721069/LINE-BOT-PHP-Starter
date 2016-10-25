@@ -289,7 +289,7 @@ if (!is_null($events['events']))
 						case "Z3" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z3');
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z3nn');
 							file_put_contents("z3nn.jpg", fopen("http://118.175.86.109/line/z3nn.jpg", 'r'));
-							resize("z3sk.jpg","thumb_z3sk.jpg",240);
+							resize("z3nn.jpg","thumb_z3nn.jpg",240);
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z3NN_LE1_VOLUME']/7000*100,2);
 							$percentLe2=number_format($scada_data['Z3NN_LE2_VOLUME']/250*100,2);
@@ -325,13 +325,13 @@ if (!is_null($events['events']))
 								[
 									'type' => 'image',
 									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z3nn.jpg',
-									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z3sk.jpg'
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z3nn.jpg'
 								]];
 							break;
 						case "Z4" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z4');
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z4th');
 							file_put_contents("z4th.jpg", fopen("http://118.175.86.109/line/z4th.jpg", 'r'));
-							resize("z4sk.jpg","thumb_z4sk.jpg",240);
+							resize("z4th.jpg","thumb_z4th.jpg",240);
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z4TH_LE1_VOLUME']/4000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
@@ -363,7 +363,7 @@ if (!is_null($events['events']))
 								[
 									'type' => 'image',
 									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z4th.jpg',
-									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4sk.jpg'
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
 								]];
 							break;
 						default :
