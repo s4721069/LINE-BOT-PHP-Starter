@@ -382,12 +382,12 @@ if (!is_null($events['events']))
 				{
 					$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=divisionname&area=5');
 					$dma_data = json_decode($content_dma, true);
-					$replytext="ตอนี้ผมมีข้อมูล DMA ของสาขาดังต่อไปนี้";
+					$replytext="ตอนี้ผมมีข้อมูล DMA ของสาขาดังต่อไปนี้\n";
 					foreach($dma_data as $k => $v) 
 					{
   						$replytext.=$k." - ".$v."\n";
 					}
-					$replytext.="ให้กรอก robot dma หัสสาขา\n";
+					$replytext.="ให้กรอก robot dma รหัสสาขา\n";
 					$replytext.="เช่น robot dma 5552011 เพื่อขอข้อมูล DMA สาขาสงขลา";
 					$messages = [[
 								'type' => 'text',
