@@ -385,7 +385,7 @@ if (!is_null($events['events']))
 					$msg="";
 					foreach($dma_data as $k => $v) 
 					{
-  						$msg=$k."->".$v."\n";
+  						$msg.=$k."->".$v."\n";
 					}
 					$replytext=$msg;
 					$messages = [[
