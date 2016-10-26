@@ -382,10 +382,21 @@ if (!is_null($events['events']))
 				{
 					$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=divisionname&area=5');
 					$dma_data = json_decode($content_dma, true);
-					$results = print_r($dma_data,true); // $results now contains output from print_r
-					$myfile = fopen("testfile.txt", "w");
-					fwrite($myfile, $results);
-					fclose($myfile);
+					$msg="";
+					foreach($dma_data as $k => $v) 
+					{
+  						$k = $v;
+  						$msg=$k."->".$v."\n";
+					}
+					$replytext=$msg;
+					$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					//$results = print_r($dma_data,true); // $results now contains output from print_r
+					//$myfile = fopen("testfile.txt", "w");
+					//fwrite($myfile, $msg);
+					//fclose($myfile);
 
 				}
 				else
