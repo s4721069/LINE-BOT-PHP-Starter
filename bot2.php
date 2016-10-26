@@ -382,7 +382,7 @@ if (!is_null($events['events']))
 				{
 					$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode=5552011');
 					$dma_data = json_decode($content_dma, true);
-					$results = print_r($dma_data); // $results now contains output from print_r
+					$results = print_r($dma_data,true); // $results now contains output from print_r
 					$myfile = fopen("testfile.txt", "w");
 					fwrite($myfile, $results);
 					fclose($myfile);
