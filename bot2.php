@@ -390,6 +390,10 @@ if (!is_null($events['events']))
 							{
   								$replytext.=$k." - ".$v."\n";
 							}
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
 							break;
 						default :
 							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=divisionname&area=5');
