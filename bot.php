@@ -465,7 +465,7 @@ if (!is_null($events['events']))
 }
 else
 {
-	$group=$_GET["job"];
+	$job=$_GET["job"];
 	switch ($job) 
 	{
 		case 'job01':
