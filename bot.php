@@ -468,7 +468,7 @@ else
 	$job=$_GET["job"];
 	switch ($job) 
 	{
-		case 'job01':
+		case 'job01': //รายงาน กลุ่มการจ่ายน้ำสงขลา ทุกๆ 6.00 น.
 			$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
 			$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
 			$scada_data = json_decode($content_scada, true);
@@ -481,7 +481,7 @@ else
 					'text' =>  $pushtext
 				]];
 			break;
-		case 'job02':
+		case 'job02': //รายงานคุณภาพน้ำ กลุ่มนวัตกรรม 59
 			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
 			$content_scada = file_get_contents('http://118.175.86.109/line/wq.php');
 			$scada_data = json_decode($content_scada, true);
