@@ -189,6 +189,43 @@ if (!is_null($events['events']))
 								]];
 												
 							break;
+						case "WQ" :
+							$content_scada = file_get_contents('http://118.175.86.109/line/wq.php');
+							$scada_data = json_decode($content_scada, true);
+							$replytext1="ขอรายงานคุณภาพน้ำของโรงกรอง 1500 ลบ.ม./ชม. (Z3) ณ ".$scada_data['DateTimeZ3']." ดังนี้\n";
+							$replytext1.="ความขุ่น ".number_format($scada_data['Z3HY_TB'],2)." NTU\n";
+							$replytext1.="pH ".number_format($scada_data['Z3HY_PH'],2)."\n";
+							$replytext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)."mg/l";
+							$replytext2="ขอรายงานคุณภาพน้ำของโรงกรอง 2000 ลบ.ม./ชม. (Z4) ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
+							$replytext2.="ความขุ่น ".number_format($scada_data['Z4HY_TB'],2)." NTU\n";
+							$replytext2.="pH ".number_format($scada_data['Z4HY_PH'],2)."\n";
+							$replytext2.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)."mg/l";
+							$replytext3="ขอรายงานคุณภาพน้ำของแรงสูง 4 (Z9) ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
+							$replytext3.="ความขุ่น ".number_format($scada_data['Z9HY_TB'],2)." NTU\n";
+							$replytext3.="pH ".number_format($scada_data['Z9HY_PH'],2)."\n";
+							$replytext3.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)."mg/l";
+							$replytext4="ขอรายงานคุณภาพน้ำของสถานีจ่ายน้ำบ้านพรุ (Z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
+							$replytext4.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)."mg/l";
+							$replytext5="ขอรายงานคุณภาพน้ำของสถานีจ่ายน้ำนาหม่อม (Z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
+							$replytext5.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)."mg/l";
+							$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext1
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext2
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext3
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext4
+								]];
+												
+							break;
 						
 						default :
 					
@@ -204,7 +241,8 @@ if (!is_null($events['events']))
 							$replytext.="7. สถานีจ่ายน้ำบ้านพรุ(z11) ให้กรอก robot hy z11\n";
 							$replytext.="8. สถานีจ่ายน้ำนาหม่อม(z12) ให้กรอก robot hy z12\n";
 							$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot hy z13\n";
-							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hy z14";
+							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hy z14\n";
+							$replytext.="11. คุณภาพน้ำ ให้กรอก robot hy wq";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
