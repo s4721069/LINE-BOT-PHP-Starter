@@ -195,19 +195,19 @@ if (!is_null($events['events']))
 							$replytext1="ขอรายงานคุณภาพน้ำของโรงกรอง 1500 ลบ.ม./ชม. (Z3) ณ ".$scada_data['DateTimeZ3']." ดังนี้\n";
 							$replytext1.="ความขุ่น ".number_format($scada_data['Z3HY_TB'],2)." NTU\n";
 							$replytext1.="pH ".number_format($scada_data['Z3HY_PH'],2)."\n";
-							$replytext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)."mg/l";
+							$replytext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)." mg/l";
 							$replytext2="ขอรายงานคุณภาพน้ำของโรงกรอง 2000 ลบ.ม./ชม. (Z4) ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
 							$replytext2.="ความขุ่น ".number_format($scada_data['Z4HY_TB'],2)." NTU\n";
 							$replytext2.="pH ".number_format($scada_data['Z4HY_PH'],2)."\n";
-							$replytext2.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)."mg/l";
+							$replytext2.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)." mg/l";
 							$replytext3="ขอรายงานคุณภาพน้ำของแรงสูง 4 (Z9) ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
 							$replytext3.="ความขุ่น ".number_format($scada_data['Z9HY_TB'],2)." NTU\n";
 							$replytext3.="pH ".number_format($scada_data['Z9HY_PH'],2)."\n";
-							$replytext3.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)."mg/l";
+							$replytext3.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)." mg/l";
 							$replytext4="ขอรายงานคุณภาพน้ำของสถานีจ่ายน้ำบ้านพรุ (Z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
-							$replytext4.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)."mg/l";
+							$replytext4.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)." mg/l";
 							$replytext5="ขอรายงานคุณภาพน้ำของสถานีจ่ายน้ำนาหม่อม (Z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
-							$replytext5.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)."mg/l";
+							$replytext5.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)." mg/l";
 							$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext1
@@ -223,6 +223,10 @@ if (!is_null($events['events']))
 								[
 									'type' => 'text',
 									'text' =>  $replytext4
+								],
+								[
+									'type' => 'text',
+									'text' =>  $replytext5
 								]];
 												
 							break;
