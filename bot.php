@@ -476,6 +476,51 @@ else
 			$pushtext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
 			$pushtext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
 			$pushtext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext
+				]];
+			break;
+		case 'job02':
+			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
+			$content_scada = file_get_contents('http://118.175.86.109/line/wq.php');
+			$scada_data = json_decode($content_scada, true);
+			$pushtext1="คุณภาพน้ำของโรงกรอง 1500 ลบ.ม./ชม. (Z3) ณ ".$scada_data['DateTimeZ3']." ดังนี้\n";
+			$pushtext1.="ความขุ่น ".number_format($scada_data['Z3HY_TB'],2)." NTU\n";
+			$pushtext1.="pH ".number_format($scada_data['Z3HY_PH'],2)."\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)." mg/l";
+			$pushtext2="คุณภาพน้ำของโรงกรอง 2000 ลบ.ม./ชม. (Z4) ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
+			$pushtext2.="ความขุ่น ".number_format($scada_data['Z4HY_TB'],2)." NTU\n";
+			$pushtext2.="pH ".number_format($scada_data['Z4HY_PH'],2)."\n";
+			$pushtext2.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)." mg/l";
+			$pushtext3="คุณภาพน้ำของแรงสูง 4 (Z9) ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
+			$pushtext3.="ความขุ่น ".number_format($scada_data['Z9HY_TB'],2)." NTU\n";
+			$pushtext3.="pH ".number_format($scada_data['Z9HY_PH'],2)."\n";
+			$pushtext3.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)." mg/l";
+			$pushtext4="คุณภาพน้ำของสถานีจ่ายน้ำบ้านพรุ (Z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
+			$pushtext4.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)." mg/l";
+			$pushtext5="คุณภาพน้ำของสถานีจ่ายน้ำนาหม่อม (Z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
+			$pushtext5.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)." mg/l";
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext2
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext3
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext4
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext5
+				]];
 			break;
 		
 		default:
@@ -484,17 +529,13 @@ else
 	}
 
 	
-	
-	$messages = [
-					'type' => 'text',
-					'text' =>  $pushtext
-				];
+
 
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/push';
 	$data = [
 		'to' => $to,
-		'messages' => [$messages],
+		'messages' => $messages,
 	];
 	$post = json_encode($data);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
