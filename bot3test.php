@@ -253,20 +253,71 @@ if (!is_null($events['events']))
 												
 							break;
 						case "TELE" :
-							$url = "http://tele-wrd.pwa.co.th/web/?view=station&id=HY_01";
-						    $curl = curl_init();
-						    curl_setopt ($curl, CURLOPT_URL, $url);
-						    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+							$tele_url = "http://tele-wrd.pwa.co.th/web/?view=station&id=HY_01";
+						    $tele_curl = curl_init();
+						    curl_setopt ($tele_curl, CURLOPT_URL, $tele_url);
+						    curl_setopt($tele_curl, CURLOPT_RETURNTRANSFER, 1);
 
-						    $result = curl_exec ($curl);
-						    curl_close ($curl);
-						    //print $result;
-						    $arrOutput=explode("<Q>อัพเดทล่าสุด : ",$result);
-						    $arrOutput=explode("</Q>",$arrOutput[1]);
-						    //echo $arrOutput[0];
+						    $tele_result = curl_exec ($tele_curl);
+						    curl_close ($tele_curl);
+						    //print $tele_result;
+						    $tele_lastdatatime=explode("<Q>อัพเดทล่าสุด : ",$tele_result);
+						    $tele_lastdatatime=explode("</Q>",$tele_lastdatatime[1]);
+						    $tele_lastdatatime=$tele_lastdatatime[0];
+						    //print "\$tele_lastdatatime=$tele_lastdatatime<br>";
+						    $tele_ph=explode("<TD CLASS=\"left\">pH </TD>",$tele_result);
+						    $tele_ph=explode("</TD>",$tele_ph[1]);
+						    $tele_ph=$tele_ph[0];
+						    $tele_ph=explode("<TD CLASS=\"bold\">",$tele_ph);
+						    $tele_ph=$tele_ph[1];
+						    //print "\$tele_ph=$tele_ph<br>";
+						    $tele_do=explode("<TD CLASS=\"left\">DO (mg/L)</TD>",$tele_result);
+						    $tele_do=explode("</TD>",$tele_do[1]);
+						    $tele_do=$tele_do[0];
+						    $tele_do=explode("<TD CLASS=\"bold\">",$tele_do);
+						    $tele_do=$tele_do[1];
+						    //print "\$tele_do=$tele_do<br>";
+						    $tele_tb=explode("<TD CLASS=\"left\">Turbidity (NTU)</TD>",$tele_result);
+						    $tele_tb=explode("</TD>",$tele_tb[1]);
+						    $tele_tb=$tele_tb[0];
+						    $tele_tb=explode("<TD CLASS=\"bold\">",$tele_tb);
+						    $tele_tb=$tele_tb[1];
+						    //print "\$tele_tb=$tele_tb<br>";
+						    $tele_ec=explode("<TD CLASS=\"left\">EC (uS/cm)</TD>",$tele_result);
+						    $tele_ec=explode("</TD>",$tele_ec[1]);
+						    $tele_ec=$tele_ec[0];
+						    $tele_ec=explode("<TD CLASS=\"bold\">",$tele_ec);
+						    $tele_ec=$tele_ec[1];
+						    //print "\$tele_ec=$tele_ec<br>";
+						    $tele_salinity=explode("<TD CLASS=\"left\">Salinity (g/L)</TD>",$tele_result);
+						    $tele_salinity=explode("</TD>",$tele_salinity[1]);
+						    $tele_salinity=$tele_salinity[0];
+						    $tele_salinity=explode("<TD CLASS=\"bold\">",$tele_salinity);
+						    $tele_salinity=$tele_salinity[1];
+						    //print "\$tele_salinity=$tele_salinity<br>";
+						    $tele_orp=explode("<TD CLASS=\"left\">ORP (mV)</TD>",$tele_result);
+						    $tele_orp=explode("</TD>",$tele_orp[1]);
+						    $tele_orp=$tele_orp[0];
+						    $tele_orp=explode("<TD CLASS=\"bold\">",$tele_orp);
+						    $tele_orp=$tele_orp[1];
+						    //print "\$tele_orp=$tele_orp<br>";
+						    $tele_temp=explode("<TD CLASS=\"left\">Temp (C)</TD>",$tele_result);
+						    $tele_temp=explode("</TD>",$tele_temp[1]);
+						    $tele_temp=$tele_temp[0];
+						    $tele_temp=explode("<TD CLASS=\"bold\">",$tele_temp);
+						    $tele_temp=$tele_temp[1];
+						    //print "\$tele_temp=$tele_temp<br>";
+						    $replytext="ข้อมูลสถานีตรวจวัดน้ำดิบ อัพเดทล่าสุด ".$tele_lastdatatime."\n";
+						    $replytext.="- pH ".$tele_ph."\n";
+						    $replytext.="- DO ".$tele_do." mg/L\n";
+						    $replytext.="- Turbidity ".$tele_tb." NTU\n";
+						    $replytext.="- การนำไฟฟ้า ".$tele_ec." uS/cm\n";
+						    $replytext.="- ความเค็ม ".$tele_salinity." g/L\n";
+						    $replytext.="- รีดอกซ์ ".$tele_orp." mV\n";
+						    $replytext.="- อุณหภูมิ ".$tele_temp." C\n";
 						    $messages = [[
 									'type' => 'text',
-									'text' =>  $arrOutput[0]
+									'text' =>  $replytext
 								]];
 
 							break;
