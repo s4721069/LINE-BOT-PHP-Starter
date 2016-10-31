@@ -511,35 +511,35 @@ else
 			$pushtext1="คุณภาพน้ำของโรงกรอง 1500 ลบ.ม./ชม. (Z3) ณ ".$scada_data['DateTimeZ3']." ดังนี้\n";
 			$pushtext1.="ความขุ่น ".number_format($scada_data['Z3HY_TB'],2)." NTU\n";
 			$pushtext1.="pH ".number_format($scada_data['Z3HY_PH'],2)."\n";
-			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)." mg/l";
-			$pushtext2="คุณภาพน้ำของโรงกรอง 2000 ลบ.ม./ชม. (Z4) ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
-			$pushtext2.="ความขุ่น ".number_format($scada_data['Z4HY_TB'],2)." NTU\n";
-			$pushtext2.="pH ".number_format($scada_data['Z4HY_PH'],2)."\n";
-			$pushtext2.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)." mg/l";
-			$pushtext3="คุณภาพน้ำของแรงสูง 4 (Z9) ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
-			$pushtext3.="ความขุ่น ".number_format($scada_data['Z9HY_TB'],2)." NTU\n";
-			$pushtext3.="pH ".number_format($scada_data['Z9HY_PH'],2)."\n";
-			$pushtext3.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)." mg/l";
-			$pushtext4="คุณภาพน้ำของสถานีจ่ายน้ำบ้านพรุ (Z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
-			$pushtext4.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)." mg/l";
-			$pushtext5="คุณภาพน้ำของสถานีจ่ายน้ำนาหม่อม (Z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
-			$pushtext5.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)." mg/l";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของโรงกรอง 2000 ลบ.ม./ชม. (Z4) ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
+			$pushtext1.="ความขุ่น ".number_format($scada_data['Z4HY_TB'],2)." NTU\n";
+			$pushtext1.="pH ".number_format($scada_data['Z4HY_PH'],2)."\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของแรงสูง 4 (Z9) ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
+			$pushtext1.="ความขุ่น ".number_format($scada_data['Z9HY_TB'],2)." NTU\n";
+			$pushtext1.="pH ".number_format($scada_data['Z9HY_PH'],2)."\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของสถานีจ่ายน้ำบ้านพรุ (Z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของสถานีจ่ายน้ำนาหม่อม (Z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)." mg/l";
 
 			$content_scada = file_get_contents('http://118.175.86.109/line/volume.php');
 			$scada_data = json_decode($content_scada, true);
-			$pushtext6="ปริมาณน้ำ ณ ".$scada_data['DateTimeZ3']."\n";
-			$pushtext6.="-ถังน้ำใสขนาด 3,000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3HY_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 3,000 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังสูงขนาด 2,500 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 6,000 ลบ.ม. (Z7) คือ ".number_format($scada_data['Z7HY_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 3,500 ลบ.ม. (Z8) คือ ".number_format($scada_data['Z8HY_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 3,500 ลบ.ม. (Z9) คือ ".number_format($scada_data['Z9HY_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 1,000 ลบ.ม. สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังสูงขนาด 250 ลบ.ม. สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE2_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 200 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE1_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังสูงขนาด 100 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE2_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังน้ำใสขนาด 1500 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE2_VOLUME'],0)." ลบ.ม.\n";
-			$pushtext6.="-ถังสูงขนาด 300 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE1_VOLUME'],0)." ลบ.ม.";
+			$pushtext2="ปริมาณน้ำ ณ ".$scada_data['DateTimeZ3']."\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,000 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังสูงขนาด 2,500 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 6,000 ลบ.ม. (Z7) คือ ".number_format($scada_data['Z7HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,500 ลบ.ม. (Z8) คือ ".number_format($scada_data['Z8HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,500 ลบ.ม. (Z9) คือ ".number_format($scada_data['Z9HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 1,000 ลบ.ม. สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังสูงขนาด 250 ลบ.ม. สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE2_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 200 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE1_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังสูงขนาด 100 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE2_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังน้ำใสขนาด 1500 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE2_VOLUME'],0)." ลบ.ม.\n";
+			$pushtext2.="-ถังสูงขนาด 300 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE1_VOLUME'],0)." ลบ.ม.";
 			$messages = [[
 					'type' => 'text',
 					'text' =>  $pushtext1
@@ -547,18 +547,6 @@ else
 				[
 					'type' => 'text',
 					'text' =>  $pushtext2
-				],
-				[
-					'type' => 'text',
-					'text' =>  $pushtext3
-				],
-				[
-					'type' => 'text',
-					'text' =>  $pushtext4
-				],
-				[
-					'type' => 'text',
-					'text' =>  $pushtext5
 				]];
 
 
