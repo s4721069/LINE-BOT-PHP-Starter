@@ -230,6 +230,27 @@ if (!is_null($events['events']))
 								]];
 												
 							break;
+							case "VOLUME" :
+							$content_scada = file_get_contents('http://118.175.86.109/line/volume.php');
+							$scada_data = json_decode($content_scada, true);
+							$replytext1="ปริมาณน้ำ ณ ".$scada_data['DateTimeZ3']."\n";
+							$replytext1.="ถังน้ำใส 3000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส 3000 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังสูง 2500 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส 6000 ลบ.ม. (Z7) คือ ".number_format($scada_data['Z7HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส 3500 ลบ.ม. (Z8) คือ ".number_format($scada_data['Z8HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส 3500 ลบ.ม. (Z9) คือ ".number_format($scada_data['Z9HY_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังสูง สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE2_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE1_VOLUME'],0)." ลบ.ม.\n";
+							$replytext1.="ถังน้ำใส สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE2_VOLUME'],0)." ลบ.ม.\n";
+							
+							$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext1
+								]];
+												
+							break;
 						
 						default :
 					
