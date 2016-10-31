@@ -269,7 +269,7 @@ if (!is_null($events['events']))
 							$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot hy z13\n";
 							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hy z14\n";
 							$replytext.="11. คุณภาพน้ำ ให้กรอก robot hy wq\n";
-							$replytext.="11. ปริมาณน้ำ ให้กรอก robot hy volume";
+							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hy volume";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
