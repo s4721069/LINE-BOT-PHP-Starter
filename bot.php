@@ -559,10 +559,6 @@ else
 				[
 					'type' => 'text',
 					'text' =>  $pushtext5
-				],
-				[
-					'type' => 'text',
-					'text' =>  $pushtext6
 				]];
 
 
