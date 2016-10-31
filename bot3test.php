@@ -252,6 +252,24 @@ if (!is_null($events['events']))
 								]];
 												
 							break;
+						case "TELE" :
+							$url = "http://tele-wrd.pwa.co.th/web/?view=station&id=HY_01";
+						    $curl = curl_init();
+						    curl_setopt ($curl, CURLOPT_URL, $url);
+						    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+						    $result = curl_exec ($curl);
+						    curl_close ($curl);
+						    //print $result;
+						    $arrOutput=explode("<Q>อัพเดทล่าสุด : ",$result);
+						    $arrOutput=explode("</Q>",$arrOutput[1]);
+						    //echo $arrOutput[0];
+						    $messages = [[
+									'type' => 'text',
+									'text' =>  $arrOutput[0]
+								]];
+
+							break;
 						
 						default :
 					
