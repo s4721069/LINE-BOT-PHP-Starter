@@ -314,7 +314,7 @@ if (!is_null($events['events']))
 						    $replytext.="- การนำไฟฟ้า ".$tele_ec." uS/cm\n";
 						    $replytext.="- ความเค็ม ".$tele_salinity." g/L\n";
 						    $replytext.="- รีดอกซ์ ".$tele_orp." mV\n";
-						    $replytext.="- อุณหภูมิ ".$tele_temp." C\n";
+						    $replytext.="- อุณหภูมิ ".$tele_temp." C";
 						    $messages = [[
 									'type' => 'text',
 									'text' =>  $replytext
@@ -338,7 +338,8 @@ if (!is_null($events['events']))
 							$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot hy z13\n";
 							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hy z14\n";
 							$replytext.="11. คุณภาพน้ำ ให้กรอก robot hy wq\n";
-							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hy volume";
+							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hy volume\n";
+							$replytext.="13. สถานีตรวจวัดน้ำดิบ ให้กรอก robot hy tele";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
