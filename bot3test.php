@@ -230,7 +230,7 @@ if (!is_null($events['events']))
 								]];
 												
 							break;
-							case "VOLUME" :
+						case "VOLUME" :
 							$content_scada = file_get_contents('http://118.175.86.109/line/volume.php');
 							$scada_data = json_decode($content_scada, true);
 							$percentZ3HY_LE1_VOLUME=number_format($scada_data['Z3HY_LE1_VOLUME']/3000*100,2);
