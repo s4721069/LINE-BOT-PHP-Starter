@@ -583,6 +583,18 @@ else
 			$pushtext2.="-ถังสูงขนาด 100 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ0HY_DC_NM_LE2_VOLUME." %\n";
 			$pushtext2.="-ถังน้ำใสขนาด 1500 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ14KL_LE2_VOLUME." %\n";
 			$pushtext2.="-ถังสูงขนาด 300 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ14KL_LE1_VOLUME." %";
+			
+			$content_scada = file_get_contents('http://118.175.86.109/line/wrd.php');
+			$scada_data = json_decode($content_scada, true);
+		    $pushtext3="ข้อมูลสถานีตรวจวัดน้ำดิบ อัพเดทล่าสุด ".$scada_data['tele_lastdatatime']."\n";
+		    $pushtext3.="- pH ".$scada_data['tele_ph']."\n";
+		    $pushtext3.="- DO ".$scada_data['tele_do']." mg/L\n";
+		    $pushtext3.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
+		    $pushtext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+		    $pushtext3.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
+		    $pushtext3.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
+		    $pushtext3.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
+		    $pushtext3.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
 			$messages = [[
 					'type' => 'text',
 					'text' =>  $pushtext1
@@ -590,6 +602,10 @@ else
 				[
 					'type' => 'text',
 					'text' =>  $pushtext2
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext3
 				]];
 
 
