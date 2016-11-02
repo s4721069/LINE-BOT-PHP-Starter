@@ -274,7 +274,8 @@ if (!is_null($events['events']))
 						    $replytext.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
 						    $replytext.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
-						    $replytext.="- อุณหภูมิ ".$scada_data['tele_temp']." C";
+						    $replytext.="- อุณหภูมิ ".$scada_data['tele_temp']." C\n";
+						    $replytext.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
 						    $messages = [[
 									'type' => 'text',
 									'text' =>  $replytext
