@@ -265,20 +265,48 @@ if (!is_null($events['events']))
 												
 							break;
 						case "TELE" :
-							$content_scada = file_get_contents('http://118.175.86.109/line/wrd.php');
+							$content_scada = file_get_contents('http://118.175.86.109/line/tele.php?id=HY_01');
 							$scada_data = json_decode($content_scada, true);
-						    $replytext="ข้อมูลสถานีตรวจวัดน้ำดิบ อัพเดทล่าสุด ".$scada_data['tele_lastdatatime']."\n";
-						    $replytext.="- pH ".$scada_data['tele_ph']."\n";
-						    $replytext.="- DO ".$scada_data['tele_do']." mg/L\n";
-						    $replytext.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
-						    $replytext.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
-						    $replytext.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
-						    $replytext.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
-						    $replytext.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
+						    $replytext1="ข้อมูลสถานีตรวจวัดน้ำดิบ สถานีหาดใหญ่ อัพเดทล่าสุด ".$scada_data['tele_lastdatatime']."\n";
+						    $replytext1.="- pH ".$scada_data['tele_ph']."\n";
+						    $replytext1.="- DO ".$scada_data['tele_do']." mg/L\n";
+						    $replytext1.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
+						    $replytext1.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext1.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
+						    $replytext1.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
+						    $replytext1.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
+						    $replytext1.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
+						    $content_scada = file_get_contents('http://118.175.86.109/line/tele.php?id=Q08');
+							$scada_data = json_decode($content_scada, true);
+						    $replytext2="ข้อมูลสถานีตรวจวัดน้ำดิบ สถานีบางศาลา อัพเดทล่าสุด ".$scada_data['tele_lastdatatime']."\n";
+						    $replytext2.="- pH ".$scada_data['tele_ph']."\n";
+						    $replytext2.="- DO ".$scada_data['tele_do']." mg/L\n";
+						    $replytext2.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
+						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext2.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
+						    $replytext2.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
+						    $replytext2.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
+						    $replytext2.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
+						    $content_scada = file_get_contents('http://118.175.86.109/line/tele.php?id=2Q06');
+							$scada_data = json_decode($content_scada, true);
+						    $replytext3="ข้อมูลสถานีตรวจวัดน้ำดิบ สถานีพังลา อัพเดทล่าสุด ".$scada_data['tele_lastdatatime']."\n";
+						    $replytext3.="- pH ".$scada_data['tele_ph']."\n";
+						    $replytext3.="- DO ".$scada_data['tele_do']." mg/L\n";
+						    $replytext3.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
+						    $replytext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext3.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
+						    $replytext3.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
+						    $replytext3.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
+						    $replytext3.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
 						    $messages = [[
 									'type' => 'text',
-									'text' =>  $replytext
+									'text' =>  $replytext1
+								],[
+									'type' => 'text',
+									'text' =>  $replytext2
+								],[
+									'type' => 'text',
+									'text' =>  $replytext3
 								]];
 
 							break;
