@@ -335,7 +335,6 @@ if (!is_null($events['events']))
 									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp20.jpg',
 									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp20.jpg'
 								]];
-
 							break;
 						
 						default :
