@@ -310,6 +310,18 @@ if (!is_null($events['events']))
 								]];
 
 							break;
+						case "FLOOD" :
+							$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT20');
+							$scada_data = json_decode($content_scada, true);
+						    $replytext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+						    $replytext1="เมื่อ".$scada_data['flood_lastdatatime']."\n";
+						    
+						    $messages = [[
+									'type' => 'text',
+									'text' =>  $replytext1
+								]];
+
+							break;
 						
 						default :
 					
