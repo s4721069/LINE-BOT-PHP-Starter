@@ -322,6 +322,7 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
 							    resize($scada_data['flood_image'],"thumb_utp10.jpg",240);
 							    resize($scada_data['flood_image'],"utp10.jpg",1024);
+							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT10";
 							    
 							    $messages = [[
 										'type' => 'text',
@@ -336,6 +337,9 @@ if (!is_null($events['events']))
 										'type' => 'image',
 										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp10.jpg',
 										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp10.jpg'
+									],[
+										'type' => 'text',
+										'text' =>  $replytext2
 									]];
 							}
 							elseif (strtoupper($textArr[3])=="UPT20") 
@@ -349,6 +353,7 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
 							    resize($scada_data['flood_image'],"thumb_utp20.jpg",240);
 							    resize($scada_data['flood_image'],"utp20.jpg",1024);
+							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT20";
 							    
 							    $messages = [[
 										'type' => 'text',
@@ -363,6 +368,9 @@ if (!is_null($events['events']))
 										'type' => 'image',
 										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp20.jpg',
 										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp20.jpg'
+									],[
+										'type' => 'text',
+										'text' =>  $replytext2
 									]];
 							}
 							elseif (strtoupper($textArr[3])=="UPT30") 
@@ -376,6 +384,7 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
 							    resize($scada_data['flood_image'],"thumb_utp30.jpg",240);
 							    resize($scada_data['flood_image'],"utp30.jpg",1024);
+							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT30";
 							    
 							    $messages = [[
 										'type' => 'text',
@@ -390,6 +399,9 @@ if (!is_null($events['events']))
 										'type' => 'image',
 										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp30.jpg',
 										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp30.jpg'
+									],[
+										'type' => 'text',
+										'text' =>  $replytext2
 									]];
 							}
 							else
@@ -403,8 +415,7 @@ if (!is_null($events['events']))
 									'text' =>  $replytext
 									]];
 							}
-							break; 
-						
+							break; 						
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
