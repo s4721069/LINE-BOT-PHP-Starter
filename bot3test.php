@@ -315,6 +315,7 @@ if (!is_null($events['events']))
 							$scada_data = json_decode($content_scada, true);
 						    $replytext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
 						    $replytext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+						    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 						    
 						    $messages = [[
 									'type' => 'text',
