@@ -319,6 +319,12 @@ if (!is_null($events['events']))
 						    $messages = [[
 									'type' => 'text',
 									'text' =>  $replytext1
+								],[
+									'type' => 'location',
+									'title' =>  $scada_data['flood_name'],
+									'address' =>  $scada_data['flood_address'],
+									'latitude' =>  $scada_data['flood_lat'],
+									'longitude' =>  $scada_data['flood_long']
 								]];
 
 							break;
