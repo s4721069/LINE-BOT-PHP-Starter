@@ -318,6 +318,8 @@ if (!is_null($events['events']))
 						    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 						    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 						    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+						    resize($scada_data['flood_image'],"thumb_utp20.jpg",240);
+						    resize($scada_data['flood_image'],"utp20.jpg",1024);
 						    
 						    $messages = [[
 									'type' => 'text',
@@ -328,6 +330,10 @@ if (!is_null($events['events']))
 									'address' =>  $scada_data['flood_address'],
 									'latitude' =>  $scada_data['flood_lat'],
 									'longitude' =>  $scada_data['flood_long']
+								],[
+									'type' => 'image',
+									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp20.jpg',
+									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp20.jpg'
 								]];
 
 							break;
