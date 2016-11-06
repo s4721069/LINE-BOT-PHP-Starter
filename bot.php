@@ -310,6 +310,100 @@ if (!is_null($events['events']))
 								]];
 
 							break;
+						case "FLOOD" :
+							if(strtoupper($textArr[3])=="UPT10")
+							{
+								$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT10');
+								$scada_data = json_decode($content_scada, true);
+							    $replytext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+							    $replytext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
+							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
+							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+							    resize($scada_data['flood_image'],"thumb_utp10.jpg",240);
+							    resize($scada_data['flood_image'],"utp10.jpg",1024);
+							    
+							    $messages = [[
+										'type' => 'text',
+										'text' =>  $replytext1
+									],[
+										'type' => 'location',
+										'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
+										'address' =>  $scada_data['flood_address'],
+										'latitude' =>  $scada_data['flood_lat'],
+										'longitude' =>  $scada_data['flood_long']
+									],[
+										'type' => 'image',
+										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp10.jpg',
+										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp10.jpg'
+									]];
+							}
+							elseif (strtoupper($textArr[3])=="UPT20") 
+							{
+								$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT20');
+								$scada_data = json_decode($content_scada, true);
+							    $replytext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+							    $replytext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
+							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
+							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+							    resize($scada_data['flood_image'],"thumb_utp20.jpg",240);
+							    resize($scada_data['flood_image'],"utp20.jpg",1024);
+							    
+							    $messages = [[
+										'type' => 'text',
+										'text' =>  $replytext1
+									],[
+										'type' => 'location',
+										'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
+										'address' =>  $scada_data['flood_address'],
+										'latitude' =>  $scada_data['flood_lat'],
+										'longitude' =>  $scada_data['flood_long']
+									],[
+										'type' => 'image',
+										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp20.jpg',
+										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp20.jpg'
+									]];
+							}
+							elseif (strtoupper($textArr[3])=="UPT30") 
+							{
+								$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT30');
+								$scada_data = json_decode($content_scada, true);
+							    $replytext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+							    $replytext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
+							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
+							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+							    resize($scada_data['flood_image'],"thumb_utp30.jpg",240);
+							    resize($scada_data['flood_image'],"utp30.jpg",1024);
+							    
+							    $messages = [[
+										'type' => 'text',
+										'text' =>  $replytext1
+									],[
+										'type' => 'location',
+										'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
+										'address' =>  $scada_data['flood_address'],
+										'latitude' =>  $scada_data['flood_lat'],
+										'longitude' =>  $scada_data['flood_long']
+									],[
+										'type' => 'image',
+										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp30.jpg',
+										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp30.jpg'
+									]];
+							}
+							else
+							{
+								$replytext="ในขณะนี้ผมสามารถให้ข้อมูลระบบประเมินสถานการณ์เพื่อการเตือนภัยน้ำท่วม จังหวัดสงขลา ได้ดังนี้\n";
+								$replytext.="1. สถานีบ้านหาดใหญ่ใน ให้กรอก robot hy flood upt10\n";
+								$replytext.="2. สถานีสะพานบ้านบางศาลา ให้กรอก robot hy flood upt20\n";
+								$replytext.="3. สถานีสะพานวัดม่วงก็อง ให้กรอก robot hy flood upt30";
+								$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext
+									]];
+							}
+							break; 
 						
 						default :
 					
@@ -328,7 +422,8 @@ if (!is_null($events['events']))
 							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hy z14\n";
 							$replytext.="11. คุณภาพน้ำ ให้กรอก robot hy wq\n";
 							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hy volume\n";
-							$replytext.="13. สถานีตรวจวัดน้ำดิบ ให้กรอก robot hy tele";
+							$replytext.="13. สถานีตรวจวัดน้ำดิบ ให้กรอก robot hy tele\n";
+							$replytext.="14. ระบบประเมินสถานการณ์เพื่อการเตือนภัยน้ำท่วม ให้กรอก robot hy flood";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext

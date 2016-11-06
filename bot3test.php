@@ -328,7 +328,7 @@ if (!is_null($events['events']))
 										'text' =>  $replytext1
 									],[
 										'type' => 'location',
-										'title' =>  'ที่ตั้ง'.$scada_data['flood_name'],
+										'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
 										'address' =>  $scada_data['flood_address'],
 										'latitude' =>  $scada_data['flood_lat'],
 										'longitude' =>  $scada_data['flood_long']
@@ -355,7 +355,7 @@ if (!is_null($events['events']))
 										'text' =>  $replytext1
 									],[
 										'type' => 'location',
-										'title' =>  'ที่ตั้ง'.$scada_data['flood_name'],
+										'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
 										'address' =>  $scada_data['flood_address'],
 										'latitude' =>  $scada_data['flood_lat'],
 										'longitude' =>  $scada_data['flood_long']
@@ -382,7 +382,7 @@ if (!is_null($events['events']))
 										'text' =>  $replytext1
 									],[
 										'type' => 'location',
-										'title' =>  'ที่ตั้ง'.$scada_data['flood_name'],
+										'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
 										'address' =>  $scada_data['flood_address'],
 										'latitude' =>  $scada_data['flood_lat'],
 										'longitude' =>  $scada_data['flood_long']
