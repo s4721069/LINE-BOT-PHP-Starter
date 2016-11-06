@@ -395,15 +395,15 @@ if (!is_null($events['events']))
 							else
 							{
 								$replytext="ในขณะนี้ผมสามารถให้ข้อมูลระบบประเมินสถานการณ์เพื่อการเตือนภัยน้ำท่วม จังหวัดสงขลา ได้ดังนี้\n";
-								$replytext.="1. สถานีบ้านหาดใหญ่ใน ให้กรอก robot hy flood utp10\n";
-								$replytext.="2. สถานีสะพานบ้านบางศาลา ให้กรอก robot hy flood utp20\n";
-								$replytext.="3. สถานีสะพานวัดม่วงก็อง ให้กรอก robot hy flood utp30";
+								$replytext.="1. สถานีบ้านหาดใหญ่ใน ให้กรอก robot hy flood upt10\n";
+								$replytext.="2. สถานีสะพานบ้านบางศาลา ให้กรอก robot hy flood upt20\n";
+								$replytext.="3. สถานีสะพานวัดม่วงก็อง ให้กรอก robot hy flood upt30";
 								$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext
 									]];
 							}
-							break;
+							break; 
 						
 						default :
 					
