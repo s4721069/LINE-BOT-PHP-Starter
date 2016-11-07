@@ -745,7 +745,7 @@ else
 
 
 			break;
-		case 'upt10	': //flood กลุ่มนวัตกรรม 59
+		case 'upt10': //flood กลุ่มนวัตกรรม 59
 			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
 			$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT10');
 			$scada_data = json_decode($content_scada, true);
@@ -773,7 +773,7 @@ else
 				]];
 
 			break;
-		case 'upt20	': //flood กลุ่มนวัตกรรม 59
+		case 'upt20': //flood กลุ่มนวัตกรรม 59
 			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
 			$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT20');
 			$scada_data = json_decode($content_scada, true);
@@ -801,7 +801,7 @@ else
 				]];
 
 			break;
-		case 'upt30	': //flood กลุ่มนวัตกรรม 59
+		case 'upt30': //flood กลุ่มนวัตกรรม 59
 			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
 			$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT30');
 			$scada_data = json_decode($content_scada, true);
