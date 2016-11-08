@@ -829,6 +829,49 @@ else
 				]];
 
 			break;
+
+		case 'pumprun_sk': //flood กลุ่มนวัตกรรม 59
+			$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
+			$pushtext1="";
+			if(strlen($_GET["cvm01sk"])>0)
+				$pushtext1.="CVM01SK ".$_GET["cvm01sk"]."\n";
+			if(strlen($_GET["cvm02sk"])>0)
+				$pushtext1.="CVM02SK ".$_GET["cvm02sk"]."\n";
+			if(strlen($_GET["cvm03sk"])>0)
+				$pushtext1.="CVM03SK ".$_GET["cvm03sk"]."\n";
+			if(strlen($_GET["cvm04sk"])>0)
+				$pushtext1.="CVM04SK ".$_GET["cvm04sk"]."\n";
+			if(strlen($_GET["cvm05sk"])>0)
+				$pushtext1.="CVM05SK ".$_GET["cvm05sk"]."\n";
+			if(strlen($_GET["cvm01nn"])>0)
+				$pushtext1.="CVM01NN ".$_GET["cvm01nn"]."\n";
+			if(strlen($_GET["cvm02nn"])>0)
+				$pushtext1.="CVM02NN ".$_GET["cvm02nn"]."\n";
+			if(strlen($_GET["cvm03nn"])>0)
+				$pushtext1.="CVM03NN ".$_GET["cvm03nn"]."\n";
+			if(strlen($_GET["cvm04nn"])>0)
+				$pushtext1.="CVM04NN ".$_GET["cvm04nn"]."\n";
+			if(strlen($_GET["cvm05nn"])>0)
+				$pushtext1.="CVM05NN ".$_GET["cvm05nn"]."\n";
+			if(strlen($_GET["cvm06nn"])>0)
+				$pushtext1.="CVM06NN ".$_GET["cvm06nn"]."\n";
+			if(strlen($_GET["cvm07nn"])>0)
+				$pushtext1.="CVM07NN ".$_GET["cvm07nn"]."\n";
+			if(strlen($_GET["cvm01th"])>0)
+				$pushtext1.="CVM01TH ".$_GET["cvm01th"]."\n";
+			if(strlen($_GET["cvm02th"])>0)
+				$pushtext1.="CVM02TH ".$_GET["cvm02th"]."\n";
+			if(strlen($_GET["cvm03th"])>0)
+				$pushtext1.="CVM03TH ".$_GET["cvm03th"]."\n";
+			if(strlen($_GET["cvm04th"])>0)
+				$pushtext1.="CVM04TH ".$_GET["cvm04th"]."\n";
+		    
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				]];
+
+			break;
 		
 		default:
 			exit();
