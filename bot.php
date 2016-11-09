@@ -830,41 +830,155 @@ else
 
 			break;
 
-		case 'pumprun_sk': //flood กลุ่มนวัตกรรม 59
+		case 'pumprun_sk': 
 			$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
 			$pushtext1="";
 			if(strlen($_GET["cvm01sk"])>0)
-				$pushtext1.="CVM01SK ".$_GET["cvm01sk"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm01sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM01SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM01SK ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm02sk"])>0)
-				$pushtext1.="CVM02SK ".$_GET["cvm02sk"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm02sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM02SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm02sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM02SK ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm03sk"])>0)
-				$pushtext1.="CVM03SK ".$_GET["cvm03sk"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm03sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM03SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm03sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM03SK ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm04sk"])>0)
-				$pushtext1.="CVM04SK ".$_GET["cvm04sk"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm04sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM04SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm04sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM04SK ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm05sk"])>0)
-				$pushtext1.="CVM05SK ".$_GET["cvm05sk"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm05sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM05SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm05sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM05SK ได้เหยุดเครื่องแล้ว";
+			}
+
 			if(strlen($_GET["cvm01nn"])>0)
-				$pushtext1.="CVM01NN ".$_GET["cvm01nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm01nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM01NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM01NN ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm02nn"])>0)
-				$pushtext1.="CVM02NN ".$_GET["cvm02nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm02nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM02NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm02nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM02NN ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm03nn"])>0)
-				$pushtext1.="CVM03NN ".$_GET["cvm03nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm03nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM03NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm03nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM03NN ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm04nn"])>0)
-				$pushtext1.="CVM04NN ".$_GET["cvm04nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm04nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM04NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm04nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM04NN ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm05nn"])>0)
-				$pushtext1.="CVM05NN ".$_GET["cvm05nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm05nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM05NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm05nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM05NN ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm06nn"])>0)
-				$pushtext1.="CVM06NN ".$_GET["cvm06nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm06nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM06NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm06nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM06NN ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm07nn"])>0)
-				$pushtext1.="CVM07NN ".$_GET["cvm07nn"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm07nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM07NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm07nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM07NN ได้เหยุดเครื่องแล้ว";
+			}
+
 			if(strlen($_GET["cvm01th"])>0)
-				$pushtext1.="CVM01TH ".$_GET["cvm01th"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm01th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM01TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM01TH ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm02th"])>0)
-				$pushtext1.="CVM02TH ".$_GET["cvm02th"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm02th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM02TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm02th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM02TH ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm03th"])>0)
-				$pushtext1.="CVM03TH ".$_GET["cvm03th"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm03th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM03TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM03TH ได้เหยุดเครื่องแล้ว";
+			}
 			if(strlen($_GET["cvm04th"])>0)
-				$pushtext1.="CVM04TH ".$_GET["cvm04th"]."\n";
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm04th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM04TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm04th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM04TH ได้เหยุดเครื่องแล้ว";
+			}
 		    
 			$messages = [[
 					'type' => 'text',
