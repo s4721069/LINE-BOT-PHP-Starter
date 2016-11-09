@@ -282,7 +282,7 @@ if (!is_null($events['events']))
 						    $replytext2.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext2.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext2.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
 						    $replytext2.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext2.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext2.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -725,7 +725,7 @@ else
 		    $pushtext3.="- pH ".$scada_data['tele_ph']."\n";
 		    $pushtext3.="- DO ".$scada_data['tele_do']." mg/L\n";
 		    $pushtext3.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-		    $pushtext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+		    $pushtext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
 		    $pushtext3.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 		    $pushtext3.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 		    $pushtext3.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
