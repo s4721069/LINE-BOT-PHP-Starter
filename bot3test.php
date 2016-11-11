@@ -605,9 +605,10 @@ if (!is_null($events['events']))
 							foreach($dma_data as $k => $v) 
 							{
   								//$replytext.=$k." *** ".$v."\n";
+  								if(strlen($replytext)>0)
+  									$replytext="\n";
 								$arrDmaCode=explode($wwcode.'-SL-', $k);
-								//$replytext.=$arrDmaCode[1]." *** ".$v."\n";
-								$replytext.="-".$v." ให้กรอก robot sk dma ".$arrDmaCode[1]."\n";
+								$replytext.="-".$v." ให้กรอก robot sk dma ".strtolower($arrDmaCode[1]);
 							}
 							$messages = [[
 								'type' => 'text',
