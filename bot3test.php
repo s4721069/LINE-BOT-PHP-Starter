@@ -596,6 +596,19 @@ if (!is_null($events['events']))
 									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
 								]];
 							break;
+							case "DMA" :
+							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode=5552011');
+							$dma_data = json_decode($content_dma, true);
+							$replytext="";
+							foreach($dma_data as $k => $v) 
+							{
+  								$replytext.=$k." *** ".$v."\n";
+							}
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
