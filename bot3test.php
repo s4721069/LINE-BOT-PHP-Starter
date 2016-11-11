@@ -1,5 +1,5 @@
 <?php
-$access_token = '6AHZeq++0ib7lwzyTgJJdOJON151Ugy/L3EXVepD5tBAj/MhR5iwoQxufCbcEyGXjVP7YP7xLAOeNDCKeoLmtpaIt1dxiuz+Hs5oYxOMTPQ4I61ttgUzX10Dc3ofzQ8BEYxql2nC1c23Wy9TRpIL+QdB04t89/1O/w1cDnyilFU=';
+$access_token = 'zMD2WPXSIgTgNnJjHKExkS3oJiEjm3B++iwh1Sy0xOZUn0IKapWhTqnkEa8h3b9oTWbYvyghxYroDKb/W7gxbleMPa5aSQXUicBMz3mI04LgDZMXFcdK5dFs32mcPfrNoXhsBRAcyo655MlG/614uQdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -271,7 +271,7 @@ if (!is_null($events['events']))
 						    $replytext1.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext1.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext1.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext1.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
+						    $replytext1.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
 						    $replytext1.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext1.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext1.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -282,7 +282,7 @@ if (!is_null($events['events']))
 						    $replytext2.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext2.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext2.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
+						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
 						    $replytext2.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext2.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext2.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -293,7 +293,7 @@ if (!is_null($events['events']))
 						    $replytext3.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext3.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext3.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
+						    $replytext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
 						    $replytext3.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext3.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext3.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -320,8 +320,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+							    resize($scada_data['flood_image'],"thumb_utp10.jpg",240);
 							    resize($scada_data['flood_image'],"utp10.jpg",1024);
-							    resize("utp10.jpg","thumb_utp10.jpg",240);
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT10";
 							    
 							    $messages = [[
@@ -351,9 +351,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+							    resize($scada_data['flood_image'],"thumb_utp20.jpg",240);
 							    resize($scada_data['flood_image'],"utp20.jpg",1024);
-							    resize("utp20.jpg","thumb_utp20.jpg",240);
-							    
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT20";
 							    
 							    $messages = [[
@@ -383,9 +382,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+							    resize($scada_data['flood_image'],"thumb_utp30.jpg",240);
 							    resize($scada_data['flood_image'],"utp30.jpg",1024);
-							    resize("utp30.jpg","thumb_utp30.jpg",240);
-							    
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT30";
 							    
 							    $messages = [[
@@ -417,7 +415,8 @@ if (!is_null($events['events']))
 									'text' =>  $replytext
 									]];
 							}
-							break; 						
+							break; 
+						
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
@@ -597,20 +596,6 @@ if (!is_null($events['events']))
 									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
 								]];
 							break;
-
-						case "DMA" :
-							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode=5552011');
-							$dma_data = json_decode($content_dma, true);
-							$replytext="";
-							foreach($dma_data as $k => $v) 
-							{
-  								$replytext.=$k." *** ".$v."\n";
-							}
-							$messages = [[
-								'type' => 'text',
-								'text' =>  $replytext
-								]];
-							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
@@ -666,6 +651,18 @@ if (!is_null($events['events']))
 		}
 	}
 }
-
 echo "OK";
-
+function resize($images,$new_images,$width)
+{
+	$size=GetimageSize($images);
+	$height=round($width*$size[1]/$size[0]);
+	$images_orig = ImageCreateFromJPEG($images);
+	$photoX = ImagesX($images_orig);
+	$photoY = ImagesY($images_orig);
+	$images_fin = ImageCreateTrueColor($width, $height);
+	ImageCopyResampled($images_fin, $images_orig, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
+	ImageJPEG($images_fin,$new_images);
+	//ImageJPEG($images_fin,$new_images);
+	ImageDestroy($images_orig);
+	ImageDestroy($images_fin);
+}
