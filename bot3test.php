@@ -1,5 +1,5 @@
 <?php
-$access_token = 'zMD2WPXSIgTgNnJjHKExkS3oJiEjm3B++iwh1Sy0xOZUn0IKapWhTqnkEa8h3b9oTWbYvyghxYroDKb/W7gxbleMPa5aSQXUicBMz3mI04LgDZMXFcdK5dFs32mcPfrNoXhsBRAcyo655MlG/614uQdB04t89/1O/w1cDnyilFU=';
+$access_token = '6AHZeq++0ib7lwzyTgJJdOJON151Ugy/L3EXVepD5tBAj/MhR5iwoQxufCbcEyGXjVP7YP7xLAOeNDCKeoLmtpaIt1dxiuz+Hs5oYxOMTPQ4I61ttgUzX10Dc3ofzQ8BEYxql2nC1c23Wy9TRpIL+QdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -271,7 +271,7 @@ if (!is_null($events['events']))
 						    $replytext1.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext1.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext1.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext1.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext1.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
 						    $replytext1.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext1.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext1.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -282,7 +282,7 @@ if (!is_null($events['events']))
 						    $replytext2.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext2.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext2.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext2.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
 						    $replytext2.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext2.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext2.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -293,7 +293,7 @@ if (!is_null($events['events']))
 						    $replytext3.="- pH ".$scada_data['tele_ph']."\n";
 						    $replytext3.="- DO ".$scada_data['tele_do']." mg/L\n";
 						    $replytext3.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
-						    $replytext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." uS/cm\n";
+						    $replytext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
 						    $replytext3.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
 						    $replytext3.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
 						    $replytext3.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
@@ -320,8 +320,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-							    resize($scada_data['flood_image'],"thumb_utp10.jpg",240);
 							    resize($scada_data['flood_image'],"utp10.jpg",1024);
+							    resize("utp10.jpg","thumb_utp10.jpg",240);
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT10";
 							    
 							    $messages = [[
@@ -351,8 +351,9 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-							    resize($scada_data['flood_image'],"thumb_utp20.jpg",240);
 							    resize($scada_data['flood_image'],"utp20.jpg",1024);
+							    resize("utp20.jpg","thumb_utp20.jpg",240);
+							    
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT20";
 							    
 							    $messages = [[
@@ -382,8 +383,9 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-							    resize($scada_data['flood_image'],"thumb_utp30.jpg",240);
 							    resize($scada_data['flood_image'],"utp30.jpg",1024);
+							    resize("utp30.jpg","thumb_utp30.jpg",240);
+							    
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT30";
 							    
 							    $messages = [[
@@ -415,8 +417,7 @@ if (!is_null($events['events']))
 									'text' =>  $replytext
 									]];
 							}
-							break; 
-						
+							break; 						
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
@@ -596,6 +597,20 @@ if (!is_null($events['events']))
 									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
 								]];
 							break;
+
+						case "DMA" :
+							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode=5552011');
+							$dma_data = json_decode($content_dma, true);
+							$replytext="";
+							foreach($dma_data as $k => $v) 
+							{
+  								$replytext.=$k." *** ".$v."\n";
+							}
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
@@ -650,6 +665,369 @@ if (!is_null($events['events']))
 			}
 		}
 	}
+}
+else
+{
+	$job=$_GET["job"];
+	switch ($job) 
+	{
+		case 'job01': //รายงาน กลุ่มการจ่ายน้ำสงขลา ทุกๆ 6.00 น.
+			$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
+			$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=Jorm');
+			$scada_data = json_decode($content_scada, true);
+			$pushtext="ปริมาณน้ำวันที่ ".$scada_data['DateTime']."\n";
+			$pushtext.="- ปริมาณน้ำถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z1SK_LE1_AINPUT_PV'],2)." เมตร อัตราการจ่ายเข้าเมือง ".number_format($scada_data['Z1SK_FE2_AINPUT_PV'],0)." ลบ.ม./ชม. แรงดัน ".number_format($scada_data['Z1SK_PE2_AINPUT_PV'],2)." บาร์\n";
+			$pushtext.="- ปริมาณน้ำถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z2SK_LE1_AINPUT_PV'],2)." เมตร\n";
+			$pushtext.="- ปริมาณน้ำถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. หรือ ".number_format($scada_data['Z3NN_LE1_AINPUT_PV'],2)." เมตร";
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext
+				]];
+			break;
+		case 'job02': //รายงานคุณภาพน้ำ กลุ่มนวัตกรรม 59
+			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
+			$content_scada = file_get_contents('http://118.175.86.109/line/wq.php');
+			$scada_data = json_decode($content_scada, true);
+			$pushtext1="คุณภาพน้ำของโรงกรอง 1500 ลบ.ม./ชม. (Z3) ณ ".$scada_data['DateTimeZ3']." ดังนี้\n";
+			$pushtext1.="ความขุ่น ".number_format($scada_data['Z3HY_TB'],2)." NTU\n";
+			$pushtext1.="pH ".number_format($scada_data['Z3HY_PH'],2)."\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z3HY_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของโรงกรอง 2000 ลบ.ม./ชม. (Z4) ณ ".$scada_data['DateTimeZ4']." ดังนี้\n";
+			$pushtext1.="ความขุ่น ".number_format($scada_data['Z4HY_TB'],2)." NTU\n";
+			$pushtext1.="pH ".number_format($scada_data['Z4HY_PH'],2)."\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z4HY_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของแรงสูง 4 (Z9) ณ ".$scada_data['DateTimeZ9']." ดังนี้\n";
+			$pushtext1.="ความขุ่น ".number_format($scada_data['Z9HY_TB'],2)." NTU\n";
+			$pushtext1.="pH ".number_format($scada_data['Z9HY_PH'],2)."\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z9HY_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของสถานีจ่ายน้ำบ้านพรุ (Z11) ณ ".$scada_data['DateTimeZ11']." ดังนี้\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_BP_CL'],2)." mg/l\n\n";
+			$pushtext1.="คุณภาพน้ำของสถานีจ่ายน้ำนาหม่อม (Z12) ณ ".$scada_data['DateTimeZ12']." ดังนี้\n";
+			$pushtext1.="Residual Chlorine ".number_format($scada_data['Z0HY_DC_NM_CL'],2)." mg/l";
+
+			$content_scada = file_get_contents('http://118.175.86.109/line/volume.php');
+			$scada_data = json_decode($content_scada, true);
+			$percentZ3HY_LE1_VOLUME=number_format($scada_data['Z3HY_LE1_VOLUME']/3000*100,2);
+			$percentZ6HY_LE1_VOLUME=number_format($scada_data['Z6HY_LE1_VOLUME']/3000*100,2);
+			$percentZ6HY_LE2_VOLUME=number_format($scada_data['Z6HY_LE2_VOLUME']/250*100,2);
+			$percentZ7HY_LE1_VOLUME=number_format($scada_data['Z7HY_LE1_VOLUME']/6000*100,2);
+			$percentZ8HY_LE1_VOLUME=number_format($scada_data['Z8HY_LE1_VOLUME']/3500*100,2);
+			$percentZ9HY_LE1_VOLUME=number_format($scada_data['Z9HY_LE1_VOLUME']/3500*100,2);
+			$percentZ0HY_DC_BP_LE1_VOLUME=number_format($scada_data['Z0HY_DC_BP_LE1_VOLUME']/1000*100,2);
+			$percentZ0HY_DC_BP_LE2_VOLUME=number_format($scada_data['Z0HY_DC_BP_LE2_VOLUME']/250*100,2);
+			$percentZ0HY_DC_NM_LE1_VOLUME=number_format($scada_data['Z0HY_DC_NM_LE1_VOLUME']/200*100,2);
+			$percentZ0HY_DC_NM_LE2_VOLUME=number_format($scada_data['Z0HY_DC_NM_LE2_VOLUME']/100*100,2);
+			$percentZ14KL_LE2_VOLUME=number_format($scada_data['Z14KL_LE2_VOLUME']/1500*100,2);
+			$percentZ14KL_LE1_VOLUME=number_format($scada_data['Z14KL_LE1_VOLUME']/300*100,2);
+			$pushtext2="ปริมาณน้ำ ณ ".$scada_data['DateTimeZ3']."\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3HY_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3HY_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,000 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ6HY_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังสูงขนาด 250 ลบ.ม. (Z6) คือ ".number_format($scada_data['Z6HY_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ6HY_LE2_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 6,000 ลบ.ม. (Z7) คือ ".number_format($scada_data['Z7HY_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ7HY_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,500 ลบ.ม. (Z8) คือ ".number_format($scada_data['Z8HY_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ8HY_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 3,500 ลบ.ม. (Z9) คือ ".number_format($scada_data['Z9HY_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ9HY_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 1,000 ลบ.ม. สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ0HY_DC_BP_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังสูงขนาด 250 ลบ.ม. สถานีจ่ายน้ำบ้านพรุ (Z11) คือ ".number_format($scada_data['Z0HY_DC_BP_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ0HY_DC_BP_LE2_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 200 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ0HY_DC_NM_LE1_VOLUME." %\n";
+			$pushtext2.="-ถังสูงขนาด 100 ลบ.ม. สถานีจ่ายน้ำนาหม่อม (Z12) คือ ".number_format($scada_data['Z0HY_DC_NM_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ0HY_DC_NM_LE2_VOLUME." %\n";
+			$pushtext2.="-ถังน้ำใสขนาด 1500 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ14KL_LE2_VOLUME." %\n";
+			$pushtext2.="-ถังสูงขนาด 300 ลบ.ม. สถานีจ่ายน้ำควนลัง คือ ".number_format($scada_data['Z14KL_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ14KL_LE1_VOLUME." %";
+			
+			$content_scada = file_get_contents('http://118.175.86.109/line/wrd.php');
+			$scada_data = json_decode($content_scada, true);
+		    $pushtext3="ข้อมูลสถานีตรวจวัดน้ำดิบ อัพเดทล่าสุด ".$scada_data['tele_lastdatatime']."\n";
+		    $pushtext3.="- pH ".$scada_data['tele_ph']."\n";
+		    $pushtext3.="- DO ".$scada_data['tele_do']." mg/L\n";
+		    $pushtext3.="- Turbidity ".$scada_data['tele_tb']." NTU\n";
+		    $pushtext3.="- การนำไฟฟ้า ".$scada_data['tele_ec']." µS/cm\n";
+		    $pushtext3.="- ความเค็ม ".$scada_data['tele_salinity']." g/L\n";
+		    $pushtext3.="- รีดอกซ์ ".$scada_data['tele_orp']." mV\n";
+		    $pushtext3.="- อุณหภูมิ ".$scada_data['tele_temp']." °C\n";
+		    $pushtext3.="- ระดับน้ำ ".$scada_data['tele_level']." ม.รทก.";
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext2
+				],
+				[
+					'type' => 'text',
+					'text' =>  $pushtext3
+				]];
+
+
+			break;
+		case 'upt10': //flood กลุ่มนวัตกรรม 59
+			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
+			$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT10');
+			$scada_data = json_decode($content_scada, true);
+			$pushtext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+			$pushtext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+			$pushtext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
+			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
+			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+			resize($scada_data['flood_image'],"upt10.jpg",1024);
+			resize("upt10.jpg","thumb_upt10.jpg",240);
+					    
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				],[
+					'type' => 'location',
+					'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
+					'address' =>  $scada_data['flood_address'],
+					'latitude' =>  $scada_data['flood_lat'],
+					'longitude' =>  $scada_data['flood_long']
+				],[
+					'type' => 'image',
+					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/upt10.jpg',
+					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_upt10.jpg'
+				]];
+
+			break;
+		case 'upt20': //flood กลุ่มนวัตกรรม 59
+			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
+			$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT20');
+			$scada_data = json_decode($content_scada, true);
+			$pushtext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+			$pushtext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+			$pushtext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
+			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
+			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+			resize($scada_data['flood_image'],"upt20.jpg",1024);
+			resize("upt20.jpg","thumb_upt20.jpg",240);
+					    
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				],[
+					'type' => 'location',
+					'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
+					'address' =>  $scada_data['flood_address'],
+					'latitude' =>  $scada_data['flood_lat'],
+					'longitude' =>  $scada_data['flood_long']
+				],[
+					'type' => 'image',
+					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/upt20.jpg',
+					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_upt20.jpg'
+				]];
+
+			break;
+		case 'upt30': //flood กลุ่มนวัตกรรม 59
+			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
+			$content_scada = file_get_contents('http://118.175.86.109/line/flood.php?basin=UPT&s=UPT30');
+			$scada_data = json_decode($content_scada, true);
+			$pushtext1="ข้อมูลสถานี".$scada_data['flood_name']."\n";
+			$pushtext1.="เมื่อ ".$scada_data['flood_lastdatatime']."\n";
+			$pushtext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
+			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
+			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
+			resize($scada_data['flood_image'],"upt30.jpg",1024);
+			resize("upt30.jpg","thumb_upt30.jpg",240);
+				    
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				],[
+					'type' => 'location',
+					'title' =>  'ที่ตั้งสถานี'.$scada_data['flood_name'],
+					'address' =>  $scada_data['flood_address'],
+					'latitude' =>  $scada_data['flood_lat'],
+					'longitude' =>  $scada_data['flood_long']
+				],[
+					'type' => 'image',
+					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/upt30.jpg',
+					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_upt30.jpg'
+				]];
+
+			break;
+
+		case 'pumprun_sk': 
+			$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
+			$pushtext1="";
+			if(strlen($_GET["cvm01sk"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm01sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM01SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM01SK ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm02sk"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm02sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM02SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm02sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM02SK ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm03sk"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm03sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM03SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm03sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM03SK ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm04sk"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm04sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM04SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm04sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM04SK ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm05sk"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm05sk"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM05SK ได้เดินเครื่องแล้ว";
+				if($_GET["cvm05sk"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM05SK ได้หยุดเครื่องแล้ว";
+			}
+
+			if(strlen($_GET["cvm01nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm01nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM01NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM01NN ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm02nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm02nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM02NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm02nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM02NN ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm03nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm03nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM03NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm03nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM03NN ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm04nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm04nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM04NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm04nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM04NN ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm05nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm05nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM05NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm05nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM05NN ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm06nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm06nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM06NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm06nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM06NN ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm07nn"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm07nn"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM07NN ได้เดินเครื่องแล้ว";
+				if($_GET["cvm07nn"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM07NN ได้หยุดเครื่องแล้ว";
+			}
+
+			if(strlen($_GET["cvm01th"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm01th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM01TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM01TH ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm02th"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm02th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM02TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm02th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM02TH ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm03th"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm03th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM03TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm01th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM03TH ได้หยุดเครื่องแล้ว";
+			}
+			if(strlen($_GET["cvm04th"])>0)
+			{
+				if(strlen($pushtext1)>0)
+					$pushtext1.="\n";
+				if($_GET["cvm04th"]=="on")
+					$pushtext1.="เครื่องสูบน้ำ CVM04TH ได้เดินเครื่องแล้ว";
+				if($_GET["cvm04th"]=="off")
+					$pushtext1.="เครื่องสูบน้ำ CVM04TH ได้หยุดเครื่องแล้ว";
+			}
+		    
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				]];
+
+			break;
+		
+		default:
+			exit();
+			break;
+	}
+
+	
+
+
+	// Make a POST Request to Messaging API to reply to sender
+	$url = 'https://api.line.me/v2/bot/message/push';
+	$data = [
+		'to' => $to,
+		'messages' => $messages,
+	];
+	$post = json_encode($data);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+	echo $result . "\r\n";
 }
 echo "OK";
 function resize($images,$new_images,$width)
