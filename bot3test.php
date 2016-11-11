@@ -606,7 +606,7 @@ if (!is_null($events['events']))
 							{
   								//$replytext.=$k." *** ".$v."\n";
   								if(strlen($replytext)>0)
-  									$replytext="\n";
+  									$replytext.="\n";
 								$arrDmaCode=explode($wwcode.'-SL-', $k);
 								$replytext.="-".$v." ให้กรอก robot sk dma ".strtolower($arrDmaCode[1]);
 							}
