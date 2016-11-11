@@ -596,13 +596,17 @@ if (!is_null($events['events']))
 									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
 								]];
 							break;
-							case "DMA" :
-							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode=5552011');
+						case "DMA" :
+							$wwcode='5552011';
+							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode='.$wwcode);
 							$dma_data = json_decode($content_dma, true);
 							$replytext="";
+							$arrDmaCode=array();
 							foreach($dma_data as $k => $v) 
 							{
-  								$replytext.=$k." *** ".$v."\n";
+  								//$replytext.=$k." *** ".$v."\n";
+								$arrDmaCode=explode($wwcode.'-SL-', $k);
+								$replytext.=$arrDmaCode[1]." *** ".$v."\n";
 							}
 							$messages = [[
 								'type' => 'text',
