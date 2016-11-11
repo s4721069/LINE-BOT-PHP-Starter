@@ -611,7 +611,14 @@ if (!is_null($events['events']))
 	  								{
 	  									foreach($v as $k1 => $v1) 
 	  									{
-	  										$replytext.=$k1." *** ".$v1."\n";
+	  										if(is_array($v1))
+	  										{
+	  											$replytext.=$k1."\n";
+	  											foreach($v1 as $k2 => $v2) 
+	  											{
+	  												$replytext.=$k2." *** ".$v2."\n";
+	  											}
+	  										}
 	  									}
 	  								}
 	  								
