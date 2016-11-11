@@ -598,17 +598,31 @@ if (!is_null($events['events']))
 							break;
 						case "DMA" :
 							$wwcode='5552011';
-							$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode='.$wwcode);
-							$dma_data = json_decode($content_dma, true);
-							$replytext="";
-							$arrDmaCode=array();
-							foreach($dma_data as $k => $v) 
+							if(strlen($textArr[3])>0)
 							{
-  								//$replytext.=$k." *** ".$v."\n";
-  								if(strlen($replytext)>0)
-  									$replytext.="\n";
-								$arrDmaCode=explode($wwcode.'-SL-', $k);
-								$replytext.="-".$v." ให้กรอก robot sk dma ".strtolower($arrDmaCode[1]);
+								//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
+								$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.strtoupper($textArr[3]));
+								$dma_data = json_decode($content_dma, true);
+								foreach($dma_data as $k => $v) 
+								{
+	  								$replytext.=$k." *** ".$v."\n";
+	  								
+								}
+							}
+							else
+							{
+								$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode='.$wwcode);
+								$dma_data = json_decode($content_dma, true);
+								$replytext="";
+								$arrDmaCode=array();
+								foreach($dma_data as $k => $v) 
+								{
+	  								//$replytext.=$k." *** ".$v."\n";
+	  								if(strlen($replytext)>0)
+	  									$replytext.="\n";
+									$arrDmaCode=explode($wwcode.'-SL-', $k);
+									$replytext.="-".$v." ให้กรอก robot sk dma ".strtolower($arrDmaCode[1]);
+								}
 							}
 							$messages = [[
 								'type' => 'text',
