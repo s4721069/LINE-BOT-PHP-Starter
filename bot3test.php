@@ -606,7 +606,8 @@ if (!is_null($events['events']))
 							{
   								//$replytext.=$k." *** ".$v."\n";
 								$arrDmaCode=explode($wwcode.'-SL-', $k);
-								$replytext.=$arrDmaCode[1]." *** ".$v."\n";
+								//$replytext.=$arrDmaCode[1]." *** ".$v."\n";
+								$replytext.=$k." ให้กรอก robot sk dma ".$arrDmaCode[1]."\n";
 							}
 							$messages = [[
 								'type' => 'text',
