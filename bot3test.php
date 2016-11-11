@@ -605,7 +605,7 @@ if (!is_null($events['events']))
 								$dma_data = json_decode($content_dma, true);
 								foreach($dma_data as $k => $v) 
 								{
-									if(!is_array($k))
+									if(!is_array($v))
 	  									$replytext.=$k." *** ".$v."\n";
 	  								
 								}
