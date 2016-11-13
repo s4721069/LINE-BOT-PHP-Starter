@@ -627,7 +627,7 @@ if (!is_null($events['events']))
 	  												{
 	  													foreach($v2 as $k3 => $v3) 
 	  													{
-	  														if(!is_array($v2))
+	  														if(!is_array($v3))
 			  												{
 			  													$replytext.=$k3." *** ".$v3."\n";
 			  												}
