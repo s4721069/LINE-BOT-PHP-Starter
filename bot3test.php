@@ -708,8 +708,8 @@ if (!is_null($events['events']))
 										'text' =>  $replytext1
 									],[
 										'type' => 'location',
-										'title' =>  'ที่ตั้งสถานี '.$device_name,
-										'address' =>  '123',
+										'title' =>  'ที่ตั้ง '.$device_name,
+										'address' =>  'latitude:'.$Latitude.' longitude:'.$Longitude,
 										'latitude' =>  $Latitude,
 										'longitude' =>  $Longitude
 									]];
