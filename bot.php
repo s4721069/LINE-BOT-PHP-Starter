@@ -417,7 +417,10 @@ if (!is_null($events['events']))
 									'text' =>  $replytext
 									]];
 							}
-							break; 						
+							break; 		
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552012","hd",$dmazone);				
 						default :
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
