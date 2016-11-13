@@ -827,6 +827,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 	$uppershortcode=strtoupper($shortcode);
 	if(strlen($dmazone)>0)
 	{
+		/*
 		$Latitude="";
 		$Longitude="";
 		$device_name="";
@@ -841,7 +842,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
 		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$uppershortcode;
 		$dma_data = json_decode($content_dma, true);
-/*
+
 		if(count($dma_data)>0)
 		{
 			foreach($dma_data as $k => $v) 
