@@ -819,10 +819,11 @@ function resize($images,$new_images,$width)
 	ImageDestroy($images_orig);
 	ImageDestroy($images_fin);
 }
-/*
+
 function f_dma($wwcode,$shortcode,$dmazone)
 {
 	global $messages;
+	$uppershortcode=strtoupper($shortcode);
 	if(strlen($dmazone)>0)
 	{
 		$Latitude="";
@@ -837,7 +838,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		$sensor_Battery_LatestValue="";
 		$sensor_Battery_LastUpdated_date="";
 		//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
-		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.strtoupper($dmazone);
+		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$uppershortcode;
 		$dma_data = json_decode($content_dma, true);
 		if(count($dma_data)>0)
 		{
@@ -968,4 +969,3 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		]];
 	}
 }
-*/
