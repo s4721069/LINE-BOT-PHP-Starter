@@ -1348,7 +1348,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 				$replytext1.="\n\nเลขมาตรขึ้น ".$sensor_Volume_LatestValue." ลบ.ม.\n";
 				$replytext1.="ข้อมูล ณ ".$sensor_Volume_LastUpdated_date;
 			}
-			if(strlen($Latitude)>0)
+			if($Latitude!="")
 			{
 				$messages = [[
 					'type' => 'text',
