@@ -620,7 +620,7 @@ if (!is_null($events['events']))
 									{
 										if(!is_array($v))
 										{
-		  									$replytext.=$k." *** ".$v."\n";
+		  									//$replytext.=$k." *** ".$v."\n";
 		  									if($k=="Latitude")
 		  										$Latitude=$v;
 		  									if($k=="Longitude")
@@ -672,22 +672,12 @@ if (!is_null($events['events']))
 		  															if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LastUpdated") && ($k3=="date"))
 		  																$sensor_Battery_LastUpdated_date=$v3;
 				  												}
-				  												else
-				  												{
-				  													//$replytext.=$k3."\n";
-				  													foreach($v3 as $k4 => $v4) 
-				  													{
-				  														//$replytext.=$k4." *** ".$v4."\n";
-				  													}
-				  												}
-
 		  													}
 		  												}
 		  											}
 		  										}
 		  									}
 		  								}
-		  								
 									}
 									
 
@@ -718,7 +708,7 @@ if (!is_null($events['events']))
 										'text' =>  $replytext1
 									],[
 										'type' => 'location',
-										'title' =>  'ที่ตั้งสถานี'.$device_name,
+										'title' =>  'ที่ตั้งสถานี '.$device_name,
 										'address' =>  '',
 										'latitude' =>  $Latitude,
 										'longitude' =>  $Longitude
@@ -726,7 +716,7 @@ if (!is_null($events['events']))
 								}
 								else
 								{
-									$replytext="ไม่พบข้อมูล DMA ที่กรอก"
+									$replytext="ไม่พบข้อมูล DMA ที่กรอก";
 									$messages = [[
 										'type' => 'text',
 										'text' =>  $replytext
