@@ -824,7 +824,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 {
 	global $messages;
 
-	$upperdamzone=strtoupper($shortcode);
+	$upperdamzone=strtoupper($dmazone);
 	if(strlen($dmazone)>0)
 	{
 		$Latitude="";
