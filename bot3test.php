@@ -823,7 +823,7 @@ function resize($images,$new_images,$width)
 function f_dma($wwcode,$shortcode,$dmazone)
 {
 	global $messages;
-	/*
+
 	$uppershortcode=strtoupper($shortcode);
 	if(strlen($dmazone)>0)
 	{
@@ -841,6 +841,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
 		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$uppershortcode;
 		$dma_data = json_decode($content_dma, true);
+		/*
 		if(count($dma_data)>0)
 		{
 			foreach($dma_data as $k => $v) 
@@ -949,6 +950,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 				'text' =>  $replytext
 			]];
 		}
+		*/
 	}
 	else
 	{
@@ -964,10 +966,12 @@ function f_dma($wwcode,$shortcode,$dmazone)
 			$arrDmaCode=explode($wwcode.'-SL-', $k);
 			$replytext.="-".$v." ให้กรอก robot ".$shortcode." dma ".strtolower($arrDmaCode[1]);
 		}
+		/*
 		$messages = [[
 			'type' => 'text',
 			'text' =>  $replytext
 		]];
+		*/
 	}
-	*/
+
 }
