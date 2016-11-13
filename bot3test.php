@@ -418,7 +418,7 @@ if (!is_null($events['events']))
 							break; 
 						case "DMA" :
 							$dmazone=strtoupper($textArr[3]);
-							//f_dma("5552012","hd",$dmazone);
+							f_dma("5552012","hd",$dmazone);
 							
 							break;
 						
@@ -838,9 +838,9 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		$sensor_Volume_LastUpdated_date="";
 		$sensor_Battery_LatestValue="";
 		$sensor_Battery_LastUpdated_date="";
-/*
+
 		//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
-		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$uppershortcode;
+		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$uppershortcode);
 		$dma_data = json_decode($content_dma, true);
 
 		if(count($dma_data)>0)
@@ -951,9 +951,9 @@ function f_dma($wwcode,$shortcode,$dmazone)
 				'text' =>  $replytext
 			]];
 		}
-*/	
+
 	}
-	/*
+
 	else
 	{
 		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=dmaName&wwcode='.$wwcode);
@@ -975,6 +975,6 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		]];
 
 	}
-	*/
+
 
 }
