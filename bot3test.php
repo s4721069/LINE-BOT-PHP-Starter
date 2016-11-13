@@ -603,7 +603,7 @@ if (!is_null($events['events']))
 								$Latitude="";
 								$Longitude="";
 								$device_name="";
-								$sensor_Flow_LastestValue="";
+								$sensor_Flow_LatestValue="";
 								//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
 								$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.strtoupper($textArr[3]));
 								$dma_data = json_decode($content_dma, true);
@@ -636,8 +636,8 @@ if (!is_null($events['events']))
 	  												if(!is_array($v2))
 	  												{
 	  													$replytext.=$k2." *** ".$v2."\n";
-	  													if(($k=="sensor") && ($k1=="Flow") &&($k2=="LastestValue"))
-	  														$sensor_Flow_LastestValue=$v2;
+	  													if(($k=="sensor") && ($k1=="Flow") && ($k2=="LatestValue"))
+	  														$sensor_Flow_LatestValue=$v2;
 	  												}
 	  												else
 	  												{
@@ -668,7 +668,7 @@ if (!is_null($events['events']))
 								$replytext1="Latitude=".$Latitude."\n";
 								$replytext1.="Longitude=".$Longitude."\n";
 								$replytext1.="device_name=".$device_name."\n";
-								$replytext1.="sensor_Flow_LastestValue=".$sensor_Flow_LastestValue."\n";
+								$replytext1.="sensor_Flow_LatestValue=".$sensor_Flow_LatestValue."\n";
 								$messages = [[
 									'type' => 'text',
 									'text' =>  $replytext
