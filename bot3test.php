@@ -609,7 +609,7 @@ if (!is_null($events['events']))
 	  									$replytext.=$k." *** ".$v."\n";
 	  								else
 	  								{
-	  									$replytext.=$k;
+	  									$replytext.=$k."\n";
 	  									foreach($v as $k1 => $v1) 
 	  									{
 	  										if(!is_array($v1))
@@ -618,7 +618,7 @@ if (!is_null($events['events']))
 	  										}
 	  										else
 	  										{
-	  											$replytext.=$k1;
+	  											$replytext.=$k1."\n";
 	  											foreach($v1 as $k2 => $v2) 
 	  											{
 	  												if(!is_array($v2))
@@ -627,7 +627,7 @@ if (!is_null($events['events']))
 	  												}
 	  												else
 	  												{
-	  													$replytext.=$k2;
+	  													$replytext.=$k2."\n";
 	  													foreach($v2 as $k3 => $v3) 
 	  													{
 	  														if(!is_array($v3))
@@ -636,7 +636,7 @@ if (!is_null($events['events']))
 			  												}
 			  												else
 			  												{
-			  													$replytext.=$k3;
+			  													$replytext.=$k3."\n";
 			  													foreach($v3 as $k4 => $v4) 
 			  													{
 			  														$replytext.=$k4." *** ".$v4."\n";
