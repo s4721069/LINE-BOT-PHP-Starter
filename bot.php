@@ -611,9 +611,9 @@ if (!is_null($events['events']))
 
 							$replytext1.="-ถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. (Z1)  คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ1SK_LE1_VOLUME." %\n";
 							$replytext1.="-ถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. (Z2)  คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ2SK_LE1_VOLUME." %\n";
-							$replytext1.="-ถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3SK_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3SK_LE1_VOLUME." %\n";
-							$replytext1.="-ถังสูงโคกสูงขนาด 250 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3SK_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3SK_LE2_VOLUME." %\n";
-							$replytext1.="-ถังน้ำใสท่านางหอมขนาด 4,000 ลบ.ม. (Z4)  คือ ".number_format($scada_data['Z4TH_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ4TH_LE1_VOLUME." %\n";
+							$replytext1.="-ถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3NN_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3NN_LE1_VOLUME." %\n";
+							$replytext1.="-ถังสูงโคกสูงขนาด 250 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3NN_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3NN_LE2_VOLUME." %\n";
+							$replytext1.="-ถังน้ำใสท่านางหอมขนาด 4,000 ลบ.ม. (Z4)  คือ ".number_format($scada_data['Z4TH_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ4TH_LE1_VOLUME." %";
 
 
 							$messages = [[
