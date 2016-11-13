@@ -627,6 +627,7 @@ if (!is_null($events['events']))
 						case "DMA" :
 							$dmazone=strtoupper($textArr[3]);
 							f_dma("5552011","sk",$dmazone);
+							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
