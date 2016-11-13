@@ -1271,7 +1271,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 							$Latitude=$v;
 						if($k=="Longitude")
 							$Longitude=$v;
-						if($k=="device_name")
+					 	if($k=="device_name")
 							$device_name=$v;
 				}
 				else
