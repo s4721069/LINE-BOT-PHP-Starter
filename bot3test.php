@@ -611,17 +611,34 @@ if (!is_null($events['events']))
 	  								{
 	  									foreach($v as $k1 => $v1) 
 	  									{
-	  										if(is_array($v1))
+	  										if(!is_array($v1))
 	  										{
-	  											$replytext.=$k1."\n";
+	  											$replytext.=$k1." *** ".$v1."\n";
+	  										}
+	  										else
+	  										{
 	  											foreach($v1 as $k2 => $v2) 
 	  											{
-	  												if(is_array($v2))
+	  												if(!is_array($v2))
 	  												{
 	  													$replytext.=$k2." *** ".$v2."\n";
-	  													foreach($v2 as $k3 => $v) 
+	  												}
+	  												else
+	  												{
+	  													foreach($v2 as $k3 => $v3) 
 	  													{
-	  														$replytext.=$k3." *** ".$v3."\n";
+	  														if(!is_array($v2))
+			  												{
+			  													$replytext.=$k2." *** ".$v2."\n";
+			  												}
+			  												else
+			  												{
+			  													foreach($v2 as $k3 => $v3) 
+			  													{
+			  														$replytext.=$k3." *** ".$v3."\n";
+			  													}
+			  												}
+
 	  													}
 	  												}
 	  											}
