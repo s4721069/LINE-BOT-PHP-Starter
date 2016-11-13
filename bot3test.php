@@ -417,7 +417,8 @@ if (!is_null($events['events']))
 							}
 							break; 
 						case "DMA" :
-							f_dma("5552012","hd",strtoupper($textArr[3]));
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552012","hd",$dmazone);
 							
 							break;
 						
