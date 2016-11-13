@@ -824,7 +824,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 {
 	global $messages;
 
-	$uppershortcode=strtoupper($shortcode);
+	$upperdamzone=strtoupper($shortcode);
 	if(strlen($dmazone)>0)
 	{
 		$Latitude="";
@@ -840,7 +840,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 		$sensor_Battery_LastUpdated_date="";
 
 		//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
-		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$uppershortcode);
+		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$upperdamzone);
 		$dma_data = json_decode($content_dma, true);
 
 		if(count($dma_data)>0)
