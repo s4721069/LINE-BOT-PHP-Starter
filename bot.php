@@ -642,6 +642,24 @@ if (!is_null($events['events']))
 								]];
 					}
 				}
+				elseif(strtoupper($textArr[1])=="SD")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552013","sd",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสะเดาได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot sd dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
 				else
 				{
 					$replytext="สวัสดีครับ ผมชื่อ Robot นะครับ\n";
