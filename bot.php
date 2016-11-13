@@ -597,12 +597,37 @@ if (!is_null($events['events']))
 									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
 								]];
 							break;
+						case "VOLUME" : 
+							$content_scada = file_get_contents('http://118.175.86.109/line/volume_sk.php');
+							$scada_data = json_decode($content_scada, true);
+							$percentZ1SK_LE1_VOLUME=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
+							$percentZ2SK_LE1_VOLUME=number_format($scada_data['Z2SK_LE1_VOLUME']/12600*100,2);
+							$percentZ3NN_LE1_VOLUME=number_format($scada_data['Z3NN_LE1_VOLUME']/7000*100,2);
+							$percentZ3NN_LE2_VOLUME=number_format($scada_data['Z3NN_LE2_VOLUME']/250*100,2);
+							$percentZ4TH_LE1_VOLUME=number_format($scada_data['Z4TH_LE1_VOLUME']/4000*100,2);
+
+
+							$replytext1="ปริมาณน้ำ ณ ".$scada_data['DateTime']."\n";
+
+							$replytext1.="-ถังน้ำใสสงขลาขนาด 12,000 ลบ.ม. (Z1)  คือ ".number_format($scada_data['Z1SK_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ1SK_LE1_VOLUME." %\n";
+							$replytext1.="-ถังน้ำใสเขาสำโรงขนาด 12,600 ลบ.ม. (Z2)  คือ ".number_format($scada_data['Z2SK_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ2SK_LE1_VOLUME." %\n";
+							$replytext1.="-ถังน้ำใสโคกสูงขนาด 7,000 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3SK_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3SK_LE1_VOLUME." %\n";
+							$replytext1.="-ถังสูงโคกสูงขนาด 250 ลบ.ม. (Z3)  คือ ".number_format($scada_data['Z3SK_LE2_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ3SK_LE2_VOLUME." %\n";
+							$replytext1.="-ถังน้ำใสท่านางหอมขนาด 4,000 ลบ.ม. (Z4)  คือ ".number_format($scada_data['Z4TH_LE1_VOLUME'],0)." ลบ.ม. คิดเป็น ".$percentZ4TH_LE1_VOLUME." %\n";
+
+
+							$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext1
+								]];
+							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
 							$replytext.="2. ถังน้ำใสเขาสำโรง ให้กรอก robot sk z2\n";
 							$replytext.="3. สถานีเพิ่มแรงดันโคกสูง ให้กรอก robot sk z3\n";
-							$replytext.="4. สถานีเพิ่มแรงดันท่านางหอม ให้กรอก robot sk z4";
+							$replytext.="4. สถานีเพิ่มแรงดันท่านางหอม ให้กรอก robot sk z4\n";
+							$replytext.="5. ปริมาณน้ำ robot sk volume";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
