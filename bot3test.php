@@ -607,6 +607,8 @@ if (!is_null($events['events']))
 								$sensor_Flow_LastUpdated_date="";
 								$sensor_P2_LatestValue="";
 								$sensor_P2_LastUpdated_date="";
+								$sensor_Volume_LatestValue="";
+								$sensor_Volume_LastUpdated_date="";
 								//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
 								$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.strtoupper($textArr[3]));
 								$dma_data = json_decode($content_dma, true);
@@ -643,6 +645,8 @@ if (!is_null($events['events']))
 	  														$sensor_Flow_LatestValue=$v2;
 	  													if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LatestValue"))
 	  														$sensor_P2_LatestValue=$v2;
+	  													if(($k=="sensor") && ($k1=="Volume") && ($k2=="LatestValue"))
+	  														$sensor_Volume_LatestValue=$v2;
 
 	  												}
 	  												else
@@ -657,6 +661,8 @@ if (!is_null($events['events']))
 	  																$sensor_Flow_LastUpdated_date=$v3;
 	  															if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LastUpdated") && ($k3=="date"))
 	  																$sensor_P2_LastUpdated_date=$v3;
+	  															if(($k=="sensor") && ($k1=="Volume") && ($k2=="LastUpdated") && ($k3=="date"))
+	  																$sensor_Volume_LastUpdated_date=$v3;
 			  												}
 			  												else
 			  												{
@@ -682,6 +688,8 @@ if (!is_null($events['events']))
 								$replytext1.="-sensor_Flow_LastUpdated_date=".$sensor_Flow_LastUpdated_date."\n";
 								$replytext1.="-sensor_P2_LatestValue=".$sensor_P2_LatestValue."\n";
 								$replytext1.="-sensor_P2_LastUpdated_date=".$sensor_P2_LastUpdated_date."\n";
+								$replytext1.="-sensor_Volume_LatestValue=".$sensor_Volume_LatestValue."\n";
+								$replytext1.="-sensor_Volume_LastUpdated_date=".$sensor_Volume_LastUpdated_date."\n";
 								
 								$messages = [[
 									'type' => 'text',
