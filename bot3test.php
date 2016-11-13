@@ -709,7 +709,7 @@ if (!is_null($events['events']))
 									],[
 										'type' => 'location',
 										'title' =>  'ที่ตั้งสถานี '.$device_name,
-										'address' =>  '',
+										'address' =>  '123',
 										'latitude' =>  $Latitude,
 										'longitude' =>  $Longitude
 									]];
