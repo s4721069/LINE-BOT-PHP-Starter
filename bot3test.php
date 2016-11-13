@@ -629,13 +629,13 @@ if (!is_null($events['events']))
 	  													{
 	  														if(!is_array($v2))
 			  												{
-			  													$replytext.=$k2." *** ".$v2."\n";
+			  													$replytext.=$k3." *** ".$v3."\n";
 			  												}
 			  												else
 			  												{
-			  													foreach($v2 as $k3 => $v3) 
+			  													foreach($v3 as $k4 => $v4) 
 			  													{
-			  														$replytext.=$k3." *** ".$v3."\n";
+			  														$replytext.=$k4." *** ".$v4."\n";
 			  													}
 			  												}
 
