@@ -614,98 +614,124 @@ if (!is_null($events['events']))
 								//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
 								$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.strtoupper($textArr[3]));
 								$dma_data = json_decode($content_dma, true);
-								foreach($dma_data as $k => $v) 
+								if(count($dma_data)>0)
 								{
-									if(!is_array($v))
+									foreach($dma_data as $k => $v) 
 									{
-	  									$replytext.=$k." *** ".$v."\n";
-	  									if($k=="Latitude")
-	  										$Latitude=$v;
-	  									if($k=="Longitude")
-	  										$Longitude=$v;
-	  									if($k=="device_name")
-	  										$device_name=$v;
+										if(!is_array($v))
+										{
+		  									$replytext.=$k." *** ".$v."\n";
+		  									if($k=="Latitude")
+		  										$Latitude=$v;
+		  									if($k=="Longitude")
+		  										$Longitude=$v;
+		  									if($k=="device_name")
+		  										$device_name=$v;
+										}
+		  								else
+		  								{
+		  									//$replytext.=$k."\n";
+		  									foreach($v as $k1 => $v1) 
+		  									{
+		  										if(!is_array($v1))
+		  										{
+		  											//$replytext.=$k1." *** ".$v1."\n";
+		  										}
+		  										else
+		  										{
+		  											//$replytext.=$k1."\n";
+		  											foreach($v1 as $k2 => $v2) 
+		  											{
+		  												if(!is_array($v2))
+		  												{
+		  													//$replytext.=$k2." *** ".$v2."\n";
+		  													if(($k=="sensor") && ($k1=="Flow") && ($k2=="LatestValue"))
+		  														$sensor_Flow_LatestValue=$v2;
+		  													if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LatestValue"))
+		  														$sensor_P2_LatestValue=$v2;
+		  													if(($k=="sensor") && ($k1=="Volume") && ($k2=="LatestValue"))
+		  														$sensor_Volume_LatestValue=$v2;
+		  													if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LatestValue"))
+		  														$sensor_Battery_LatestValue=$v2;
+
+		  												}
+		  												else
+		  												{
+		  													//$replytext.=$k2."\n";
+		  													foreach($v2 as $k3 => $v3) 
+		  													{
+		  														if(!is_array($v3))
+				  												{
+				  													//$replytext.=$k3." *** ".$v3."\n";
+				  													if(($k=="sensor") && ($k1=="Flow") && ($k2=="LastUpdated") && ($k3=="date"))
+		  																$sensor_Flow_LastUpdated_date=$v3;
+		  															if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LastUpdated") && ($k3=="date"))
+		  																$sensor_P2_LastUpdated_date=$v3;
+		  															if(($k=="sensor") && ($k1=="Volume") && ($k2=="LastUpdated") && ($k3=="date"))
+		  																$sensor_Volume_LastUpdated_date=$v3;
+		  															if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LastUpdated") && ($k3=="date"))
+		  																$sensor_Battery_LastUpdated_date=$v3;
+				  												}
+				  												else
+				  												{
+				  													//$replytext.=$k3."\n";
+				  													foreach($v3 as $k4 => $v4) 
+				  													{
+				  														//$replytext.=$k4." *** ".$v4."\n";
+				  													}
+				  												}
+
+		  													}
+		  												}
+		  											}
+		  										}
+		  									}
+		  								}
+		  								
 									}
-	  								else
-	  								{
-	  									$replytext.=$k."\n";
-	  									foreach($v as $k1 => $v1) 
-	  									{
-	  										if(!is_array($v1))
-	  										{
-	  											$replytext.=$k1." *** ".$v1."\n";
-	  										}
-	  										else
-	  										{
-	  											$replytext.=$k1."\n";
-	  											foreach($v1 as $k2 => $v2) 
-	  											{
-	  												if(!is_array($v2))
-	  												{
-	  													$replytext.=$k2." *** ".$v2."\n";
-	  													if(($k=="sensor") && ($k1=="Flow") && ($k2=="LatestValue"))
-	  														$sensor_Flow_LatestValue=$v2;
-	  													if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LatestValue"))
-	  														$sensor_P2_LatestValue=$v2;
-	  													if(($k=="sensor") && ($k1=="Volume") && ($k2=="LatestValue"))
-	  														$sensor_Volume_LatestValue=$v2;
-	  													if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LatestValue"))
-	  														$sensor_Battery_LatestValue=$v2;
+									
 
-	  												}
-	  												else
-	  												{
-	  													$replytext.=$k2."\n";
-	  													foreach($v2 as $k3 => $v3) 
-	  													{
-	  														if(!is_array($v3))
-			  												{
-			  													$replytext.=$k3." *** ".$v3."\n";
-			  													if(($k=="sensor") && ($k1=="Flow") && ($k2=="LastUpdated") && ($k3=="date"))
-	  																$sensor_Flow_LastUpdated_date=$v3;
-	  															if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LastUpdated") && ($k3=="date"))
-	  																$sensor_P2_LastUpdated_date=$v3;
-	  															if(($k=="sensor") && ($k1=="Volume") && ($k2=="LastUpdated") && ($k3=="date"))
-	  																$sensor_Volume_LastUpdated_date=$v3;
-	  															if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LastUpdated") && ($k3=="date"))
-	  																$sensor_Battery_LastUpdated_date=$v3;
-			  												}
-			  												else
-			  												{
-			  													$replytext.=$k3."\n";
-			  													foreach($v3 as $k4 => $v4) 
-			  													{
-			  														$replytext.=$k4." *** ".$v4."\n";
-			  													}
-			  												}
-
-	  													}
-	  												}
-	  											}
-	  										}
-	  									}
-	  								}
-	  								
+									$replytext1=$device_name."\n";
+									if(strlen($sensor_Battery_LatestValue)>0)
+									{
+										$replytext1.="\nBattery Status ".$sensor_Battery_LatestValue." V.\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_Battery_LastUpdated_date."\n";
+									}
+									if(strlen($sensor_Flow_LatestValue)>0)
+									{
+										$replytext1.="\nอัตราการไหล ".$sensor_Flow_LatestValue." ลบ.ม./ชม.\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_Flow_LastUpdated_date."\n";
+									}
+									if(strlen($sensor_P2_LatestValue)>0)
+									{
+										$replytext1.="\nแรงดัน ".$sensor_P2_LatestValue." บาร์\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_P2_LastUpdated_date."\n";
+									}
+									if(strlen($sensor_Volume_LatestValue)>0)
+									{
+										$replytext1.="\nเลขมาตรขึ้น ".$sensor_Volume_LatestValue." ลบ.ม.\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_Volume_LastUpdated_date."\n";
+									}
+									
+									$messages = [[
+										'type' => 'text',
+										'text' =>  $replytext1
+									],[
+										'type' => 'location',
+										'title' =>  'ที่ตั้งสถานี'.$device_name,
+										'address' =>  '',
+										'latitude' =>  $Latitude,
+										'longitude' =>  $Longitude
+									]];
 								}
-								$replytext1="-Latitude=".$Latitude."\n";
-								$replytext1.="-Longitude=".$Longitude."\n";
-								$replytext1.="-device_name=".$device_name."\n";
-								$replytext1.="-sensor_Flow_LatestValue=".$sensor_Flow_LatestValue."\n";
-								$replytext1.="-sensor_Flow_LastUpdated_date=".$sensor_Flow_LastUpdated_date."\n";
-								$replytext1.="-sensor_P2_LatestValue=".$sensor_P2_LatestValue."\n";
-								$replytext1.="-sensor_P2_LastUpdated_date=".$sensor_P2_LastUpdated_date."\n";
-								$replytext1.="-sensor_Volume_LatestValue=".$sensor_Volume_LatestValue."\n";
-								$replytext1.="-sensor_Volume_LastUpdated_date=".$sensor_Volume_LastUpdated_date."\n";
-								$replytext1.="-sensor_Battery_LatestValue=".$sensor_Battery_LatestValue."\n";
-								$replytext1.="-sensor_Battery_LastUpdated_date=".$sensor_Battery_LastUpdated_date."\n";
-								
-								$messages = [[
-									'type' => 'text',
-									'text' =>  $replytext
-								],[
-									'type' => 'text',
-									'text' =>  $replytext1
-								]];
+								else
+								{
+									$replytext="ไม่พบข้อมูล DMA ที่กรอก"
+									$messages = [[
+										'type' => 'text',
+										'text' =>  $replytext
+									]];
+								}
 							}
 							else
 							{
