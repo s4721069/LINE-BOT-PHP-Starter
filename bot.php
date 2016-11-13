@@ -1348,17 +1348,28 @@ function f_dma($wwcode,$shortcode,$dmazone)
 				$replytext1.="\n\nเลขมาตรขึ้น ".$sensor_Volume_LatestValue." ลบ.ม.\n";
 				$replytext1.="ข้อมูล ณ ".$sensor_Volume_LastUpdated_date;
 			}
-			
-			$messages = [[
+			if(strlen($Latitude)>0)
+			{
+				$messages = [[
+					'type' => 'text',
+					'text' =>  $replytext1
+				],[
+					'type' => 'location',
+					'title' =>  'ที่ตั้ง '.$device_name,
+					'address' =>  'latitude:'.$Latitude.' longitude:'.$Longitude,
+					'latitude' =>  $Latitude,
+					'longitude' =>  $Longitude
+				]];
+			}
+			else
+			{
+				$messages = [[
 				'type' => 'text',
 				'text' =>  $replytext1
-			],[
-				'type' => 'location',
-				'title' =>  'ที่ตั้ง '.$device_name,
-				'address' =>  'latitude:'.$Latitude.' longitude:'.$Longitude,
-				'latitude' =>  $Latitude,
-				'longitude' =>  $Longitude
-			]];
+				]];
+			}
+			
+			
 		}
 		else
 		{
