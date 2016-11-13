@@ -600,13 +600,24 @@ if (!is_null($events['events']))
 							$wwcode='5552011';
 							if(strlen($textArr[3])>0)
 							{
+								$Latitude="";
+								$Longitude="";
+								$device_name="";
 								//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
 								$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.strtoupper($textArr[3]));
 								$dma_data = json_decode($content_dma, true);
 								foreach($dma_data as $k => $v) 
 								{
 									if(!is_array($v))
+									{
 	  									$replytext.=$k." *** ".$v."\n";
+	  									if($k=="Latitude")
+	  										$Latitude=$v;
+	  									if($k=="Longitude")
+	  										$Longitude=$v;
+	  									if($k=="device_name")
+	  										$device_name=$v;
+									}
 	  								else
 	  								{
 	  									$replytext.=$k."\n";
@@ -651,6 +662,17 @@ if (!is_null($events['events']))
 	  								}
 	  								
 								}
+								$replytext1="Latitude=".$Latitude."\n";
+								$replytext1.="Longitude=".$Longitude."\n";
+								$replytext1.="device_name=".$device_name."\n";
+								$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext
+								],[
+									'type' => 'text',
+									'text' =>  $replytext1
+								]];
+
 							}
 							else
 							{
@@ -666,11 +688,12 @@ if (!is_null($events['events']))
 									$arrDmaCode=explode($wwcode.'-SL-', $k);
 									$replytext.="-".$v." ให้กรอก robot sk dma ".strtolower($arrDmaCode[1]);
 								}
-							}
-							$messages = [[
-								'type' => 'text',
-								'text' =>  $replytext
+								$messages = [[
+									'type' => 'text',
+									'text' =>  $replytext
 								]];
+							}
+							
 							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
