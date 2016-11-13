@@ -823,6 +823,7 @@ function resize($images,$new_images,$width)
 function f_dma($wwcode,$shortcode,$dmazone)
 {
 	global $messages;
+	/*
 	$uppershortcode=strtoupper($shortcode);
 	if(strlen($dmazone)>0)
 	{
@@ -854,56 +855,56 @@ function f_dma($wwcode,$shortcode,$dmazone)
 						if($k=="device_name")
 							$device_name=$v;
 				}
-					else
+				else
+				{
+					//$replytext.=$k."\n";
+					foreach($v as $k1 => $v1) 
 					{
-						//$replytext.=$k."\n";
-						foreach($v as $k1 => $v1) 
+						if(!is_array($v1))
 						{
-							if(!is_array($v1))
+							//$replytext.=$k1." *** ".$v1."\n";
+						}
+						else
+						{
+							//$replytext.=$k1."\n";
+							foreach($v1 as $k2 => $v2) 
 							{
-								//$replytext.=$k1." *** ".$v1."\n";
-							}
-							else
-							{
-								//$replytext.=$k1."\n";
-								foreach($v1 as $k2 => $v2) 
+								if(!is_array($v2))
 								{
-									if(!is_array($v2))
-									{
-										//$replytext.=$k2." *** ".$v2."\n";
-										if(($k=="sensor") && ($k1=="Flow") && ($k2=="LatestValue"))
-											$sensor_Flow_LatestValue=$v2;
-										if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LatestValue"))
-											$sensor_P2_LatestValue=$v2;
-										if(($k=="sensor") && ($k1=="Volume") && ($k2=="LatestValue"))
-											$sensor_Volume_LatestValue=$v2;
-										if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LatestValue"))
-											$sensor_Battery_LatestValue=$v2;
+									//$replytext.=$k2." *** ".$v2."\n";
+									if(($k=="sensor") && ($k1=="Flow") && ($k2=="LatestValue"))
+										$sensor_Flow_LatestValue=$v2;
+									if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LatestValue"))
+										$sensor_P2_LatestValue=$v2;
+									if(($k=="sensor") && ($k1=="Volume") && ($k2=="LatestValue"))
+										$sensor_Volume_LatestValue=$v2;
+									if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LatestValue"))
+										$sensor_Battery_LatestValue=$v2;
 
-									}
-									else
+								}
+								else
+								{
+									//$replytext.=$k2."\n";
+									foreach($v2 as $k3 => $v3) 
 									{
-										//$replytext.=$k2."\n";
-										foreach($v2 as $k3 => $v3) 
+										if(!is_array($v3))
 										{
-											if(!is_array($v3))
-											{
-												//$replytext.=$k3." *** ".$v3."\n";
-												if(($k=="sensor") && ($k1=="Flow") && ($k2=="LastUpdated") && ($k3=="date"))
-													$sensor_Flow_LastUpdated_date=$v3;
-												if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LastUpdated") && ($k3=="date"))
-													$sensor_P2_LastUpdated_date=$v3;
-												if(($k=="sensor") && ($k1=="Volume") && ($k2=="LastUpdated") && ($k3=="date"))
-													$sensor_Volume_LastUpdated_date=$v3;
-												if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LastUpdated") && ($k3=="date"))
-													$sensor_Battery_LastUpdated_date=$v3;
-											}
+											//$replytext.=$k3." *** ".$v3."\n";
+											if(($k=="sensor") && ($k1=="Flow") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_Flow_LastUpdated_date=$v3;
+											if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_P2_LastUpdated_date=$v3;
+											if(($k=="sensor") && ($k1=="Volume") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_Volume_LastUpdated_date=$v3;
+											if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_Battery_LastUpdated_date=$v3;
 										}
 									}
 								}
 							}
 						}
 					}
+				}
 			}
 			
 
@@ -968,4 +969,5 @@ function f_dma($wwcode,$shortcode,$dmazone)
 			'text' =>  $replytext
 		]];
 	}
+	*/
 }
