@@ -681,26 +681,26 @@ if (!is_null($events['events']))
 									}
 									
 
-									$replytext1=$device_name."\n";
+									$replytext1=$device_name;
 									if(strlen($sensor_Battery_LatestValue)>0)
 									{
-										$replytext1.="\nBattery Status ".$sensor_Battery_LatestValue." V.\n";
-										$replytext1.="ข้อมูล ณ ".$sensor_Battery_LastUpdated_date."\n";
+										$replytext1.="\n\nBattery Status ".$sensor_Battery_LatestValue." V.\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_Battery_LastUpdated_date;
 									}
 									if(strlen($sensor_Flow_LatestValue)>0)
 									{
-										$replytext1.="\nอัตราการไหล ".$sensor_Flow_LatestValue." ลบ.ม./ชม.\n";
-										$replytext1.="ข้อมูล ณ ".$sensor_Flow_LastUpdated_date."\n";
+										$replytext1.="\n\nอัตราการไหล ".$sensor_Flow_LatestValue." ลบ.ม./ชม.\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_Flow_LastUpdated_date;
 									}
 									if(strlen($sensor_P2_LatestValue)>0)
 									{
-										$replytext1.="\nแรงดัน ".$sensor_P2_LatestValue." บาร์\n";
-										$replytext1.="ข้อมูล ณ ".$sensor_P2_LastUpdated_date."\n";
+										$replytext1.="\n\nแรงดัน ".$sensor_P2_LatestValue." บาร์\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_P2_LastUpdated_date;
 									}
 									if(strlen($sensor_Volume_LatestValue)>0)
 									{
-										$replytext1.="\nเลขมาตรขึ้น ".$sensor_Volume_LatestValue." ลบ.ม.\n";
-										$replytext1.="ข้อมูล ณ ".$sensor_Volume_LastUpdated_date."\n";
+										$replytext1.="\n\nเลขมาตรขึ้น ".$sensor_Volume_LatestValue." ลบ.ม.\n";
+										$replytext1.="ข้อมูล ณ ".$sensor_Volume_LastUpdated_date;
 									}
 									
 									$messages = [[
