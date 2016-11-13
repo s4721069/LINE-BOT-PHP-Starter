@@ -672,7 +672,7 @@ if (!is_null($events['events']))
 								$replytext1.="Longitude=".$Longitude."\n";
 								$replytext1.="device_name=".$device_name."\n";
 								$replytext1.="sensor_Flow_LatestValue=".$sensor_Flow_LatestValue."\n";
-								$replytext1.="$sensor_Flow_LastUpdated_date=".$$sensor_Flow_LastUpdated_date."\n";
+								$replytext1.="sensor_Flow_LastUpdated_date=".$sensor_Flow_LastUpdated_date."\n";
 								
 								$messages = [[
 									'type' => 'text',
