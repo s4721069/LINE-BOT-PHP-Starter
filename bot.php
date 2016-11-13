@@ -46,7 +46,7 @@ if (!is_null($events['events']))
 				curl_close($ch);
 				$sourceInfo = json_decode($result, true);
 				*/
-				if(strtoupper($textArr[1])=="HY")
+				if(strtoupper($textArr[1])=="HD")
 				{
 					switch(strtoupper($textArr[2]))
 					{
@@ -426,20 +426,21 @@ if (!is_null($events['events']))
 					
 							//$replytext="สวัสดีครับ ".$sourceInfo['displayName']." ผมชื่อ Robot นะครับ\n";
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาหาดใหญ่ได้ดังนี้\n";
-							$replytext.="1. โรงกรอง 1500 ลบ.ม./ชม. สถานีฟ้าแสง(z3) ให้กรอก robot hy z3\n";
-							$replytext.="2. โรงกรอง 2000 ลบ.ม./ชม. สถานีฟ้าแสง(z4) ให้กรอก robot hy z4\n";
-							$replytext.="3. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot hy z6\n";
-							$replytext.="4. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot hy z7\n";
-							$replytext.="5. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot hy z8\n";
-							$replytext.="6. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot hy z9\n";
-							$replytext.="7. สถานีจ่ายน้ำบ้านพรุ(z11) ให้กรอก robot hy z11\n";
-							$replytext.="8. สถานีจ่ายน้ำนาหม่อม(z12) ให้กรอก robot hy z12\n";
-							$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot hy z13\n";
-							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hy z14\n";
-							$replytext.="11. คุณภาพน้ำ ให้กรอก robot hy wq\n";
-							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hy volume\n";
-							$replytext.="13. สถานีตรวจวัดน้ำดิบ ให้กรอก robot hy tele\n";
-							$replytext.="14. ระบบประเมินสถานการณ์เพื่อการเตือนภัยน้ำท่วม ให้กรอก robot hy flood";
+							$replytext.="1. โรงกรอง 1500 ลบ.ม./ชม. สถานีฟ้าแสง(z3) ให้กรอก robot hd z3\n";
+							$replytext.="2. โรงกรอง 2000 ลบ.ม./ชม. สถานีฟ้าแสง(z4) ให้กรอก robot hd z4\n";
+							$replytext.="3. แรงสูง 1 สถานีฟ้าแสง(z6) ให้กรอก robot hd z6\n";
+							$replytext.="4. แรงสูง 2 สถานีฟ้าแสง(z7) ให้กรอก robot hd z7\n";
+							$replytext.="5. แรงสูง 3 สถานีฟ้าแสง(z8) ให้กรอก robot hd z8\n";
+							$replytext.="6. แรงสูง 4 สถานีฟ้าแสง(z9) ให้กรอก robot hd z9\n";
+							$replytext.="7. สถานีจ่ายน้ำบ้านพรุ(z11) ให้กรอก robot hd z11\n";
+							$replytext.="8. สถานีจ่ายน้ำนาหม่อม(z12) ให้กรอก robot hd z12\n";
+							$replytext.="9. Booster Pump นาหม่อม(z13) ให้กรอก robot hd z13\n";
+							$replytext.="10. สถานีจ่ายน้ำควนลัง(z14) ให้กรอก robot hd z14\n";
+							$replytext.="11. คุณภาพน้ำ ให้กรอก robot hd wq\n";
+							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hd volume\n";
+							$replytext.="13. สถานีตรวจวัดน้ำดิบ ให้กรอก robot hd tele\n";
+							$replytext.="14. ระบบประเมินสถานการณ์เพื่อการเตือนภัยน้ำท่วม ให้กรอก robot hd flood\n";
+							$replytext.="15. ข้อมูล DMA ให้กรอก robot hd dma";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
@@ -635,7 +636,8 @@ if (!is_null($events['events']))
 							$replytext.="2. ถังน้ำใสเขาสำโรง ให้กรอก robot sk z2\n";
 							$replytext.="3. สถานีเพิ่มแรงดันโคกสูง ให้กรอก robot sk z3\n";
 							$replytext.="4. สถานีเพิ่มแรงดันท่านางหอม ให้กรอก robot sk z4\n";
-							$replytext.="5. ปริมาณน้ำ robot sk volume";
+							$replytext.="5. ปริมาณน้ำ robot sk volume\n";
+							$replytext.="6. ข้อมูล DMA ให้กรอก robot sk dma";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
@@ -660,12 +662,165 @@ if (!is_null($events['events']))
 								]];
 					}
 				}
+				elseif(strtoupper($textArr[1])=="KS")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552017","ks",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาเขาชัยสนได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot ks dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="TR")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552018","tr",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาตรังได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot tr dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="HY")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552019","hy",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาห้วยยอดได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot hy dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="YK")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552020","yk",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาย่านตาขาวได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot yk dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="KT")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552021","kt",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขากันตังได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot kt dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="LA")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552023","la",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาละงูได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot la dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="BT")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552025","bt",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาเบตงได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot bt dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
+				elseif(strtoupper($textArr[1])=="PL")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "DMA" :
+							$dmazone=strtoupper($textArr[3]);
+							f_dma("5552030","pl",$dmazone);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาพังลาได้ดังนี้\n";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot pl dma";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
 				else
 				{
 					$replytext="สวัสดีครับ ผมชื่อ Robot นะครับ\n";
 					$replytext.="ในขณะนี้ผมสามารถให้ข้อมูลได้ดังนี้\n";
-					$replytext.="1. สาขาหาดใหญ่ ให้กรอก robot hy\n";
-					$replytext.="2. สาขาสงขลา ให้กรอก robot sk";
+					$replytext.="1. สาขาหาดใหญ่ ให้กรอก robot hd\n";
+					$replytext.="2. สาขาสงขลา ให้กรอก robot sk\n";
+					$replytext.="3. สาขาสะเดา ให้กรอก robot sd\n";
+					$replytext.="4. สาขาเขาชัยสน ให้กรอก robot ks\n";
+					$replytext.="5. สาขาตรัง ให้กรอก robot tr\n";
+					$replytext.="6. สาขาห้วยยอด ให้กรอก robot hy\n";
+					$replytext.="7. สาขาย่านตาขาว ให้กรอก robot yk\n";
+					$replytext.="8. สาขากันตัง ให้กรอก robot kt\n";
+					$replytext.="9. สาขาละงู ให้กรอก robot la\n";
+					$replytext.="10. สาขาเบตง ให้กรอก robot bt\n";
+					$replytext.="11. สาขาพังลา ให้กรอก robot pl";
 					$messages = [[
 						'type' => 'text',
 						'text' =>  $replytext
