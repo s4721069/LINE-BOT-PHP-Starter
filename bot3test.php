@@ -822,7 +822,7 @@ function resize($images,$new_images,$width)
 
 function f_dma($wwcode,$shortcode,$dmazone)
 {
-	global $messages;
+	//global $messages;
 	if(strlen($dmazone)>0)
 	{
 		$Latitude="";
