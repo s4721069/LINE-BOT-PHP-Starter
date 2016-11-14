@@ -623,8 +623,8 @@ if (!is_null($events['events']))
 					switch(strtoupper($textArr[2]))
 					{
 						case "METER" :
-							$custcode=$textArr[3]);
-							f_meter("5552016","pt",$custcode);
+							$custcode=$textArr[3];
+							f_meter("5552016",$custcode);
 							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาพัทลุงได้ดังนี้\n";
@@ -854,7 +854,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 
 }
 
-function f_meter($wwcode,$shortcode,$custcode)
+function f_meter($wwcode,$custcode)
 {
 	//1132296
 	global $messages;
