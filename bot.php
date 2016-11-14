@@ -421,6 +421,10 @@ if (!is_null($events['events']))
 						case "DMA" :
 							$dmazone=strtoupper($textArr[3]);
 							f_dma("5552012","hd",$dmazone);	
+							break;
+						case "METER" :
+							$custcode=$textArr[3];
+							f_meter("5552012","hd",$custcode);
 							break;			
 						default :
 					
@@ -440,7 +444,8 @@ if (!is_null($events['events']))
 							$replytext.="12. ปริมาณน้ำ ให้กรอก robot hd volume\n";
 							$replytext.="13. สถานีตรวจวัดน้ำดิบ ให้กรอก robot hd tele\n";
 							$replytext.="14. ระบบประเมินสถานการณ์เพื่อการเตือนภัยน้ำท่วม ให้กรอก robot hd flood\n";
-							$replytext.="15. ข้อมูล DMA ให้กรอก robot hd dma";
+							$replytext.="15. ข้อมูล DMA ให้กรอก robot hd dma\n";
+							$replytext.="16. ค้นหามาตรผู้ใช้น้ำ ให้กรอก robot hd meter";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
@@ -630,6 +635,10 @@ if (!is_null($events['events']))
 							$dmazone=strtoupper($textArr[3]);
 							f_dma("5552011","sk",$dmazone);
 							break;
+						case "METER" :
+							$custcode=$textArr[3];
+							f_meter("5552011","sk",$custcode);
+							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาสงขลาได้ดังนี้\n";
 							$replytext.="1. โรงสูบน้ำสำนักงาน ให้กรอก robot sk z1\n";
@@ -637,7 +646,8 @@ if (!is_null($events['events']))
 							$replytext.="3. สถานีเพิ่มแรงดันโคกสูง ให้กรอก robot sk z3\n";
 							$replytext.="4. สถานีเพิ่มแรงดันท่านางหอม ให้กรอก robot sk z4\n";
 							$replytext.="5. ปริมาณน้ำ robot sk volume\n";
-							$replytext.="6. ข้อมูล DMA ให้กรอก robot sk dma";
+							$replytext.="6. ข้อมูล DMA ให้กรอก robot sk dma\n";
+							$replytext.="7. ค้นหามาตรผู้ใช้น้ำ ให้กรอก robot sk meter";
 							$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext
@@ -670,9 +680,14 @@ if (!is_null($events['events']))
 							$dmazone=strtoupper($textArr[3]);
 							f_dma("5552017","ks",$dmazone);
 							break;
+						case "METER" :
+							$custcode=$textArr[3];
+							f_meter("5552017","ks",$custcode);
+							break;
 						default :
 							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาเขาชัยสนได้ดังนี้\n";
-							$replytext.="1. ข้อมูล DMA ให้กรอก robot ks dma";
+							$replytext.="1. ข้อมูล DMA ให้กรอก robot ks dma\n";
+							$replytext.="2. ค้นหามาตรผู้ใช้น้ำ ให้กรอก robot ks meter";
 
 							$messages = [[
 								'type' => 'text',
@@ -831,14 +846,15 @@ if (!is_null($events['events']))
 					$replytext.="1. สาขาหาดใหญ่ ให้กรอก robot hd\n";
 					$replytext.="2. สาขาสงขลา ให้กรอก robot sk\n";
 					$replytext.="3. สาขาสะเดา ให้กรอก robot sd\n";
-					$replytext.="4. สาขาเขาชัยสน ให้กรอก robot ks\n";
-					$replytext.="5. สาขาตรัง ให้กรอก robot tr\n";
-					$replytext.="6. สาขาห้วยยอด ให้กรอก robot hy\n";
-					$replytext.="7. สาขาย่านตาขาว ให้กรอก robot yk\n";
-					$replytext.="8. สาขากันตัง ให้กรอก robot kt\n";
-					$replytext.="9. สาขาละงู ให้กรอก robot la\n";
-					$replytext.="10. สาขาเบตง ให้กรอก robot bt\n";
-					$replytext.="11. สาขาพังลา ให้กรอก robot pl";
+					$replytext.="4. สาขาพัทลุง ให้กรอก robot pt\n";
+					$replytext.="5. สาขาเขาชัยสน ให้กรอก robot ks\n";
+					$replytext.="6. สาขาตรัง ให้กรอก robot tr\n";
+					$replytext.="7. สาขาห้วยยอด ให้กรอก robot hy\n";
+					$replytext.="8. สาขาย่านตาขาว ให้กรอก robot yk\n";
+					$replytext.="9. สาขากันตัง ให้กรอก robot kt\n";
+					$replytext.="10. สาขาละงู ให้กรอก robot la\n";
+					$replytext.="11. สาขาเบตง ให้กรอก robot bt\n";
+					$replytext.="12. สาขาพังลา ให้กรอก robot pl";
 					$messages = [[
 						'type' => 'text',
 						'text' =>  $replytext
