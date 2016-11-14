@@ -618,6 +618,24 @@ if (!is_null($events['events']))
 								]];
 					}
 				}
+				elseif(strtoupper($textArr[1])=="PT")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "METER" :
+							$custcode=$textArr[3]);
+							f_meter("5552016","pt",$custcode);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาพัทลุงได้ดังนี้\n";
+							$replytext.="1. ค้นหามาตรผู้ใช้น้ำ ให้กรอก robot pt meter";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
 				else
 				{
 					$replytext="สวัสดีครับ ผมชื่อ Robot นะครับ\n";
@@ -834,4 +852,29 @@ function f_dma($wwcode,$shortcode,$dmazone)
 	}
 
 
+}
+
+function f_meter($wwcode,$shortcode,$custcode)
+{
+	//1132296
+	global $messages;
+	$obj = file_get_contents('http://scada.pwa.co.th/gpsmeter/apiv2.php?service=getdata&custcode='.$custcode.'&branch='.$wwcode.'&fx=custcode');
+	$arrObj=explode("mycallback(",$obj);
+	$meter_data=json_decode(substr($arrObj[1],0,strlen($arrObj[1])-1), true);
+	if($meter_data['status']=="success")
+	{
+		$replytext="ชื่อผู้ใช้น้ำ :".$meter_data['custname'];
+		$messages = [[
+			'type' => 'text',
+			'text' =>  $replytext
+		]];
+	}
+	else
+	{
+		$replytext="ไม่พบข้อมูลหมายเลขผู้ใช้น้ำ ที่กรอก";
+		$messages = [[
+			'type' => 'text',
+			'text' =>  $replytext
+		]];
+	}
 }
