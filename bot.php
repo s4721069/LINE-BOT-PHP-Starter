@@ -695,6 +695,24 @@ if (!is_null($events['events']))
 								]];
 					}
 				}
+				elseif(strtoupper($textArr[1])=="RN")
+				{
+					switch(strtoupper($textArr[2]))
+					{
+						case "METER" :
+							$custcode=$textArr[3];
+							f_meter("5552015","rn",$custcode);
+							break;
+						default :
+							$replytext="ในขณะนี้ผมสามารถให้ข้อมูลของสาขาระโนด ได้ดังนี้\n";
+							$replytext.="1. ค้นหามาตรผู้ใช้น้ำ ให้กรอก robot rn meter";
+
+							$messages = [[
+								'type' => 'text',
+								'text' =>  $replytext
+								]];
+					}
+				}
 				elseif(strtoupper($textArr[1])=="TR")
 				{
 					switch(strtoupper($textArr[2]))
@@ -846,15 +864,16 @@ if (!is_null($events['events']))
 					$replytext.="1. สาขาหาดใหญ่ ให้กรอก robot hd\n";
 					$replytext.="2. สาขาสงขลา ให้กรอก robot sk\n";
 					$replytext.="3. สาขาสะเดา ให้กรอก robot sd\n";
-					$replytext.="4. สาขาพัทลุง ให้กรอก robot pt\n";
-					$replytext.="5. สาขาเขาชัยสน ให้กรอก robot ks\n";
-					$replytext.="6. สาขาตรัง ให้กรอก robot tr\n";
-					$replytext.="7. สาขาห้วยยอด ให้กรอก robot hy\n";
-					$replytext.="8. สาขาย่านตาขาว ให้กรอก robot yk\n";
-					$replytext.="9. สาขากันตัง ให้กรอก robot kt\n";
-					$replytext.="10. สาขาละงู ให้กรอก robot la\n";
-					$replytext.="11. สาขาเบตง ให้กรอก robot bt\n";
-					$replytext.="12. สาขาพังลา ให้กรอก robot pl";
+					$replytext.="4. สาขาระโนด ให้กรอก robot rn\n";
+					$replytext.="5. สาขาพัทลุง ให้กรอก robot pt\n";
+					$replytext.="6. สาขาเขาชัยสน ให้กรอก robot ks\n";
+					$replytext.="7. สาขาตรัง ให้กรอก robot tr\n";
+					$replytext.="8. สาขาห้วยยอด ให้กรอก robot hy\n";
+					$replytext.="9. สาขาย่านตาขาว ให้กรอก robot yk\n";
+					$replytext.="10. สาขากันตัง ให้กรอก robot kt\n";
+					$replytext.="11. สาขาละงู ให้กรอก robot la\n";
+					$replytext.="12. สาขาเบตง ให้กรอก robot bt\n";
+					$replytext.="13. สาขาพังลา ให้กรอก robot pl";
 					$messages = [[
 						'type' => 'text',
 						'text' =>  $replytext
