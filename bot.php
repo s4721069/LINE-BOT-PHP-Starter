@@ -1436,13 +1436,15 @@ function f_meter($wwcode,$shortcode,$custcode)
 	{
 		if($meter_data['status']=="success")
 		{
-			$replytext="ชื่อผู้ใช้น้ำ :".$meter_data['custname'];
+			$replytext="หมายเลขผู้ใช้น้ำ : ".$custcode."\n";
+			$replytext="ชื่อผู้ใช้น้ำ : ".$meter_data['custname']."\n";
+			$replytext.="หมายเลขมาตร : ".$meter_data['meterno'];
 			$messages = [[
 				'type' => 'text',
 				'text' =>  $replytext
 			],[
 					'type' => 'location',
-					'title' =>  'ที่ตั้ง '.$meter_data['custname'],
+					'title' =>  'ที่อยู่ของ '.$meter_data['custname'],
 					'address' =>  $meter_data['custaddr'],
 					'latitude' =>  $meter_data['custlat'],
 					'longitude' =>  $meter_data['custlng']
