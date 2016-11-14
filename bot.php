@@ -1497,7 +1497,7 @@ function f_meter($wwcode,$shortcode,$custcode)
 	else
 	{
 		$replytext="ค้นหามาตรผู้ใช้น้ำ ให้กรอก robot ".$shortcode." meter หมายเลขผู้ใช้น้ำ\n";
-		$replytext.="เช่น robot ".$shortcode." meter 1234567\n";
+		$replytext.="เช่น robot ".$shortcode." meter 1234567";
 			$messages = [[
 				'type' => 'text',
 				'text' =>  $replytext
