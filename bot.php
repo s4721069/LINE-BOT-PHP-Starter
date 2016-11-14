@@ -1437,7 +1437,16 @@ function f_meter($wwcode,$shortcode,$custcode)
 		if($meter_data['status']=="success")
 		{
 			$replytext="ชื่อผู้ใช้น้ำ :".$meter_data['custname'];
-
+			$messages = [[
+				'type' => 'text',
+				'text' =>  $replytext
+			],[
+					'type' => 'location',
+					'title' =>  'ที่ตั้ง '.$meter_data['custname'],
+					'address' =>  $meter_data['custaddr'],
+					'latitude' =>  $meter_data['custlat'],
+					'longitude' =>  $meter_data['custlng']
+				]];
 		}
 		else
 		{
