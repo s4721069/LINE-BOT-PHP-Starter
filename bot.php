@@ -806,6 +806,7 @@ if (!is_null($events['events']))
 								]];
 					}
 				}
+				/*
 				elseif(strtoupper($textArr[1])=="PT")
 				{
 					switch(strtoupper($textArr[2]))
@@ -824,6 +825,7 @@ if (!is_null($events['events']))
 								]];
 					}
 				}
+				*/
 				else
 				{
 					$replytext="สวัสดีครับ ผมชื่อ Robot นะครับ\n";
@@ -1424,6 +1426,7 @@ function f_dma($wwcode,$shortcode,$dmazone)
 
 
 }
+/*
 function f_meter($wwcode,$shortcode,$custcode)
 {
 	//1132296
@@ -1445,3 +1448,4 @@ function f_meter($wwcode,$shortcode,$custcode)
 		]];
 	}
 }
+*/
