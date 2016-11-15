@@ -46,13 +46,13 @@ if (!is_null($events['events']))
 				curl_close($ch);
 				$sourceInfo = json_decode($result, true);
 
-				
+				$replytext=$sourceInfo["pictureUrl"];
 				
 				// Build message to reply back
 
 				$messages = [
 					'type' => 'text',
-					'text' =>  $sourceInfo["pictureUrl"]
+					'text' =>  $replytext
 				];
 
 				// Make a POST Request to Messaging API to reply to sender
