@@ -78,6 +78,23 @@ if (!is_null($events['events']))
 		}
 	}
 }
+else
+{
+	$userId='Uc5ef5c19165db14d618eec456075f674';
+				$url = 'https://api.line.me/v2/bot/profile/'.$userId;
+				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				$sourceInfo = json_decode($result, true);
+
+				$replytext=$sourceInfo["pictureUrl"];
+}
 echo "OK";
 function resize($images,$new_images,$width)
 {
