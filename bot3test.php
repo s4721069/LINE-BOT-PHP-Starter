@@ -94,8 +94,8 @@ else
 				curl_close($ch);
 				$sourceInfo = json_decode($result, true);
 
-				$replytext=$sourceInfo["displayName"];
-				print "\$replytext=$replytext";
+				//$replytext=$sourceInfo["displayName"];
+				//print "\$replytext=$replytext";
 }
-echo "<br>OK";
+//echo "<br>OK";
 
