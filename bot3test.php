@@ -33,7 +33,7 @@ if (!is_null($events['events']))
 			if(strtoupper($textArr[0])=="ROBOT")
 			{
 				
-				$userId="Uc5ef5c19165db14d618eec456075f674";
+				$userId='Uc5ef5c19165db14d618eec456075f674';
 				$url = 'https://api.line.me/v2/bot/profile/'.$userId;
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
