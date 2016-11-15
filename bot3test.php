@@ -80,8 +80,9 @@ if (!is_null($events['events']))
 }
 else
 {
-	$userId='C82be50ebff24dad7d0684954f264e30b';
-				$url = 'https://api.line.me/v2/bot/profile/'.$userId;
+	$userId='5210463542905';
+				//$url = 'https://api.line.me/v2/bot/profile/'.$userId;
+				$url = 'https://api.line.me/v2/bot/message/'.$userId.'/content';
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
 				$ch = curl_init($url);
