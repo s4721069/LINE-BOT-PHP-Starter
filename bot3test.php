@@ -93,8 +93,8 @@ else
 				curl_close($ch);
 				$sourceInfo = json_decode($result, true);
 
-				$replytext=$sourceInfo["pictureUrl"];
+				$replytext=$sourceInfo["displayName"];
 				print "\$replytext=$replytext";
 }
-echo "OK";
+echo "<br>OK";
 
