@@ -80,7 +80,7 @@ if (!is_null($events['events']))
 }
 else
 {
-	$userId='Uc5ef5c19165db14d618eec456075f674';
+	$userId='C82be50ebff24dad7d0684954f264e30b';
 				$url = 'https://api.line.me/v2/bot/profile/'.$userId;
 				$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
