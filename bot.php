@@ -1090,7 +1090,8 @@ else
 			break;
 
 		case 'pumprun_sk': 
-			$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
+			//$to='C6868f540d449376a8334981297ec9c01'; // การจ่ายน้ำสงขลา
+			$to='C2cfe9bdd6ccdc48c6eb02a919156d874'; // การเดินเครื่องสงขลา
 			$pushtext1="";
 			if(strlen($_GET["cvm01sk"])>0)
 			{
