@@ -4,7 +4,7 @@ $access_token = '6AHZeq++0ib7lwzyTgJJdOJON151Ugy/L3EXVepD5tBAj/MhR5iwoQxufCbcEyG
 // Get POST body content..
 $content = file_get_contents('php://input');
 
-$myfile = fopen("testfile.txt", "w");
+$myfile = fopen("testfile.txt", "a");
 fwrite($myfile, $content);
 fclose($myfile);
 
