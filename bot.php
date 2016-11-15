@@ -4,9 +4,9 @@ $access_token = '6AHZeq++0ib7lwzyTgJJdOJON151Ugy/L3EXVepD5tBAj/MhR5iwoQxufCbcEyG
 // Get POST body content
 $content = file_get_contents('php://input');
 
-//$myfile = fopen("testfile.txt", "w");
-//fwrite($myfile, $content);
-//fclose($myfile);
+$myfile = fopen("testfile.txt", "w");
+fwrite($myfile, $content);
+fclose($myfile);
 
 // Parse JSON
 $events = json_decode($content, true);
