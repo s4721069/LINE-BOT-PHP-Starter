@@ -1,7 +1,7 @@
 <?php
 $access_token = '6AHZeq++0ib7lwzyTgJJdOJON151Ugy/L3EXVepD5tBAj/MhR5iwoQxufCbcEyGXjVP7YP7xLAOeNDCKeoLmtpaIt1dxiuz+Hs5oYxOMTPQ4I61ttgUzX10Dc3ofzQ8BEYxql2nC1c23Wy9TRpIL+QdB04t89/1O/w1cDnyilFU=';
 
-// Get POST body content..
+// Get POST body content
 $content = file_get_contents('php://input');
 
 $myfile = fopen("testfile.txt", "a");
@@ -320,8 +320,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-							    resize($scada_data['flood_image'],"utp10.jpg",1024);
-							    resize("utp10.jpg","thumb_utp10.jpg",240);
+							    resize($scada_data['flood_image'],"pictures/utp10.jpg",1024);
+							    resize("pictures/utp10.jpg","pictures/thumb_utp10.jpg",240);
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT10";
 							    
 							    $messages = [[
@@ -335,8 +335,8 @@ if (!is_null($events['events']))
 										'longitude' =>  $scada_data['flood_long']
 									],[
 										'type' => 'image',
-										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp10.jpg',
-										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp10.jpg'
+										'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/utp10.jpg',
+										'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_utp10.jpg'
 									],[
 										'type' => 'text',
 										'text' =>  $replytext2
@@ -351,8 +351,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-							    resize($scada_data['flood_image'],"utp20.jpg",1024);
-							    resize("utp20.jpg","thumb_utp20.jpg",240);
+							    resize($scada_data['flood_image'],"pictures/utp20.jpg",1024);
+							    resize("pictures/utp20.jpg","pictures/thumb_utp20.jpg",240);
 							    
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT20";
 							    
@@ -367,8 +367,8 @@ if (!is_null($events['events']))
 										'longitude' =>  $scada_data['flood_long']
 									],[
 										'type' => 'image',
-										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp20.jpg',
-										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp20.jpg'
+										'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/utp20.jpg',
+										'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_utp20.jpg'
 									],[
 										'type' => 'text',
 										'text' =>  $replytext2
@@ -383,8 +383,8 @@ if (!is_null($events['events']))
 							    $replytext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 							    $replytext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-							    resize($scada_data['flood_image'],"utp30.jpg",1024);
-							    resize("utp30.jpg","thumb_utp30.jpg",240);
+							    resize($scada_data['flood_image'],"pictures/utp30.jpg",1024);
+							    resize("pictures/utp30.jpg","pictures/thumb_utp30.jpg",240);
 							    
 							    $replytext2="ที่มา : http://www.southwarning.com/flood/monitor/main?basin=UPT&s=UPT30";
 							    
@@ -399,8 +399,8 @@ if (!is_null($events['events']))
 										'longitude' =>  $scada_data['flood_long']
 									],[
 										'type' => 'image',
-										'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/utp30.jpg',
-										'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_utp30.jpg'
+										'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/utp30.jpg',
+										'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_utp30.jpg'
 									],[
 										'type' => 'text',
 										'text' =>  $replytext2
@@ -474,8 +474,8 @@ if (!is_null($events['events']))
 						case "Z1" : $content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z1');
 
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z1sk');
-							file_put_contents("z1sk.jpg", fopen("http://118.175.86.109/line/z1sk.jpg", 'r'));
-							resize("z1sk.jpg","thumb_z1sk.jpg",240);
+							file_put_contents("pictures/z1sk.jpg", fopen("http://118.175.86.109/line/z1sk.jpg", 'r'));
+							resize("pictures/z1sk.jpg","pictures/thumb_z1sk.jpg",240);
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z1SK_LE1_VOLUME']/12000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
@@ -507,8 +507,8 @@ if (!is_null($events['events']))
 								],
 								[
 									'type' => 'image',
-									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z1sk.jpg',
-									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z1sk.jpg'
+									'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/z1sk.jpg',
+									'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_z1sk.jpg'
 								]];
 							break;
 						case "Z2" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z2');
@@ -529,8 +529,8 @@ if (!is_null($events['events']))
 							break;
 						case "Z3" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z3');
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z3nn');
-							file_put_contents("z3nn.jpg", fopen("http://118.175.86.109/line/z3nn.jpg", 'r'));
-							resize("z3nn.jpg","thumb_z3nn.jpg",240);
+							file_put_contents("pictures/z3nn.jpg", fopen("http://118.175.86.109/line/z3nn.jpg", 'r'));
+							resize("pictures/z3nn.jpg","pictures/thumb_z3nn.jpg",240);
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z3NN_LE1_VOLUME']/7000*100,2);
 							$percentLe2=number_format($scada_data['Z3NN_LE2_VOLUME']/250*100,2);
@@ -565,14 +565,14 @@ if (!is_null($events['events']))
 								],
 								[
 									'type' => 'image',
-									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z3nn.jpg',
-									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z3nn.jpg'
+									'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/z3nn.jpg',
+									'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_z3nn.jpg'
 								]];
 							break;
 						case "Z4" :$content_scada = file_get_contents('http://118.175.86.109/line/q_sk.php?z=z4');
 							$tmp=file_get_contents('http://118.175.86.109/line/pumprun.php?z=z4th');
-							file_put_contents("z4th.jpg", fopen("http://118.175.86.109/line/z4th.jpg", 'r'));
-							resize("z4th.jpg","thumb_z4th.jpg",240);
+							file_put_contents("pictures/z4th.jpg", fopen("http://118.175.86.109/line/z4th.jpg", 'r'));
+							resize("pictures/z4th.jpg","pictures/thumb_z4th.jpg",240);
 							$scada_data = json_decode($content_scada, true);
 							$percentLe1=number_format($scada_data['Z4TH_LE1_VOLUME']/4000*100,2);
 							//$replytext="ตอบคุณ ".$sourceInfo['displayName']."\n";
@@ -603,8 +603,8 @@ if (!is_null($events['events']))
 								],
 								[
 									'type' => 'image',
-									'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/z4th.jpg',
-									'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_z4th.jpg'
+									'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/z4th.jpg',
+									'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_z4th.jpg'
 								]];
 							break;
 						case "VOLUME" : 
@@ -1013,8 +1013,8 @@ else
 			$pushtext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-			resize($scada_data['flood_image'],"upt10.jpg",1024);
-			resize("upt10.jpg","thumb_upt10.jpg",240);
+			resize($scada_data['flood_image'],"pictures/upt10.jpg",1024);
+			resize("pictures/upt10.jpg","pictures/thumb_upt10.jpg",240);
 					    
 			$messages = [[
 					'type' => 'text',
@@ -1027,8 +1027,8 @@ else
 					'longitude' =>  $scada_data['flood_long']
 				],[
 					'type' => 'image',
-					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/upt10.jpg',
-					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_upt10.jpg'
+					'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/upt10.jpg',
+					'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_upt10.jpg'
 				]];
 
 			break;
@@ -1041,8 +1041,8 @@ else
 			$pushtext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-			resize($scada_data['flood_image'],"upt20.jpg",1024);
-			resize("upt20.jpg","thumb_upt20.jpg",240);
+			resize($scada_data['flood_image'],"pictures/upt20.jpg",1024);
+			resize("pictures/upt20.jpg","pictures/thumb_upt20.jpg",240);
 					    
 			$messages = [[
 					'type' => 'text',
@@ -1055,8 +1055,8 @@ else
 					'longitude' =>  $scada_data['flood_long']
 				],[
 					'type' => 'image',
-					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/upt20.jpg',
-					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_upt20.jpg'
+					'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/upt20.jpg',
+					'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_upt20.jpg'
 				]];
 
 			break;
@@ -1069,8 +1069,8 @@ else
 			$pushtext1.="-ระดับน้ำ ".$scada_data['flood_level']." ม.รทก. (".$scada_data['flood_status'].")\n";
 			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งซ้าย ".$scada_data['flood_left']." ม.\n";
 			$pushtext1.="-ระดับน้ำต่ำกว่าตลิ่งขวา ".$scada_data['flood_right']." ม.";
-			resize($scada_data['flood_image'],"upt30.jpg",1024);
-			resize("upt30.jpg","thumb_upt30.jpg",240);
+			resize($scada_data['flood_image'],"pictures/upt30.jpg",1024);
+			resize("pictures/upt30.jpg","pictures/thumb_upt30.jpg",240);
 				    
 			$messages = [[
 					'type' => 'text',
@@ -1083,8 +1083,8 @@ else
 					'longitude' =>  $scada_data['flood_long']
 				],[
 					'type' => 'image',
-					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/upt30.jpg',
-					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/thumb_upt30.jpg'
+					'originalContentUrl' =>  'https://scada.pwa.co.th/LINE/pictures/upt30.jpg',
+					'previewImageUrl' =>  'https://scada.pwa.co.th/LINE/pictures/thumb_upt30.jpg'
 				]];
 
 			break;
@@ -1247,6 +1247,40 @@ else
 
 			break;
 		
+		case 'rostip' : 
+			//$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
+			//$to='C348cc0d50104291f777b2564e691021b'; // _เพื่อนรัก
+			$to='Uc5ef5c19165db14d618eec456075f674'; // Rostip
+			$pushtext1=f_dma_rostip("5552020","MM-01");
+			$pushtext1.=f_dma_rostip("5552020","MM-02");
+			$pushtext1.=f_dma_rostip("5552020","MM-03");
+			$pushtext1.=f_dma_rostip("5552020","MM-04");
+			$pushtext1.=f_dma_rostip("5552020","MM-05");
+			$pushtext1.=f_dma_rostip("5552020","MM-06");
+			$pushtext2=f_dma_rostip("5552020","DMA-01");
+			$pushtext2.=f_dma_rostip("5552020","DMA-02");
+			$pushtext2.=f_dma_rostip("5552020","DMA-03");
+			$pushtext2.=f_dma_rostip("5552020","DMA-04");
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				],[
+					'type' => 'text',
+					'text' =>  $pushtext2
+				]];
+
+			break;
+		case 'job03' : //U13fcec855c7157a2b7c9c0c1d8c0d19b
+			//$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
+			$to='C901af91ed9d961d5eedc5ac872fc7f50'; // นวัตกรรม 59
+			$pushtext1=f_dma_rostip("5552012","DMA-03-11");
+			$pushtext1.=f_dma_rostip("5552012","DMA-04-06");
+			$messages = [[
+					'type' => 'text',
+					'text' =>  $pushtext1
+				]];
+
+			break;
 		default:
 			exit();
 			break;
@@ -1460,7 +1494,6 @@ function f_dma($wwcode,$shortcode,$dmazone)
 
 
 }
-
 function f_meter($wwcode,$shortcode,$custcode)
 {
 	//1132296
@@ -1506,3 +1539,109 @@ function f_meter($wwcode,$shortcode,$custcode)
 	}
 }
 
+function f_dma_rostip($wwcode,$dmazone)
+{
+	$upperdamzone=strtoupper($dmazone);
+	if(strlen($dmazone)>0)
+	{
+		$device_name="";
+		$sensor_Flow_LatestValue="";
+		$sensor_Flow_LastUpdated_date="";
+		$sensor_P2_LatestValue="";
+		$sensor_P2_LastUpdated_date="";
+		$sensor_Volume_LatestValue="";
+		$sensor_Volume_LastUpdated_date="";
+		$sensor_Battery_LatestValue="";
+		$sensor_Battery_LastUpdated_date="";
+
+		//http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id=5542023-SL-MM-01
+		$content_dma = file_get_contents('http://dmamonitor.pwa.co.th/dashboard/services.php?method=device_detail&device_id='.$wwcode.'-SL-'.$upperdamzone);
+		$dma_data = json_decode($content_dma, true);
+
+		if(count($dma_data)>0)
+		{
+			foreach($dma_data as $k => $v) 
+			{
+				if(!is_array($v))
+				{
+						//$replytext.=$k." *** ".$v."\n";
+					 	if($k=="device_name")
+							$device_name=$v;
+				}
+				else
+				{
+					//$replytext.=$k."\n";
+					foreach($v as $k1 => $v1) 
+					{
+						if(!is_array($v1))
+						{
+							//$replytext.=$k1." *** ".$v1."\n";
+						}
+						else
+						{
+							//$replytext.=$k1."\n";
+							foreach($v1 as $k2 => $v2) 
+							{
+								if(!is_array($v2))
+								{
+									//$replytext.=$k2." *** ".$v2."\n";
+									if(($k=="sensor") && ($k1=="Flow") && ($k2=="LatestValue"))
+										$sensor_Flow_LatestValue=$v2;
+									if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LatestValue"))
+										$sensor_P2_LatestValue=$v2;
+									if(($k=="sensor") && ($k1=="Volume") && ($k2=="LatestValue"))
+										$sensor_Volume_LatestValue=$v2;
+									if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LatestValue"))
+										$sensor_Battery_LatestValue=$v2;
+
+								}
+								else
+								{
+									//$replytext.=$k2."\n";
+									foreach($v2 as $k3 => $v3) 
+									{
+										if(!is_array($v3))
+										{
+											//$replytext.=$k3." *** ".$v3."\n";
+											if(($k=="sensor") && ($k1=="Flow") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_Flow_LastUpdated_date=$v3;
+											if(($k=="sensor") && ($k1=="P 2 (Out)") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_P2_LastUpdated_date=$v3;
+											if(($k=="sensor") && ($k1=="Volume") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_Volume_LastUpdated_date=$v3;
+											if(($k=="sensor") && ($k1=="Battery Status") && ($k2=="LastUpdated") && ($k3=="date"))
+												$sensor_Battery_LastUpdated_date=$v3;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+
+			$replytext1=$device_name;
+			$replytext1.="\nข้อมูล ณ ".$sensor_Battery_LastUpdated_date;
+			if(strlen($sensor_Battery_LatestValue)>0)
+			{
+				$replytext1.="\nBattery Status ".$sensor_Battery_LatestValue." V.";
+			}
+			if(strlen($sensor_Flow_LatestValue)>0)
+			{
+				$replytext1.="\nอัตราการไหล ".$sensor_Flow_LatestValue." ลบ.ม./ชม.";
+			}
+			if(strlen($sensor_P2_LatestValue)>0)
+			{
+				$replytext1.="\nแรงดัน ".$sensor_P2_LatestValue." บาร์";
+			}
+			if(strlen($sensor_Volume_LatestValue)>0)
+			{
+				$replytext1.="\nเลขมาตรขึ้น ".$sensor_Volume_LatestValue." ลบ.ม.";
+			}
+		
+		}
+	}
+	$replytext1.="\n______________\n";
+	return $replytext1;
+}
