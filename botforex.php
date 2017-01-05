@@ -33,7 +33,14 @@ else
 			break;
 		
 		default:
-			exit();
+			//exit();
+			$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
+			
+			$messages = [[
+					'type' => 'text',
+					'text' =>  'nooooo'
+				]];
+
 			break;
 	}
 
