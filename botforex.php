@@ -18,7 +18,7 @@ if (!is_null($events['events']))
 else
 {
 	$job=$_GET["job"];
-	$pushtext1=$_GET["pushtext"];
+	$pushtext=$_GET["pushtext"];
 	switch ($job) 
 	{
 		
