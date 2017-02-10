@@ -25,11 +25,10 @@ if (!is_null($events['events']))
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
 			$textArr=explode(" ",$text);
 			if(strtoupper($textArr[0])=="ROBOT")
 			{
-				$replytext="สวัสดีครับ";
+				$replytext=$event['source']['userId'];
 				$messages = [[
 					'type' => 'text',
 					'text' =>  $replytext
