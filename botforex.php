@@ -58,7 +58,6 @@ if (!is_null($events['events']))
 }
 else
 {
-	$job=$_GET["job"];
 	$pushtext=$_GET["text"];
 	$to=$_GET["to"];
 	//$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
