@@ -28,7 +28,7 @@ if (!is_null($events['events']))
 			$textArr=explode(" ",$text);
 			if(strtoupper($textArr[0])=="ROBOT")
 			{
-				$replytext=$event['source']['userId'];
+				$replytext="Your id is " .$event['source']['userId'];
 				$messages = [[
 					'type' => 'text',
 					'text' =>  $replytext
@@ -59,31 +59,15 @@ if (!is_null($events['events']))
 else
 {
 	$job=$_GET["job"];
-	$pushtext=$_GET["pushtext"];
-	switch ($job) 
-	{
-		
-		case 'job01' : 
-			$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
-			
-			$messages = [[
-					'type' => 'text',
-					'text' =>  $pushtext
-				]];
+	$pushtext=$_GET["text"];
+	$to=$_GET["to"];
+	//$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
+	$messages = [[
+			'type' => 'text',
+			'text' =>  $pushtext
+		]];
 
-			break;
-		
-		default:
-			//exit();
-			$to='U13fcec855c7157a2b7c9c0c1d8c0d19b'; // Somchai
-			
-			$messages = [[
-					'type' => 'text',
-					'text' =>  'nooooo'
-				]];
 
-			break;
-	}
 
 	
 
