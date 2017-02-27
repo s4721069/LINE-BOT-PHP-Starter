@@ -416,8 +416,8 @@ function showgraph($deviceid)
 	resize("images/chart".$deviceid.".jpg","images/thumb_chart".$deviceid.".jpg",240);
 	$messages = [[
 					'type' => 'image',
-					'originalContentUrl' =>  'http://immense-lake-22116.herokuapp.com/golf/images/chart'.$deviceid.'.jpg',
-					'previewImageUrl' =>  'http://immense-lake-22116.herokuapp.com/golf/images/thumb_chart'.$deviceid.'.jpg'
+					'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/golf/images/chart'.$deviceid.'.jpg',
+					'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/golf/images/thumb_chart'.$deviceid.'.jpg'
 				]];
 
 }
