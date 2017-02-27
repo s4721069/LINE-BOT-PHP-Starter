@@ -1,0 +1,1 @@
+aaa{"events":[{"type":"message","replyToken":"dd7b4f6aac944357bada1061f18a1347","source":{"groupId":"Cf844cf066da73bb9a8dc306d3af3eabf","type":"group"},"timestamp":1480302902299,"message":{"type":"text","id":"5269409490048","text":"help"}}]}
