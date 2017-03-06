@@ -1314,6 +1314,5 @@ function showgraph_sp()
 	
 
 }
-showgraph_sp();
 echo "OK";
 
