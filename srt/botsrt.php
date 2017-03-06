@@ -266,10 +266,18 @@ if (!is_null($events['events']))
 					$replytext1.="-ถังน้ำใส คือ ".number_format($arrSCADA["SUISP_LE1_AINPUT_PV"],2)." เมตร หรือ ".number_format($LE1_volume,0)." ลบ.ม.\n";
 					$replytext1.="-อัตราการไหลมาตรรับน้ำจากท่ากูบ คือ ".number_format($arrSCADA["SUISP_FT4_AINPUT_PV"],0)." ลบ.ม./ชม.\n";
 					$replytext1.="-เลขมาตรรวมมาตรรับน้ำจากท่ากูบ คือ ".number_format($arrSCADA["SUISP_FT4_TOT"],0)." ลบ.ม.";
-					//showgraph_sp();
+					showgraph_sp();
 					$messages = [[
 								'type' => 'text',
 								'text' =>  $replytext1
+								],[
+								'type' => 'image',
+								'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/srt/images/chart_sp_ft.jpg',
+								'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/srt/images/thumb_chart_sp_ft.jpg'
+								],[
+								'type' => 'image',
+								'originalContentUrl' =>  'https://immense-lake-22116.herokuapp.com/srt/images/chart_sp_le.jpg',
+								'previewImageUrl' =>  'https://immense-lake-22116.herokuapp.com/srt/images/thumb_chart_sp_le.jpg'
 								]];
 	
 				}
