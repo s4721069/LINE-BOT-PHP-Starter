@@ -31,7 +31,7 @@ if (!is_null($events['events']))
 				{
 					if(strlen($textArr[2])>0)
 					{
-						$content_alarm = file_get_contents('http://110.77.148.66/golf/setalarm.php?setalarm=status&apikey='.$textArr[2]);
+						$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/setalarm.php?setalarm=status&apikey='.$textArr[2]);
 						$arrAlarm = json_decode($content_alarm, true);
 						$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
 						if($arrAlarm["setalarm"]=="0")
@@ -51,7 +51,7 @@ if (!is_null($events['events']))
 				{
 					if(strlen($textArr[2])>0)
 					{
-						$content_alarm = file_get_contents('http://110.77.148.66/golf/setalarm.php?setalarm=1&apikey='.$textArr[2]);
+						$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/setalarm.php?setalarm=1&apikey='.$textArr[2]);
 						$arrAlarm = json_decode($content_alarm, true);
 						$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
 						if($arrAlarm["status"]=="0")
@@ -69,7 +69,7 @@ if (!is_null($events['events']))
 				{
 					if(strlen($textArr[2])>0)
 					{
-						$content_alarm = file_get_contents('http://110.77.148.66/golf/setalarm.php?setalarm=0&apikey='.$textArr[2]);
+						$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/setalarm.php?setalarm=0&apikey='.$textArr[2]);
 						$arrAlarm = json_decode($content_alarm, true);
 						$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
 						if($arrAlarm["status"]=="0")
@@ -106,7 +106,7 @@ if (!is_null($events['events']))
 				{
 					if(strlen($textArr[3])>0)
 					{
-						$content_alarm = file_get_contents('http://110.77.148.66/golf/settemp.php?settemp='.$textArr[2].'&apikey='.$textArr[3]);
+						$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/settemp.php?settemp='.$textArr[2].'&apikey='.$textArr[3]);
 						$arrAlarm = json_decode($content_alarm, true);
 						$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
 						$replytext.="Temp set point is ".$arrAlarm["maxtemp"]." C";
@@ -120,7 +120,7 @@ if (!is_null($events['events']))
 				{
 					if(strlen($textArr[3])>0)
 					{
-						$content_alarm = file_get_contents('http://110.77.148.66/golf/sethumi.php?sethumi='.$textArr[2].'&apikey='.$textArr[3]);
+						$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/sethumi.php?sethumi='.$textArr[2].'&apikey='.$textArr[3]);
 						$arrAlarm = json_decode($content_alarm, true);
 						$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
 						$replytext.="Humi set point is ".$arrAlarm["maxhumi"]." %";
@@ -150,7 +150,7 @@ if (!is_null($events['events']))
 				{
 					if(strlen($textArr[2])>0)
 					{
-						$content_alarm = file_get_contents('http://110.77.148.66/golf/shownow.php?apikey='.$textArr[2]);
+						$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/shownow.php?apikey='.$textArr[2]);
 						$arrAlarm = json_decode($content_alarm, true);
 						$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
 						$replytext.="Now ".$arrAlarm["dt"]."\n";
@@ -250,7 +250,7 @@ if (!is_null($events['events']))
 }
 else
 {
-	$content_alarm = file_get_contents('http://110.77.148.66/golf/shownow.php?apikey=a');
+	$content_alarm = file_get_contents('http://pwa5.dyndns.org/golf/shownow.php?apikey=a');
 	print "\$content_alarm=$content_alarm";
 	//$arrAlarm = json_decode($content_alarm, true);
 						//$replytext="Device ID: ".strtoupper($arrAlarm["apikey"])."\n";
@@ -332,7 +332,7 @@ function showgraph($deviceid)
 {
 
 	global $messages;
-	$content = file_get_contents('http://110.77.148.66/golf/g1.php?deviceid='.$deviceid);
+	$content = file_get_contents('http://pwa5.dyndns.org/golf/g1.php?deviceid='.$deviceid);
 	$data = json_decode($content, true);
 	$currentDT=thaitime($data["CurrentTime"]);
 
